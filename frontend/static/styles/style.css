@@ -89,6 +89,12 @@ header > #primary-navigation > ul > li:first-child{
     padding-left: 1rem;
 }
 
+header > #primary-navigation > ul > li > a:active{
+
+    color: black;
+    font-weight: bolder;
+}
+
 header > .gallery {
     display: grid;
     gap: 1rem;
