@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/styles/style.css">
     <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
+    <script src="./helpers/validateFormFields.js"></script>
     <title>Catálogo Web</title>
 </head>
 <body>
@@ -208,7 +209,23 @@
                 </a>
             </div>
         </section>
+        <section>
+            <form style="display: flex; flex-flow: column; gap: 10px; justify-content: baseline; align-items: flex-start;" action="" method="post">
+                <label for="">Nombre:<input id="name" type="text" oninput="validateField(event)"></label>
+                <label style="display: none;" for="name">Solamente letras</label>
+                <label for="">Apellido:<input id="surname"  type="text" oninput="validateField(event)"></label>
+                <label style="display: none;" for="surname">Solamente letras</label>
+                <label for="">Telefono:<input id="telephone"  type="text" oninput="validateField(event)"></label>
+                <label style="display: none;" for="telephone">Solamente letras</label>
+                <label for="">Email:<input id="email"  type="text" oninput="validateField(event)"></label>
+                <label style="display: none;" for="email">Solamente letras</label>
+                <label for="">Consulta:<Textarea id="consulta" rows="4" cols="50" oninput="validateField(event)"></Textarea></label>
+                <label style="display: none;" for="consulta">Solamente letras</label>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
     </main>
+
 </body>
 </html>
 
