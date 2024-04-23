@@ -4,9 +4,14 @@
     box-sizing: border-box;
 }
 
-html {
-    font-size: 16px;
+html{
     font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    max-width: 90%;
+    margin: 0 auto;
+    background-color: #101010;
 }
 
 a {
@@ -17,215 +22,220 @@ ul, li {
     list-style: none;
 }
 
-body {
-    width: 80%;
-    margin: 0 auto;
-    background-color: #eeeeee;
-}
-
-.caption {
-    color: #BDBDBD;
-    font-size: 0.6rem;
-    font-weight: 300;
-}
-
-.description {
-    color: #9E9E9E;
-    font-size: 0.8rem;
-    font-weight: 500;
+section {
+    padding: 1rem 1rem 0 1rem;
 }
 
 .link {
-    color: #9E9E9E;
+    color: #bbb;
     font-size: 1rem;
     font-weight: 500;
     transition: all ease 300ms;
 }
 
 .link:hover {
-    color: #757575;
+    color: #eee;
 }
 
-.link.active {
-    color: #616161;
+.link.active{
+    color: #fff;
     font-weight: 600;
 }
 
-.title {
-    color: #616161;
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.logo {
-    color: #323232;
-    font-weight: 900;
-    font-size: 1.4rem;
-}
- 
-header > #primary-navigation {
-    position: sticky;
-    top: 0px;
-    z-index: 999;
-    background-color: #ffffff;
-    box-shadow: 0px 3px 6px -1px rgba(0,0,0,0.4);
-}
-
-header > #primary-navigation > ul {
-    padding: 0.6rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-header > #primary-navigation > ul > li{
-    flex-grow: 1;
-    text-align: center;
-}
-
-header > #primary-navigation > ul > li:first-child{
-    flex-grow: 6;
-    text-align: left;
-    padding-left: 1rem;
-}
-
-header > #primary-navigation > ul > li > a:active{
-
-    color: black;
-    font-weight: bolder;
-}
-
-header > .gallery {
-    display: grid;
-    gap: 1rem;
-    padding: 1rem 0rem;
-    grid-template-rows: repeat(2,minmax(10rem,1fr));
-    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
-}
-
-header > .gallery > .item{
+.card {
     overflow: hidden;
-    position: relative;
-    border-radius: 4px;
-    box-shadow: 0px 3px 4px -1px rgba(0,0,0,0.6);
+    border-radius: 6px;
+    background-color: #161616;
+    border-bottom: 1px solid #323232;
+    box-shadow: 1px 2px 4px -1px #020202;
+    transition: all ease 400ms;
 }
 
-header > .gallery > .slider {
-    grid-row: 1 / 3;
-    grid-column: 1 / 3;
+.card:hover {
+    background-color: #222222;
+    box-shadow: 0px 2px 12px 0px #020202;
 }
 
-header > .gallery > .new {
-    grid-row: 1 / 2;
-    grid-column: 3 / 4;
-}
-
-header > .gallery > .suggestions{
-    grid-row: 2 / 3;
-    grid-column: 3 / 4;
-}
-
-header > .gallery > .item img{
+.thumbnail {
     width: 100%;
-    height: 105%;
+    height: auto;
     object-fit: cover;
     vertical-align: middle;
 }
 
-header > .gallery > .item .overlay{
-    width: 100%;
-    position: absolute;
-    bottom: -10rem;
-    left: 0;
+.supporting-text {
     padding: 0.6rem;
-    background-color: #ffffff;
-    opacity: 1;
-    transition: all ease 400ms;
+    /* border-top: 1px solid #a2a2a2; */
 }
 
-header > .gallery > .item:hover .overlay {
-    bottom: 0rem;
+.title {
+    color: #eee;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-header > .gallery > .slider > .content {
+.head {
     display: flex;
-    flex-direction: row;
-}
-
-header > .gallery > .slider > .content > .item{
-    flex: 1 0 100%;
-}
-
-main > .news > .head {
-    display: flex;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #222222;
 }
 
-main > .news > .gallery {
+.head > h2{
+    font-size: 1.5rem;
+}
+
+.caption {
+    color: #aaa;
+    font-size: 0.6rem;
+    font-weight: 300;
+}
+
+.description {
+    color: #bbb;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+#primary-navigation {
+    position: sticky;
+    top: 0px;
+    background-color: #000;
+    z-index: 999;
+}
+
+#primary-navigation > ul {
+    display: flex;
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#primary-navigation > .menu-items > .item {
+    flex: 1 0;
+    text-align: center;
+}
+
+#primary-navigation > .menu-items > .logo {
+    flex: 8 0;
+    text-align: left;
+}
+
+#primary-navigation > .menu-items > .logo > .link{
+    color: #fff;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 0.4rem;
+}
+
+header > .bento-intro > .grid {
     display: grid;
     gap: 1rem;
-    padding: 0.6rem 0rem;
-    grid-auto-rows: repeat(auto-fit,10rem,1fr);
-    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+    padding: 0 1rem;
+    margin-top: 1rem;
+    grid-template-rows: repeat(2,minmax(30px,1fr));
+    grid-template-columns: repeat(4,minmax(45px,1fr));
+    grid-template-areas: 
+    "a a b c"
+    "a a b d";
 }
-
-main > .news > .gallery > .card {
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    box-shadow: 0px 3px 4px -1px rgba(0,0,0,0.6);
-    transition: all ease 300ms;
-}
-
-main > .news > .gallery > .card:hover{
-    box-shadow: 0px 3px 10px 3px rgba(0,0,0,0.2);
-}
-
-main > .news > .gallery > .card > img {
+header > .bento-intro > .grid > .card {
     width: 100%;
-    object-fit: cover;
+    height: 100%;
+    background-color: #242424;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-main > .news > .gallery > .card >.supporting-text {
-    position: relative;
-    padding: 0.6rem;
+header > .bento-intro > .grid > .card:nth-child(1){
+    grid-area: a;
+    background-image: url("https://picsum.photos/540/360?random=1");
 }
 
-main > .news > .gallery > .card >.supporting-text > i{
-    color: #323232;
-    position: absolute;
-    top: -1rem;
-    right: 1rem;
-    padding: 0.6rem;
-    border-radius: 1rem;
-    font-size: 0.8rem;
+header > .bento-intro > .grid > .card:nth-child(2){
+    grid-area: b;
+    background-image: url("https://picsum.photos/540/360?random=2");
+}
+
+header > .bento-intro > .grid > .card:nth-child(3){
+    grid-area: c;
+    background-image: url("https://picsum.photos/540/360?random=3");
+}
+
+header > .bento-intro > .grid > .card:nth-child(4){
+    grid-area: d;
+    background-image: url("https://picsum.photos/540/360?random=4");
+}
+
+header > .bento-intro > .grid > .card > .supporting-text {
+    height: 100%;
+    display: flex;
+    padding: 0px;
+    flex-direction: column;
+}
+
+header > .bento-intro > .grid > .card > .supporting-text > .title{
+    font-size: 1.4rem;
+    padding: 1rem;
+    background: linear-gradient(#141414,transparent);
+}
+
+header > .bento-intro > .grid > .card > .supporting-text > .description{
     opacity: 0;
-    background-color: #fff;
-    box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.4);
-    transition: all ease 300ms;
+    padding: 1rem;
+    margin-top: auto;
+    background-color: #161616;
+    transition: all ease 600ms;
 }
 
-main > .news > .gallery > .card:hover >.supporting-text > i {
+header > .bento-intro > .grid > .card:hover > .supporting-text > .description {
     opacity: 1;
 }
 
-main > .news > .gallery > .card >.supporting-text > i:hover {
-    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.2);
+main > .news > .news-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
 }
 
-main > .news > .gallery > .card >.supporting-text > .title{
-    padding-bottom: 0.1rem;
-    border-bottom: 1px solid #e4e4e4;
+main > .news > .news-grid > .card:hover {
+    transform: translateY(-2px);
 }
 
-main > .news > .gallery > .card >.supporting-text > .caption{
-    margin-top: 0.1rem;
+main > .news > .news-grid > .card > .thumbnail{
+    height: auto;
 }
 
-main > .news > .gallery > .card >.supporting-text > .description{
-    margin-top: 0.4rem;
+main > .news > .news-grid > .card > .supporting-text > .title{
+    border-bottom: 1px solid #323232;
 }
+
+main > .catalog > .catalog-content {
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: minmax(120px,1fr);
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+}
+
+main > .catalog > .catalog-content > .card > .supporting-text {
+    display: block;
+}
+
+main > .catalog > .catalog-content > .card > .supporting-text > .title{
+    border-bottom: 1px solid #323232;
+}
+
+main > .catalog > .catalog-content > .card > .supporting-text > .caption{
+    padding-top: 0.2rem;
+}
+
+main > .catalog > .catalog-content > .card > .supporting-text > .description{
+    padding-top: 0.6rem;
+}
+
+

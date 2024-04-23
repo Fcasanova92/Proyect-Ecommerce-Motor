@@ -3,97 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
-    <script src="./script/loadUiComponents.js"></script>
-    <title>Galería</title>
+    <title>Catálogo Web</title>
 </head>
 <body>
-    <header id="header-container">
-        
+    <nav id="primary-navigation">
+        <ul class="menu-items">
+            <li class="item logo">
+                <a class="link" href="#"><i class="fa-solid fa-motorcycle">LOGO</i></a>
+            </li>
+            <li class="item">
+                <a class="link active" href="#">Inicio</a>
+            </li>
+            <li class="item">
+                <a class="link" href="#">Catálogo</a>
+            </li>
+            <li class="item">
+                <a class="link" href="#">Contacto</a>
+            </li>
+        </ul>
+    </nav>
+    <header>
+        <div class="bento-intro">
+            <ul class="grid">
+                <li class="card">
+                    <div class="supporting-text">
+                        <h2 class="title">Vehículos</h2>
+                        <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, dolore.</p>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="supporting-text">
+                        <h2 class="title">Equipo</h2>
+                        <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, dolore.</p>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="supporting-text">
+                        <h2 class="title">Accesorios</h2>
+                        <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, dolore.</p>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="supporting-text">
+                        <h2 class="title">Asesoramiento</h2>
+                        <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, dolore.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </header>
     <main>
         <section class="news">
             <div class="head">
                 <h2 class="title">Novedades</h2>
-                <a href="#" class="link">Ver mas...</a>
+                <a href="#" class="link">Ver más...</a>
             </div>
-            <div class="gallery">
-                <a class="card" href="#">
-                    <img src="https://picsum.photos/240/160?random=1" alt="">
-                    <span class="supporting-text">
-                        <i class="fa-solid fa-eye"></i>
-                        <h2 class="title">Titulo</h2>
-                        <h2 class="caption">Subtitulo</h2>
-                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, iusto!</p>
-                    </span>
+            <div class="news-grid">
+                <a href="#" class="card">
+                    <img src="https://picsum.photos/1080/720?random=1" alt="" class="thumbnail">
+                    <div class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                    </div>
                 </a>
-                <a class="card" href="#">
-                    <img src="https://picsum.photos/240/160?random=2" alt="">
-                    <span class="supporting-text">
-                        <i class="fa-solid fa-eye"></i>
-                        <h2 class="title">Titulo</h2>
-                        <h2 class="caption">Subtitulo</h2>
-                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, iusto!</p>
-                    </span>
+                <a href="#" class="card">
+                    <img src="https://picsum.photos/1080/720?random=2" alt="" class="thumbnail">
+                    <div class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                    </div>
                 </a>
-                <a class="card" href="#">
-                    <img src="https://picsum.photos/240/160?random=3" alt="">
-                    <span class="supporting-text">
-                        <i class="fa-solid fa-eye"></i>
-                        <h2 class="title">Titulo</h2>
-                        <h2 class="caption">Subtitulo</h2>
-                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, iusto!</p>
-                    </span>
+                <a href="#" class="card">
+                    <img src="https://picsum.photos/1080/720?random=3" alt="" class="thumbnail">
+                    <div class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                    </div>
                 </a>
-                <a class="card" href="#">
-                    <img src="https://picsum.photos/240/160?random=4" alt="">
-                    <span class="supporting-text">
-                        <i class="fa-solid fa-eye"></i>
-                        <h2 class="title">Titulo</h2>
-                        <h2 class="caption">Subtitulo</h2>
-                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, iusto!</p>
-                    </span>
+                <a href="#" class="card">
+                    <img src="https://picsum.photos/1080/720?random=4" alt="" class="thumbnail">
+                    <div class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                    </div>
                 </a>
-                <a class="card" href="#">
-                    <img src="https://picsum.photos/240/160?random=5" alt="">
-                    <span class="supporting-text">
-                        <i class="fa-solid fa-eye"></i>
-                        <h2 class="title">Titulo</h2>
-                        <h2 class="caption">Subtitulo</h2>
-                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, iusto!</p>
-                    </span>
+                <a href="#" class="card">
+                    <img src="https://picsum.photos/1080/720?random=5" alt="" class="thumbnail">
+                    <div class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                    </div>
                 </a>
-                <a class="card" href="#">
-                    <img src="https://picsum.photos/240/160?random=6" alt="">
-                    <span class="supporting-text">
-                        <i class="fa-solid fa-eye"></i>
-                        <h2 class="title">Titulo</h2>
-                        <h2 class="caption">Subtitulo</h2>
-                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, iusto!</p>
-                    </span>
-                </a>
-                <a class="card" href="#">
-                    <img src="https://picsum.photos/240/160?random=7" alt="">
-                    <span class="supporting-text">
-                        <i class="fa-solid fa-eye"></i>
-                        <h2 class="title">Titulo</h2>
-                        <h2 class="caption">Subtitulo</h2>
-                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, iusto!</p>
-                    </span>
-                </a>
-                <a class="card" href="#">
-                    <img src="https://picsum.photos/240/160?random=8" alt="">
-                    <span class="supporting-text">
-                        <i class="fa-solid fa-eye"></i>
-                        <h2 class="title">Titulo</h2>
-                        <h2 class="caption">Subtitulo</h2>
-                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, iusto!</p>
-                    </span>
+                <a href="#" class="card">
+                    <img src="https://picsum.photos/1080/720?random=6" alt="" class="thumbnail">
+                    <div class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                    </div>
                 </a>
             </div>
-        </section>  
+        </section>
+        <section class="catalog">
+            <div class="head">
+                <h2 class="title">Catálogo de Productos</h2>
+            </div>
+            <div class="catalog-content">
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=1" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=2" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=3" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=4" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=5" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=6" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=7" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=8" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=9" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=10" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=11" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+                <a href="#" class="card">
+                    <img src="https:picsum.photos/270/180?random=12" alt="" class="thumbnail">
+                    <span class="supporting-text">
+                        <h2 class="title">Título</h2>
+                        <h3 class="caption">Lorem, ipsum dolor.</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur sed consequatur, necessitatibus facilis numquam excepturi.</p>
+                    </span>
+                </a>
+            </div>
+        </section>
     </main>
-    <footer id="footer-container"></footer>
 </body>
 </html>
+
