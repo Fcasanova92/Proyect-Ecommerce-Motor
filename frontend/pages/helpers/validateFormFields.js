@@ -17,35 +17,39 @@ validateField = ({target}) => {
 
     switch (id) {
         case "email":
-            if (regex.email.test(value)) {
-                target.style.color="green"
-                alertValidate.style.display="none"
-            }else{
+            if (value.length == 0 && !regex.email.test(value)) {
                 target.style.color="red"
                 alertValidate.style.display="flex"
+            }else{
+                target.style.color="green"
+                alertValidate.style.display="none"
+                alertValidate.style.color="red"
             }
             break;
 
         case "telephone":
 
-        if (regex.telephone.test(value)) {
+        if (value.length =!0 && regex.telephone.test(value)) {
             target.style.color="green"
             alertValidate.style.display="none"
+            al
         }else{
             target.style.color="red"
             alertValidate.style.display="flex"
+            alertValidate.style.color="red"
         }
         break;
     
     
         default:
 
-        if (regex.text.test(value)) {
+        if ( value.length =!0 && regex.text.test(value)) {
             target.style.color="green"
             alertValidate.style.display="none"
         }else{
             target.style.color="red"
             alertValidate.style.display="flex"
+            alertValidate.style.color="red"
         }
         break;
     }
