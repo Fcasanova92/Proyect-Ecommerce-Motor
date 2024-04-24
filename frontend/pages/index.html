@@ -14,10 +14,10 @@
                 <i class="link logo fa-solid fa-motorcycle">LOGO</i>
             </li>
             <li class="item">
-                <a class="link" href="#">PRODUCTOS</a>
+                <a class="link" href="#section-products">PRODUCTOS</a>
             </li>
             <li class="item">
-                <a class="link" href="#">CONTACTO</a>
+                <a class="link" href="#section-contact">CONTACTO</a>
             </li>
             <li class="item">
                 <a class="link" href="#">LOGIN</a>
@@ -103,7 +103,7 @@
                 </a>
             </div>
         </div> 
-        <div class="products">
+        <div id="section-products" class="products">
             <div class="head">
                 <h2 class="title">Productos</h2>
                 <input type="checkbox" name="" id="filter">
@@ -275,25 +275,39 @@
                 </a>
             </div>
         </div>
-        <div class="contact">
+        <div class="about-us">
+            <div class="head">
+                <h2 class="title">Sobre Nosotros</h2>
+            </div>
+        </div>
+        <div id="section-contact" class="contact">
             <div class="head">
                 <h2 class="title">Consultas</h2>
             </div>
-            <form style="display: flex; flex-flow: column; gap: 10px; justify-content: baseline; align-items: flex-start;" action="" method="post">
-                <input id="name" type="text" oninput="validateField(event)" placeholder="nombre"></label>
-                <label style="display: none;" for="name" >Solamente letras</label>
-                <input id="surname"  type="text" oninput="validateField(event)"  placeholder="apellido"></label>
-                <label style="display: none;" for="surname">Solamente letras</label>
-                <input id="telephone"  type="text" oninput="validateField(event)" placeholder="telefono"></label>
-                <label style="display: none;" for="telephone">Solamente letras</label>
-                <input id="email"  type="text" oninput="validateField(event)" placeholder="email"></label>
-                <label style="display: none;" for="email">Solamente letras</label>
-                <Textarea id="consulta" rows="4" cols="50" oninput="validateField(event)" placeholder="consulta"></Textarea></label>
-                <label style="display: none;" for="consulta">Solamente letras</label>
-                <button type="submit">Enviar</button>
-            </form>
+            <div class="grid">
+                <form class="cell" action="" method="post">
+                    <i class="fa-envelopes-bulk fa-solid"></i>
+                    <label style="display: none;" for="name" >Solamente letras</label>
+                    <input id="name" type="text" oninput="validateField(event)" placeholder="Nombre..."></label>
+                    <label style="display: none;" for="surname">Solamente letras</label>
+                    <input id="surname"  type="text" oninput="validateField(event)"  placeholder="Apellido..."></label>
+                    <label style="display: none;" for="telephone">Solamente letras</label>
+                    <input id="telephone"  type="text" oninput="validateField(event)" placeholder="Teléfono"></label>
+                    <label style="display: none;" for="email">Solamente letras</label>
+                    <input id="email"  type="text" oninput="validateField(event)" placeholder="Email..."></label>
+                    <label style="display: none;" for="consulta">Solamente letras</label>
+                    <Textarea id="consulta" rows="4" cols="50" oninput="validateField(event)" placeholder="Consulta..."></Textarea></label>
+                    <button type="submit">Enviar</button>
+                </form>
+                <div class="aside-media">
+                    <img class="thumbnail" src="https://picsum.photos/540/360?random=2" alt="">
+                </div>
+            </div>
         </div>
     </main>
+    <footer>
+        <h2 class="title">FOOTER</h2>
+    </footer>
     <script type="module">
         import { validateField } from './helpers/validateFields.js';
         window.validateField = validateField

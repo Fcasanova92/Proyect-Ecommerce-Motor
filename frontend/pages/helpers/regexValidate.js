@@ -5,6 +5,6 @@ export const regexValidate = (regex, alertValidate, value) =>{
         alertValidate.style.display="none"
         }else{
         alertValidate.style.display="flex"
-        alertValidate.style.color="red"
+        alertValidate.style.color="#EF5350"
         }
 }

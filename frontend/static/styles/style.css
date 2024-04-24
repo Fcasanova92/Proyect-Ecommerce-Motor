@@ -5,6 +5,7 @@
 }
 
 html {
+    scroll-behavior: smooth;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -20,6 +21,49 @@ a {
 
 ul, li {
     list-style: none;
+}
+
+input, textarea {
+    color: #f1f1f1;
+    outline: none;
+    padding: 0.6rem;
+    border-radius: 2px;
+    border: 1px solid #2a2a2a;
+    background-color: #181818;
+    transition: all ease 300ms;
+}
+
+input:hover, textarea:hover {
+    border: 1px solid #4a4a4a;
+}
+
+input:focus, textarea:focus {
+    border: 1px solid #8a8a8a;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    color: #b2b2b2;
+    font-weight: 900;
+    padding: 0.6rem;
+    border-radius: 2px;
+    background-color: #000;
+    transition: all ease 400ms;
+}
+
+button:hover {
+    color: #f4f4f4;
+    background-color: #080808;
+}
+
+button:active {
+    color: #000;
+    background-color: #fff;
 }
 
 .link  {
@@ -101,6 +145,7 @@ ul, li {
 }
 
 #primary-navigation {
+    z-index: 999;
     position: sticky;
     top: 0px;
     background-color: #000;
@@ -269,4 +314,66 @@ main > .products > .grid > .card > .supporting-text {
 
 main > .products > .grid > .card > .supporting-text > .title{
     border-bottom: 1px solid #2d2d2d;
+}
+
+main > .contact > .grid {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+}
+
+main > .contact > .grid > form, main > .contact > .grid > .aside-media {
+    flex-grow: 1;
+    margin-top: 1rem;
+}
+
+main > .contact > .grid > .aside-media > .thumbnail {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+main > .contact > .grid > form {
+    display: flex; 
+    padding-bottom: 0.8rem;
+    flex-flow: column; 
+    align-items: center;
+    justify-content: center; 
+}
+
+main > .contact > .grid > form > * {
+    width: calc(100% - 2rem);
+    margin-top: 0.8rem;
+}
+
+main > .contact > .grid > form > i {
+    color: #141414;
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 1px 1px #323232;
+}
+
+main > .contact > .grid > form > label {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+main > .contact > .grid > form > label::after {
+    font: var(--fa-font-solid);
+    content: "\f06a";
+    padding-left: 0.4rem;
+}
+
+main > .contact > .grid > form > button:active {
+    width: calc(100% - 4rem);
+}
+
+footer{
+    padding: 8rem 0;
+    margin-top: 1rem;
+    font-size: 4rem;
+    text-align: center;
+    background-color: #000;
 }
