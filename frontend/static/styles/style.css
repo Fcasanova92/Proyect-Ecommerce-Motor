@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     max-width: 90%;
     margin: 0 auto;
-    background-color: #101010;
+    background-color: #141414;
 }
 
 a {
@@ -22,220 +22,251 @@ ul, li {
     list-style: none;
 }
 
-section {
-    padding: 1rem 1rem 0 1rem;
-}
-
-.link {
-    color: #bbb;
-    font-size: 1rem;
+.link  {
+    color: #4e4e4e;
     font-weight: 500;
     transition: all ease 300ms;
 }
 
-.link:hover {
-    color: #eee;
+.link:hover  {
+    color: #f1f1f1;
+    font-weight: 500;
 }
 
-.link.active{
-    color: #fff;
-    font-weight: 600;
+.head {
+    display: flex;
+    margin-top: 1rem;
+    padding-bottom: 0.6rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #2d2d2d;
 }
 
-.card {
-    overflow: hidden;
+.head > .title{
+    font-size: 1.4rem;
+}
+
+.cell {
     border-radius: 6px;
-    background-color: #161616;
-    border-bottom: 1px solid #323232;
-    box-shadow: 1px 2px 4px -1px #020202;
-    transition: all ease 400ms;
+    overflow: hidden;
+    background-color: #202020;
+    border-bottom: 1px solid #2a2a2a;
+    box-shadow: 0px 2px 4px -2px #020202;
+    transition: all ease 600ms;
 }
 
-.card:hover {
-    background-color: #222222;
-    box-shadow: 0px 2px 12px 0px #020202;
+.cell.card:hover {
+    background-color: #323232;
+    box-shadow: 0px 2px 16px 0px #040404;
 }
 
 .thumbnail {
     width: 100%;
     height: auto;
-    object-fit: cover;
-    vertical-align: middle;
+    object-fit: middle;
 }
 
 .supporting-text {
-    padding: 0.6rem;
-    /* border-top: 1px solid #a2a2a2; */
+
 }
 
 .title {
-    color: #eee;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.head {
-    display: flex;
-    margin-bottom: 1rem;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #222222;
-}
-
-.head > h2{
-    font-size: 1.5rem;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-bottom: 0.2rem;
 }
 
 .caption {
-    color: #aaa;
+    color: #8a8a8a;
     font-size: 0.6rem;
     font-weight: 300;
+    padding-top: 0.2rem;
 }
 
 .description {
-    color: #bbb;
+    color: #eee;
     font-size: 0.8rem;
     font-weight: 500;
+    padding-top: 0.6rem;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 1rem;
 }
 
 #primary-navigation {
     position: sticky;
     top: 0px;
     background-color: #000;
-    z-index: 999;
 }
 
-#primary-navigation > ul {
+#primary-navigation > .menu {
     display: flex;
-    padding: 1rem;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    padding: 1rem;
 }
 
-#primary-navigation > .menu-items > .item {
+#primary-navigation > .menu > .item {
     flex: 1 0;
     text-align: center;
 }
 
-#primary-navigation > .menu-items > .logo {
-    flex: 8 0;
+#primary-navigation > .menu > .item {
+    flex: 1 0;
+    text-align: center;
+}
+
+#primary-navigation > .menu > .item:first-child {
+    flex: 4 0;
     text-align: left;
 }
 
-#primary-navigation > .menu-items > .logo > .link{
-    color: #fff;
-    margin-left: 1rem;
-    font-size: 1.2rem;
-    font-weight: 900;
-    letter-spacing: 0.4rem;
-}
-
-header > .bento-intro > .grid {
+header > .bento {
     display: grid;
     gap: 1rem;
-    padding: 0 1rem;
     margin-top: 1rem;
-    grid-template-rows: repeat(2,minmax(30px,1fr));
-    grid-template-columns: repeat(4,minmax(45px,1fr));
-    grid-template-areas: 
-    "a a b c"
-    "a a b d";
-}
-header > .bento-intro > .grid > .card {
-    width: 100%;
-    height: 100%;
-    background-color: #242424;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    grid-template-rows: repeat(2,minmax(180px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(45px,1fr));
 }
 
-header > .bento-intro > .grid > .card:nth-child(1){
-    grid-area: a;
+header > .bento > .card {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header > .bento > .card:nth-child(1) {
+    grid-row: 1 / 3;
+    grid-column: 1 / 3;
     background-image: url("https://picsum.photos/540/360?random=1");
 }
 
-header > .bento-intro > .grid > .card:nth-child(2){
-    grid-area: b;
-    background-image: url("https://picsum.photos/540/360?random=2");
-}
-
-header > .bento-intro > .grid > .card:nth-child(3){
-    grid-area: c;
+header > .bento > .card:nth-child(2) {
+    grid-row: 1 / 3;
+    grid-column: 3 / 4;
     background-image: url("https://picsum.photos/540/360?random=3");
 }
 
-header > .bento-intro > .grid > .card:nth-child(4){
-    grid-area: d;
+header > .bento > .card:nth-child(3) {
+    grid-row: 1 / 2;
+    grid-column: 4 /  5;
+    background-image: url("https://picsum.photos/540/360?random=3");
+}
+
+header > .bento > .card:nth-child(4) {
+    grid-row: 2 / 2;
+    grid-column: 4 /  5;
     background-image: url("https://picsum.photos/540/360?random=4");
 }
 
-header > .bento-intro > .grid > .card > .supporting-text {
+header > .bento > .card > .supporting-text {
+    width: 100%;
     height: 100%;
     display: flex;
-    padding: 0px;
     flex-direction: column;
 }
 
-header > .bento-intro > .grid > .card > .supporting-text > .title{
-    font-size: 1.4rem;
+header > .bento > .card > .supporting-text > * {
     padding: 1rem;
-    background: linear-gradient(#141414,transparent);
 }
 
-header > .bento-intro > .grid > .card > .supporting-text > .description{
-    opacity: 0;
-    padding: 1rem;
+header > .bento > .card > .supporting-text > .title {
+    background: linear-gradient(#080808, transparent);
+}
+
+header > .bento > .card > .supporting-text > .description {
     margin-top: auto;
-    background-color: #161616;
+    opacity: 0;
+    background-color: #101010;
     transition: all ease 600ms;
 }
 
-header > .bento-intro > .grid > .card:hover > .supporting-text > .description {
+header > .bento > .card:hover > .supporting-text > .description {
     opacity: 1;
 }
 
-main > .news > .news-grid {
+main > .news > .grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    padding-top: 1rem;
+    grid-auto-rows: minmax(90px,1fr);
+    grid-template-columns: repeat(auto-fit,minmax(135px,1fr));
 }
 
-main > .news > .news-grid > .card:hover {
-    transform: translateY(-2px);
+main > .news > .grid > .card:hover {
+    transform: translateY(-4px);
 }
 
-main > .news > .news-grid > .card > .thumbnail{
-    height: auto;
+main > .news > .grid > .card > .supporting-text{
+    padding: 0.4rem;
 }
 
-main > .news > .news-grid > .card > .supporting-text > .title{
-    border-bottom: 1px solid #323232;
+main > .news > .grid > .card > .supporting-text > .title{
+    border-bottom: 1px solid #2d2d2d;
 }
 
-main > .catalog > .catalog-content {
-    display: grid;
-    gap: 1rem;
-    grid-auto-rows: minmax(120px,1fr);
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+main > .products > .head {
+    flex-wrap: wrap;
+    flex-direction: unset;
 }
 
-main > .catalog > .catalog-content > .card > .supporting-text {
+main > .products > .head > input {
+    display: none;
+}
+
+main > .products > .head > .cell{
+    width: 100%;
+    opacity: 0;
+    padding: 1rem;
+    display: none;
+    margin-top: 0.4rem;
+    background-color: #323232;
+    transition: all ease 600ms;
+}
+
+main > .products > .head > label {
+    cursor: pointer;
+}
+
+main > .products > .head > label::after {
+    font: var(--fa-font-solid);
+    content: "\f107";
+    padding-left: 0.4rem;
+}
+
+main > .products > .head > input:checked+label {
+    color: #fff;
+}
+
+main > .products > .head > input:checked+label::after {
+    content: "\f106";
+}
+
+main > .products > .head > input:checked+label ~ .cell{
+    opacity: 1;
     display: block;
 }
 
-main > .catalog > .catalog-content > .card > .supporting-text > .title{
-    border-bottom: 1px solid #323232;
+main > .products > .grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+    grid-auto-rows: minmax(30px,1fr);
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+
 }
 
-main > .catalog > .catalog-content > .card > .supporting-text > .caption{
-    padding-top: 0.2rem;
+main > .products > .grid > .card > .supporting-text {
+    padding: 1rem;
 }
 
-main > .catalog > .catalog-content > .card > .supporting-text > .description{
-    padding-top: 0.6rem;
+main > .products > .grid > .card > .supporting-text > .title{
+    border-bottom: 1px solid #2d2d2d;
 }
-
-
