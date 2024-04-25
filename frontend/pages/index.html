@@ -287,16 +287,17 @@
             <div class="grid">
                 <form class="cell" action="" method="post">
                     <i class="fa-envelopes-bulk fa-solid"></i>
-                    <label  style="display: none;" for="name" >Solamente letras</label>
+                    <label  style="display: none;" for="name" ></label>
                     <input id="name" type="text"  oninput="validateInput(event)" placeholder="Nombre..." data-validate="false">
-                    <label  style="display: none;" for="surname">Solamente letras</label>
+                    <label  style="display: none;" for="surname"></label>
                     <input id="surname"  type="text"  oninput="validateInput(event)"  placeholder="Apellido..." data-validate="false">
-                    <label  style="display: none;" for="telephone">Formato de celular invalido</label>
+                    <label  style="display: none;" for="telephone"></label>
                     <input id="telephone"  type="text"  oninput="validateInput(event)" placeholder="Teléfono" data-validate="false">
-                    <label style="display: none;" for="email">Formato de email invalido</label>
+                    <label style="display: none;" for="email"></label>
                     <input id="email"  type="text"  oninput="validateInput(event)" placeholder="Email..." data-validate="false">
-                    <input id="consulta" type="text" rows="4" cols="50"  placeholder="Consulta..." data-validate="false"></Textarea>
-                    <button type="submit" onclick="validateForm(event)">Enviar</button>
+                    <label style="display: none;" for="consulta"></label>
+                    <input id="consulta" type="text" rows="4" cols="50"  placeholder="Consulta..." data-validate="false" oninput="validateInput(event)"  ></Textarea>
+                    <button class="send" type="submit" onclick="validateForm(event)">Enviar</button>
                 </form>
                 <div class="aside-media">
                     <img class="thumbnail" src="https://picsum.photos/540/360?random=2" alt="">

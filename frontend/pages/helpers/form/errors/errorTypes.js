@@ -1,8 +1,8 @@
 export const errors = {
 
-    emailError: 'formato de email invalido',
+    emailError: 'Formato de email invalido',
 
-    telephoneError: 'formato de telefono invalido',
+    telephoneError: 'Formato de telefono invalido',
 
     textError : 'Solamente puede contener letras',
 
