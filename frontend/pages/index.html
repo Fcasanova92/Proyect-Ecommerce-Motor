@@ -288,14 +288,14 @@
                 <form class="cell" action="" method="post">
                     <i class="fa-envelopes-bulk fa-solid"></i>
                     <label  style="display: none;" for="name" >Solamente letras</label>
-                    <input id="name" type="text"  oninput="validateField(event)" placeholder="Nombre...">
+                    <input id="name" type="text"  oninput="validateInput(event)" placeholder="Nombre..." data-validate="false">
                     <label  style="display: none;" for="surname">Solamente letras</label>
-                    <input id="surname"  type="text"  oninput="validateField(event)"  placeholder="Apellido...">
+                    <input id="surname"  type="text"  oninput="validateInput(event)"  placeholder="Apellido..." data-validate="false">
                     <label  style="display: none;" for="telephone">Formato de celular invalido</label>
-                    <input id="telephone"  type="text"  oninput="validateField(event)" placeholder="Teléfono">
+                    <input id="telephone"  type="text"  oninput="validateInput(event)" placeholder="Teléfono" data-validate="false">
                     <label style="display: none;" for="email">Formato de email invalido</label>
-                    <input id="email"  type="text"  oninput="validateField(event)" placeholder="Email...">
-                    <input id="consulta" type="text" rows="4" cols="50"  placeholder="Consulta..."></Textarea>
+                    <input id="email"  type="text"  oninput="validateInput(event)" placeholder="Email..." data-validate="false">
+                    <input id="consulta" type="text" rows="4" cols="50"  placeholder="Consulta..." data-validate="false"></Textarea>
                     <button type="submit" onclick="validateForm(event)">Enviar</button>
                 </form>
                 <div class="aside-media">
@@ -325,9 +325,9 @@
         <h2 class="title">FOOTER</h2>
     </footer>
     <script type="module">
-        import { validateField} from './helpers/form/validateFields.js';
-        import { validateForm} from './helpers/form/validateForm.js';
-        window.validateField = validateField
+        import {validateInput} from "./helpers/form/validateInput.js";
+        import {validateForm} from  "./helpers/form/validateForm.js";
+        window.validateInput = validateInput
         window.validateForm = validateForm
     </script>
 </body>
