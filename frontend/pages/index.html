@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -287,17 +287,16 @@
             <div class="grid">
                 <form class="cell" action="" method="post">
                     <i class="fa-envelopes-bulk fa-solid"></i>
-                    <label style="display: none;" for="name" >Solamente letras</label>
-                    <input id="name" type="text" oninput="validateField(event)" placeholder="Nombre..."></label>
-                    <label style="display: none;" for="surname">Solamente letras</label>
-                    <input id="surname"  type="text" oninput="validateField(event)"  placeholder="Apellido..."></label>
-                    <label style="display: none;" for="telephone">Solamente letras</label>
-                    <input id="telephone"  type="text" oninput="validateField(event)" placeholder="Teléfono"></label>
-                    <label style="display: none;" for="email">Solamente letras</label>
-                    <input id="email"  type="text" oninput="validateField(event)" placeholder="Email..."></label>
-                    <label style="display: none;" for="consulta">Solamente letras</label>
-                    <Textarea id="consulta" rows="4" cols="50" oninput="validateField(event)" placeholder="Consulta..."></Textarea></label>
-                    <button type="submit">Enviar</button>
+                    <label  style="display: none;" for="name" >Solamente letras</label>
+                    <input id="name" type="text"  oninput="validateField(event)" placeholder="Nombre...">
+                    <label  style="display: none;" for="surname">Solamente letras</label>
+                    <input id="surname"  type="text"  oninput="validateField(event)"  placeholder="Apellido...">
+                    <label  style="display: none;" for="telephone">Formato de celular invalido</label>
+                    <input id="telephone"  type="text"  oninput="validateField(event)" placeholder="Teléfono">
+                    <label style="display: none;" for="email">Formato de email invalido</label>
+                    <input id="email"  type="text"  oninput="validateField(event)" placeholder="Email...">
+                    <Textarea id="consulta" rows="4" cols="50"  placeholder="Consulta..."></Textarea>
+                    <button type="submit" onclick="validateForm(event)">Enviar</button>
                 </form>
                 <div class="aside-media">
                     <img class="thumbnail" src="https://picsum.photos/540/360?random=2" alt="">
@@ -305,11 +304,28 @@
             </div>
         </div>
     </main>
+    <section class="nosotros">
+        <div class="head">
+            <h2 class="title">Empresa</h2>
+        </div>
+            <p class="description"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, vel porro. Suscipit sed maiores, quo dicta fugiat exercitationem repellat nobis impedit laboriosam? Praesentium optio perspiciatis deserunt tempora id eveniet et necessitatibus quas voluptatem recusandae voluptates facere ex, eum placeat repellat incidunt temporibus! Laboriosam magnam cumque ipsum minus ullam unde voluptates neque! Dolor exercitationem minus dolorum sit vel expedita natus ducimus saepe officia similique cumque beatae, repudiandae labore eum qui modi sequi. Maxime voluptates accusantium rerum illum alias possimus ad odio similique optio iusto. Tempore recusandae deleniti quisquam debitis nam repellat vitae, unde totam error nostrum labore qui dolor excepturi voluptas.</p>
+    <section class="Offices">
+        <div class="tittle">
+            <h2 class="title">Sucursales</h2>
+        </div>
+        <div class="offices-content">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.24287370166!2d-68.67691732494934!3d-32.89174626911682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e1186c34fbae3%3A0xe51a582332f72de8!2sAv.%20Siempreviva%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1713916734000!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
+    
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.283519723652!2d-68.84403182472724!3d-32.890671410735045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0919ead4b47b%3A0x48f034fd2c0cf925!2sGaribaldi%20%26%20Avenida%20San%20Mart%C3%ADn%2C%20Capital%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1713916978018!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </a>
+            </div>
+        
+    </section>
     <footer>
         <h2 class="title">FOOTER</h2>
     </footer>
     <script type="module">
-        import { validateField } from './helpers/validateFields.js';
+        import { validateField, validateForm } from './helpers/validateFields.js';
         window.validateField = validateField
     </script>
 </body>
