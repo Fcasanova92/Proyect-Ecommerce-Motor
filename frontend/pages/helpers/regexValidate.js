@@ -6,5 +6,5 @@ export const regexValidate = (regex, alertValidate, value) =>{
         alertValidate.style.color="#EF5350"
         }else{
         alertValidate.style.display="none"
-        }
+    }
 }
