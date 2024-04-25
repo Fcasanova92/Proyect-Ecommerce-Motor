@@ -12,16 +12,20 @@ export const validateField = ({target}) => {
 
     switch (id) {
         case "email":
-
+         
           regexValidate(email, alertValidate, value)
+          break;
 
         case "telephone":
-
+        
           regexValidate(telephone, alertValidate, value)
+          break;
     
         default:
             
           regexValidate(text, alertValidate, value)
+          break;
     }
 }
+
 
