@@ -9,10 +9,6 @@ export const validateForm = (event) => {
     const inputs = document.querySelectorAll("input[type='text']")
   
     const inputsArray = Array.from(inputs)
-
-    const sendButton = document.querySelector('.send')
-
-    // disablear el boton
   
     let dataInput = []
   
@@ -30,9 +26,6 @@ export const validateForm = (event) => {
 
         alertValidate.style.display = 'flex'
 
-        // ubicar un mensaje , tengo que recuperar la validacion, tal vez cambiando el id con un "ok"
-  
-        // cuando esas dos condiciones se cumplan, entonces se hace la insercion de la data
       }else{
 
         const validate = Boolean(input.getAttribute('data-validate'))
