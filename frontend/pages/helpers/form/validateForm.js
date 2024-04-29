@@ -1,5 +1,7 @@
 import {errors} from './errors/errorTypes.js'
 
+import { sendForm } from './api/sendForm.js'
+
 export const validateForm = (event) => {
 
     event.preventDefault()
@@ -10,7 +12,7 @@ export const validateForm = (event) => {
   
     const inputsArray = Array.from(inputs)
   
-    let dataInput = []
+    let dataInput = {}
   
     inputsArray.map((input)=>{
 
@@ -36,7 +38,7 @@ export const validateForm = (event) => {
 
           if (!dataInput.includes(input.value)){
 
-              dataInput.push(input.value)
+              dataInput[input.id] = input.value 
 
               console.log(dataInput)
           }}
@@ -44,7 +46,7 @@ export const validateForm = (event) => {
 
     if(dataInput.length === 5){
 
-      console.log('se puede enviar los datos')
+      sendForm(dataInput)
 
     }
   }
