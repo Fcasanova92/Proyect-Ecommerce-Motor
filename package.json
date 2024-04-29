@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Fcasanova92/Proyect-Ecommerce-Motor/issues"
   },
-  "homepage": "https://github.com/Fcasanova92/Proyect-Ecommerce-Motor#readme"
+  "homepage": "https://github.com/Fcasanova92/Proyect-Ecommerce-Motor#readme",
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "nodemailer": "^6.9.13"
+  }
 }
