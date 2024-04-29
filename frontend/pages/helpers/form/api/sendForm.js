@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+const nodemailer = require('nodemailer');
 
 require('dotenv').config();
 
@@ -37,3 +37,6 @@ export const sendForm = async (data) => {
 
     }
     
+
+    // realizar el envio de email utilizando axios y mostrar un alert o cambios de que el email a sido enviado, para utilizar, 
+    // aparantemente es necesario exopress
