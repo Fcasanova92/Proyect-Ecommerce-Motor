@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/Fcasanova92/Proyect-Ecommerce-Motor#readme",
   "devDependencies": {
+    "axios": "^1.6.8",
     "dotenv": "^16.4.5",
-    "nodemailer": "^6.9.13"
+    "nodemailer": "^6.9.13",
+    "require": "^2.4.20"
   }
 }

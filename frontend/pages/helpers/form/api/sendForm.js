@@ -1,42 +1,38 @@
-const nodemailer = require('nodemailer');
-
-require('dotenv').config();
-
-
-var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.emailUser,
-      pass: process.env.passwordEmailUser
-    }
-  });
-
 export const sendForm = async (data) => {
 
-    const mailOptions = {
-        from: process.env.emailUser,
-        to: data.email,
-        subject: 'Sending Email using Node.js',
-        text: `hola ${data.name} ${data.surname}, tu consulta sera respondida a la brevedad`
-      };
+    const message = `${data[0]} ${data[1]} responderemos tu consulta en breve`
 
-    const sendEmail = await transporter.sendMail(mailOptions)
+    const consulta = {
 
-    if (sendEmail.pending){
+      nombre: data[0],
 
-      console.log("email enviandose")
+      surname: data[1],
+
+      consulta: data[4]
     }
 
-    if (sendEmail.accepted){
+    try{
 
-      console.log("se realizo el envio correctamente")
+      const sendEmail = await axios.post('https://jsonplaceholder.typicode.com/posts', consulta, {
+      headers: {
+
+        'Content-Type': 'application/json'
+
+      },
+    }
+  )
+
+    if (sendEmail.request.status >= 200 && sendEmail.request.status < 300){
+
+      return {status:true, message}
+
     }else{
 
-      console.log("error en el envio del email " + sendEmail.rejected)
+      throw new Error(`Error al enviar el formulario. Código de estado: ${response.status}`)
     }
 
-    }
-    
+    }catch(error){
 
-    // realizar el envio de email utilizando axios y mostrar un alert o cambios de que el email a sido enviado, para utilizar, 
-    // aparantemente es necesario exopress
+      return (`Error al enviar el formulario: ${error.message}`)
+    }
+  }
