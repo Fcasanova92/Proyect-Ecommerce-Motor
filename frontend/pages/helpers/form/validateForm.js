@@ -1,5 +1,7 @@
 import {errors} from './errors/errorTypes.js'
 
+import { sendForm } from './api/sendForm.js'
+
 export const validateForm = (event) => {
 
     event.preventDefault()
@@ -10,9 +12,9 @@ export const validateForm = (event) => {
   
     const inputsArray = Array.from(inputs)
 
-    const sendButton = document.querySelector('.send')
+    const messageSendForm = document.querySelector("label[for=send]")
 
-    // disablear el boton
+    const button = document.getElementById('send');
   
     let dataInput = []
   
@@ -30,12 +32,11 @@ export const validateForm = (event) => {
 
         alertValidate.style.display = 'flex'
 
-        // ubicar un mensaje , tengo que recuperar la validacion, tal vez cambiando el id con un "ok"
-  
-        // cuando esas dos condiciones se cumplan, entonces se hace la insercion de la data
       }else{
 
         const validate = Boolean(input.getAttribute('data-validate'))
+
+        dataInput.push(input.value)
 
         if (validate){
 
@@ -43,16 +44,29 @@ export const validateForm = (event) => {
 
           if (!dataInput.includes(input.value)){
 
-              dataInput.push(input.value)
-
-              console.log(dataInput)
+              dataInput[input.id] = input.value 
           }}
     } })
 
     if(dataInput.length === 5){
 
-      console.log('se puede enviar los datos')
+      button.innerHTML = '<span class="loader"></span> Enviando...'
+   
+      const response = sendForm(dataInput)
 
+       response.then((res) => {
+
+        if(res.status){
+          
+          messageSendForm.innerHTML = res.message
+          messageSendForm.style.display = "flex";
+          messageSendForm.style.color = "green";
+          button.innerHTML = "Enviado"
+       
+        }
+       }
+        ).
+       catch(error => console.log(error))
     }
   }
   
