@@ -1,330 +1,233 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles/style.css">
+    <meta name="viewport" body="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
-    <title>Catálogo Web</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <title>Catalogo</title>
 </head>
 <body>
-    <nav id="primary-navigation">
-        <ul class="menu">
-            <li class="item">
-                <i class="link logo fa-solid fa-motorcycle">LOGO</i>
+    <nav id="primary-nav" class="depth-00">
+        <ul class="flex-layout row-distribution">
+            <li class="item logo">
+                <i class="fa-solid fa-motorcycle">LOGO</i>
             </li>
             <li class="item">
-                <a class="link" href="#section-products">PRODUCTOS</a>
+                <a href="#products" class="link transition-ease-normal">Productos</a>
             </li>
             <li class="item">
-                <a class="link" href="#section-contact">CONTACTO</a>
+                <a href="#about-us" class="link transition-ease-normal">Sobre Nosotros</a>
             </li>
             <li class="item">
-                <a class="link" href="#">LOGIN</a>
+                <a href="#" class="link transition-ease-normal">Login</a>
             </li>
         </ul>
     </nav>
-    <header>
-        <div class="bento">
-            <div class="cell card">
-                <div class="supporting-text">
-                    <h2 class="title">Vehículos</h2>
-                    <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam obcaecati, minima alias quae quas quod.</p>
-                </div>
+    <header class="top-margin-strong">
+        <div class="grid-layout gap-strong static-rows dinamyc-cols">
+            <div class="item cell row-size-4 col-size-6 fx-shadow-dinamyc transition-ease-normal">
+                <img src="http://placehold.it/720x480" alt="" class="thumbnail full-media-cover">
             </div>
-            <div class="cell card">
-                <div class="supporting-text">
-                    <h2 class="title">Equipo</h2>
-                    <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam obcaecati, minima alias quae quas quod.</p>
-                </div>
+            <div class="item cell row-size-4 col-size-2 fx-shadow-dinamyc transition-ease-normal">
+                <img src="http://placehold.it/240x480" alt="" class="thumbnail full-media-cover">
             </div>
-            <div class="cell card">
-                <div class="supporting-text">
-                    <h2 class="title">Accesorios</h2>
-                    <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam obcaecati, minima alias quae quas quod.</p>
-                </div>
+            <div class="item cell row-size-2 col-size-4 fx-shadow-dinamyc transition-ease-normal">
+                <img src="http://placehold.it/480x240" alt="" class="thumbnail full-media-cover">
             </div>
-            <div class="cell card">
-                <div class="supporting-text">
-                    <h2 class="title">Asesoramiento</h2>
-                    <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam obcaecati, minima alias quae quas quod.</p>
-                </div>
+            <div class="item cell row-size-2 col-size-4 fx-shadow-dinamyc transition-ease-normal">
+                <img src="http://placehold.it/480x240" alt="" class="thumbnail full-media-cover">
             </div>
         </div>
     </header>
     <main>
-        <div class="news">
-            <div class="head">
-                <h2 class="title">Novedades</h2>
-                <a href="#" class="link">Ver más...</a>
+        <section id="news" class="top-margin-strong">
+            <div class="section-header flex-layout auto-distribution bottom-separator-light">
+                <h2 class="headline-a">Novedades</h2>
+                <a class="link transition-ease-normal" href="#">Ver mas...</a>
             </div>
-            <div class="grid">
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360?random=1" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360?random=2" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360?random=3" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360?random=4" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360?random=5" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360?random=6" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                    </div>
-                </a>
+            <ul class="grid-layout dinamyc-rows dinamyc-cols gap-regular top-margin-strong">
+                <li class="item cell fx-shadow-dinamyc fx-move-up transition-ease-normal">
+                    <a href="#">
+                        <img src="http://placehold.it/120x80" alt="" class="thumbnail full-media-width">
+                        <div class="supporting-text">
+                            <h2 class="headline-c bottom-separator-light">Title</h2>
+                            <p class="caption">Caption</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="item cell fx-shadow-dinamyc fx-move-up transition-ease-normal">
+                    <a href="#">
+                        <img src="http://placehold.it/120x80" alt="" class="thumbnail full-media-width">
+                        <div class="supporting-text">
+                            <h2 class="headline-c bottom-separator-light">Title</h2>
+                            <p class="caption">Caption</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="item cell fx-shadow-dinamyc fx-move-up transition-ease-normal">
+                    <a href="#">
+                        <img src="http://placehold.it/120x80" alt="" class="thumbnail full-media-width">
+                        <div class="supporting-text">
+                            <h2 class="headline-c bottom-separator-light">Title</h2>
+                            <p class="caption">Caption</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="item cell fx-shadow-dinamyc fx-move-up transition-ease-normal">
+                    <a href="#">
+                        <img src="http://placehold.it/120x80" alt="" class="thumbnail full-media-width">
+                        <div class="supporting-text">
+                            <h2 class="headline-c bottom-separator-light">Title</h2>
+                            <p class="caption">Caption</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="item cell fx-shadow-dinamyc fx-move-up transition-ease-normal">
+                    <a href="#">
+                        <img src="http://placehold.it/120x80" alt="" class="thumbnail full-media-width">
+                        <div class="supporting-text">
+                            <h2 class="headline-c bottom-separator-light">Title</h2>
+                            <p class="caption">Caption</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="item cell fx-shadow-dinamyc fx-move-up transition-ease-normal">
+                    <a href="#">
+                        <img src="http://placehold.it/120x80" alt="" class="thumbnail full-media-width">
+                        <div class="supporting-text">
+                            <h2 class="headline-c bottom-separator-light">Title</h2>
+                            <p class="caption">Caption</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="item cell fx-shadow-dinamyc fx-move-up transition-ease-normal">
+                    <a href="#">
+                        <img src="http://placehold.it/120x80" alt="" class="thumbnail full-media-width">
+                        <div class="supporting-text">
+                            <h2 class="headline-c bottom-separator-light">Title</h2>
+                            <p class="caption">Caption</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="item cell fx-shadow-dinamyc fx-move-up transition-ease-normal">
+                    <a href="#">
+                        <img src="http://placehold.it/120x80" alt="" class="thumbnail full-media-width">
+                        <div class="supporting-text">
+                            <h2 class="headline-c bottom-separator-light">Title</h2>
+                            <p class="caption">Caption</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section id="products" class="top-margin-strong">
+            <div id="product-anchor" class="section-header flex-layout auto-distribution bottom-separator-light">
+                <h2 class="headline-a">Productos</h2>
             </div>
-        </div> 
-        <div id="section-products" class="products">
-            <div class="head">
-                <h2 class="title">Productos</h2>
-                <input type="checkbox" name="" id="filter">
-                <label class="link" for="filter">Filtrar</label>
-                <div class="cell">
-                    
-                </div>
+            <div class="content flex-layout row-distribution gap-strong">
+                <form class="filter cell fx-shadow-static padding-strong" action="">
+                    <h2 class="headline-b full-row bottom-separator-light">Filtrar</h2>
+                    <div class="input-list brands">
+                        <h2 class="subtitle-a top-margin-strong">Marca:</h2>
+                        <ul class="top-margin-light">
+                            <li>
+                                <input type="checkbox" name="" id="brand-a" checked>
+                                <label for="brand-a">Todas</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="" id="brand-b">
+                                <label for="brand-b">Yamaha</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="" id="brand-c">
+                                <label for="brand-c">Zanella</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="" id="brand-d">
+                                <label for="brand-d">Honda</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="" id="brand-e">
+                                <label for="brand-e">Kawasaki</label>
+                            </li>
+                        </ul>  
+                    </div>
+                    <div class="input-list colors">
+                        <h2 class="subtitle-a top-margin-strong">Color:</h2>
+                        <ul class="top-margin-light">
+                            <li>
+                                <input type="checkbox" name="" id="color-a" checked>
+                                <label for="color-a">Todos</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="" id="color-b">
+                                <label for="color-b">Rojo</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="" id="color-c">
+                                <label for="color-c">Amarillo</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="" id="color-d">
+                                <label for="color-d">Azul</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="" id="color-e">
+                                <label for="color-e">Negro</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="" id="color-f">
+                                <label for="color-f">blanco</label>
+                            </li>
+                        </ul>  
+                    </div>
+                </form>        
+                <div id="products-list" class="products-list flex-layout col-distribution">
+
+                </div>   
             </div>
-            <div class="grid">
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=1" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=2" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=3" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=4" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=5" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=6" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=7" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=8" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=9" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=10" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=11" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=12" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=13" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=14" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=15" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=16" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=17" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=18" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=19" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
-                <a href="#" class="cell card">
-                    <img src="https://picsum.photos/540/360/?random=20" alt="" class="thumbnail">
-                    <div class="supporting-text">
-                        <h2 class="title">Título</h2>
-                        <h3 class="caption">Lorem, ipsum dolor.</h3>
-                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </div>
-                </a>
+        </section >
+        <section id="about-us" class="top-margin-strong">
+            <div class="section-header flex-layout row-distribution bottom-separator-light">
+                <h2 class="headline-a">Sobre nosotros</h2>
             </div>
-        </div>
-        <div class="about-us">
-            <div class="head">
-                <h2 class="title">Sobre Nosotros</h2>
-            </div>
-        </div>
-        <div id="section-contact" class="contact">
-            <div class="head">
-                <h2 class="title">Consultas</h2>
-            </div>
-            <div class="grid">
-                <form class="cell" action="" method="post">
-                    <i class="fa-envelopes-bulk fa-solid"></i>
+            <div class="content grid-layout dinamyc-cols gap-regular top-margin-strong">
+                <form class="contact cell fx-shadow-static flex-layout wrap-elements row-size-4 col-size-6" action="" method="post">
+                    <h2 class="headline-b mid-row">Contacto</h2>
+                    <i class="fa-envelopes-bulk fa-solid mid-row"></i>
                     <label  style="display: none;" for="name" ></label>
-                    <input id="name" type="text"  oninput="validateInput(event)" placeholder="Nombre..." data-validate="false">
+                    <input id="name" class="full-row top-margin-strong" type="text" oninput="validateInput(event)" placeholder="Nombre..." data-validate="false">
                     <label  style="display: none;" for="surname"></label>
-                    <input id="surname"  type="text"  oninput="validateInput(event)"  placeholder="Apellido..." data-validate="false">
+                    <input id="surname" class="full-row top-margin-strong" type="text" oninput="validateInput(event)"  placeholder="Apellido..." data-validate="false">
                     <label  style="display: none;" for="telephone"></label>
-                    <input id="telephone"  type="text"  oninput="validateInput(event)" placeholder="Teléfono" data-validate="false">
+                    <input id="telephone" class="full-row top-margin-strong" type="text"  oninput="validateInput(event)" placeholder="Teléfono" data-validate="false">
                     <label style="display: none;" for="email"></label>
-                    <input id="email"  type="text"  oninput="validateInput(event)" placeholder="Email..." data-validate="false">
+                    <input id="email" class="full-row top-margin-strong" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false">
                     <label style="display: none;" for="consulta"></label>
-                    <input id="consulta" type="text" rows="4" cols="50"  placeholder="Consulta..." data-validate="false" oninput="validateInput(event)"  ></Textarea>
-                    <button class="send" type="submit" onclick="validateForm(event)">Enviar</button>
+                    <input id="consulta" class="full-row top-margin-strong" type="text" placeholder="Consulta..." data-validate="false" oninput="validateInput(event)"></textarea>
+                    <button id="send" class="btn-a fx-shrink-x-on-active top-margin-strong" type="submit" onclick="validateForm(event)">Enviar</button>
+                    <label style="display: none;" for="send"></label>
                 </form>
-                <div class="aside-media">
-                    <img class="thumbnail" src="https://picsum.photos/540/360?random=2" alt="">
+                <div class="company cell fx-shadow-static row-size-2 col-size-6 padding-strong">
+                    <h2 class="headline-b bottom-separator-light">La Empresa</h2>
+                    <p class="body-b top-margin-regular">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, vel porro. Suscipit sed maiores, quo dicta fugiat exercitationem repellat nobis impedit laboriosam? Praesentium optio perspiciatis deserunt tempora id eveniet et necessitatibus quas voluptatem recusandae voluptates facere ex, eum placeat repellat incidunt temporibus! Laboriosam magnam cumque ipsum minus ullam unde voluptates neque! Dolor exercitationem minus dolorum sit vel expedita natus ducimus saepe officia similique cumque beatae, repudiandae labore eum qui modi sequi. Maxime voluptates accusantium rerum illum alias possimus ad odio similique optio iusto. Tempore recusandae deleniti quisquam debitis nam repellat vitae, unde totam error nostrum labore qui dolor excepturi voluptas.</p>
+                </div>
+                <div class="branches cell fx-shadow-static row-size-2 col-size-6 padding-strong">
+                    <h2 class="headline-b bottom-separator-light bottom-margin-light">Sucursales de Venta</h2>
+                    <div class="location flex-layout row-distribution gap-strong top-margin-regular">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.24287370166!2d-68.67691732494934!3d-32.89174626911682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e1186c34fbae3%3A0xe51a582332f72de8!2sAv.%20Siempreviva%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1713916734000!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.283519723652!2d-68.84403182472724!3d-32.890671410735045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0919ead4b47b%3A0x48f034fd2c0cf925!2sGaribaldi%20%26%20Avenida%20San%20Mart%C3%ADn%2C%20Capital%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1713916978018!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
-    <section class="nosotros">
-        <div class="head">
-            <h2 class="title">Empresa</h2>
-        </div>
-            <p class="description"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, vel porro. Suscipit sed maiores, quo dicta fugiat exercitationem repellat nobis impedit laboriosam? Praesentium optio perspiciatis deserunt tempora id eveniet et necessitatibus quas voluptatem recusandae voluptates facere ex, eum placeat repellat incidunt temporibus! Laboriosam magnam cumque ipsum minus ullam unde voluptates neque! Dolor exercitationem minus dolorum sit vel expedita natus ducimus saepe officia similique cumque beatae, repudiandae labore eum qui modi sequi. Maxime voluptates accusantium rerum illum alias possimus ad odio similique optio iusto. Tempore recusandae deleniti quisquam debitis nam repellat vitae, unde totam error nostrum labore qui dolor excepturi voluptas.</p>
-    <section class="Offices">
-        <div class="tittle">
-            <h2 class="title">Sucursales</h2>
-        </div>
-        <div class="offices-content">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.24287370166!2d-68.67691732494934!3d-32.89174626911682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e1186c34fbae3%3A0xe51a582332f72de8!2sAv.%20Siempreviva%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1713916734000!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
-    
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.283519723652!2d-68.84403182472724!3d-32.890671410735045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0919ead4b47b%3A0x48f034fd2c0cf925!2sGaribaldi%20%26%20Avenida%20San%20Mart%C3%ADn%2C%20Capital%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1713916978018!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </a>
-            </div>
-        
-    </section>
-    <footer>
-        <h2 class="title">FOOTER</h2>
+    <footer class="top-margin-strong">
+        <h2 class="headline-a">FOOTER</h2>
     </footer>
+    <script src="productLoader.js"></script>
     <script type="module">
         import {validateInput} from "./helpers/form/validateInput.js";
         import {validateForm} from  "./helpers/form/validateForm.js";

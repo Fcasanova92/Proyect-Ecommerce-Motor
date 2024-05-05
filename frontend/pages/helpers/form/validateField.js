@@ -8,7 +8,7 @@ export const validateField = (regex, value, error, alertValidate, inputSelected)
     
         inputSelected.setAttribute('data-validate', 'true');
 
-        inputSelected.style.borderColor = 'black';
+        inputSelected.style.borderColor = '#23DC3D';
       
       }else{
 

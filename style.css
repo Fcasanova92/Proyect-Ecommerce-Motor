@@ -246,3 +246,14 @@ main > .company > .head {
 main > .offices > .head {
     border-bottom: #323232;
 }
+.loader {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #333;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
