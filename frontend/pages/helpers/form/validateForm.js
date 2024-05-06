@@ -1,6 +1,7 @@
 import {errors} from './errors/errorTypes.js'
 
 import { sendForm } from './api/sendForm.js'
+import { setForm } from './setForm.js'
 
 export const validateForm = (event) => {
 
@@ -50,7 +51,9 @@ export const validateForm = (event) => {
 
     if(dataInput.length === 5){
 
-      button.innerHTML = '<span class="loader"></span> Enviando...'
+      button.innerHTML = '<span class="loader"></span>'
+
+      button.disabled = true
    
       const response = sendForm(dataInput)
 
@@ -62,11 +65,11 @@ export const validateForm = (event) => {
           messageSendForm.style.display = "flex";
           messageSendForm.style.color = "green";
           button.innerHTML = "Enviado"
-       
+          setForm(inputsArray, messageSendForm, button)
         }
        }
         ).
-       catch(error => console.log(error))
+       catch(error => console.log(error)) 
     }
   }
   
