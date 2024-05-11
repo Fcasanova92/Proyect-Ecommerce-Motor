@@ -8,7 +8,7 @@ export const validateForm = (event) => {
 
     const {empty} = errors
   
-    const inputs = document.querySelectorAll("input[type='text']")
+    const inputs = document.querySelectorAll("input[type='text'][data-form='contacto']")
   
     const inputsArray = Array.from(inputs)
 
@@ -54,14 +54,17 @@ export const validateForm = (event) => {
    
       const response = sendForm(dataInput)
 
-       response.then((res) => {
+      response.then((res) => {
 
         if(res.status){
           
+          console.log(res)
+
           messageSendForm.innerHTML = res.message
           messageSendForm.style.display = "flex";
           messageSendForm.style.color = "green";
           button.innerHTML = "Enviado"
+          setForm(inputsArray, messageSendForm, button)
        
         }
        }

@@ -19,8 +19,9 @@ export const sendForm = async (data) => {
         'Content-Type': 'application/json'
 
       },
-    }
-  )
+    })
+
+    console.log(sendEmail)
 
     if (sendEmail.request.status >= 200 && sendEmail.request.status < 300){
 
