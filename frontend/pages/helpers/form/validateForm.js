@@ -2,6 +2,8 @@ import {errors} from './errors/errorTypes.js'
 
 import { sendForm } from './api/sendForm.js'
 
+import {setForm} from './setForm.js'
+
 export const validateForm = (event) => {
 
     event.preventDefault()
@@ -40,8 +42,6 @@ export const validateForm = (event) => {
 
         if (validate){
 
-          console.log(dataInput.includes(input.value))
-
           if (!dataInput.includes(input.value)){
 
               dataInput[input.id] = input.value 
@@ -57,8 +57,6 @@ export const validateForm = (event) => {
       response.then((res) => {
 
         if(res.status){
-          
-          console.log(res)
 
           messageSendForm.innerHTML = res.message
           messageSendForm.style.display = "flex";

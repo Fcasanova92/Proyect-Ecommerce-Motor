@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="../static/styles/style.css">
     <title>Catalogo</title>
 </head>
@@ -196,7 +197,7 @@
                     <label style="display: none;" for="consulta"></label>
                     <input id="consulta" class="full-row top-margin-strong" type="text" oninput="validateInput(event)" placeholder="Consulta..." data-validate="false" data-form="contacto">
                     <button id="send" class="btn-a fx-shrink-x-on-active top-margin-strong" type="submit" onclick="validateForm(event)">Enviar</button>
-                    <label style="display: none;" for="send"></label>
+                    <label style="display: none; flex-flow:row nowrap; justify-content: stretch; align-self: center; font-family: 'Times New Roman'; margin-left:4vw;" for="send"></label>
                 </form>
                 <div class="company cell fx-shadow-static row-size-2 col-size-6 padding-strong">
                     <h2 class="headline-b bottom-separator-light">La Empresa</h2>

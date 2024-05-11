@@ -1,6 +1,6 @@
 export const sendForm = async (data) => {
 
-    const message = `${data[0]} ${data[1]} responderemos tu consulta en breve`
+    const message = `${data[0]} ${data[1]} en breve responderemos tu consulta`
 
     const consulta = {
 
@@ -20,8 +20,6 @@ export const sendForm = async (data) => {
 
       },
     })
-
-    console.log(sendEmail)
 
     if (sendEmail.request.status >= 200 && sendEmail.request.status < 300){
 
