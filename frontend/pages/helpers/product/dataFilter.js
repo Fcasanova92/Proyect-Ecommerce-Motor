@@ -6,15 +6,22 @@ export const dataFilter = (event) => {
 
     const filtersArray = Array.from(filters)
 
-    const filterValues = {}
+    const filterDic = {}
 
     filtersArray.map((filter)=>{
 
-        const filterName = filter.innerHTML.split(":")[0]
+        const filterName = filter.innerHTML.split(":")[0].toLowerCase().trim()
 
-        filterValues[filterName]=""
+        if(filterName!="precio"){
+
+            const filterValue = document.querySelector(`input[type='radio'][name=${filterName}]`).value
+
+            filterDic[filterName]=filterValue
+
+        }
+
     })
 
-    console.log(filterValues)
+    console.log(filterDic)
 
 }
