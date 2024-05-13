@@ -14,12 +14,20 @@ export const dataFilter = (event) => {
 
         if(filterName!="precio"){
 
-            const filterValue = document.querySelector(`input[type='radio'][name=${filterName}]`).value
+            const filterValue = Array.from(document.querySelectorAll(`input[type='radio'][name=${filterName}]`))
 
-            filterDic[filterName]=filterValue
+            filterValue.map((element)=>{
 
+                const {value, checked} = element
+
+                if(checked){
+
+                    filterDic[filterName]=value
+                }
+
+            })
+           
         }
-
     })
 
     console.log(filterDic)
