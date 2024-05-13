@@ -48,7 +48,7 @@ export const validateForm = (event) => {
           }}
     } })
 
-    if(dataInput.length === 5){
+    if(dataInput.length === inputsArray.length){
 
       button.innerHTML = '<span class="loader"></span> Enviando...'
    
