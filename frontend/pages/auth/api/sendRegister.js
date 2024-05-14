@@ -1,4 +1,4 @@
-import {users} from "../db/user"
+import {users} from "../db/user.js"
 
 var idUser = 0
 

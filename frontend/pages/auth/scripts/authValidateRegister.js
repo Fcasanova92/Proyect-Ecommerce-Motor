@@ -1,6 +1,6 @@
 import {errors} from '../../helpers/form/errors/errorTypes.js'
 
-import {sendRegister} from "./api/sendRegister.js"
+import {sendRegister} from "../api/sendRegister.js"
 
 import {setForm} from "../../helpers/form/setForm.js"
 
@@ -10,7 +10,7 @@ export const authValidateRegister = (event) => {
 
     const {empty} = errors
   
-    const inputs = document.querySelectorAll("input[type='text'][data-form='contacto']")
+    const inputs = document.querySelectorAll("input[data-form='register']")
   
     const inputsArray = Array.from(inputs)
 

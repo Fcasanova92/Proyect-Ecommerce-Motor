@@ -8,5 +8,5 @@ export const errors = {
 
     empty: 'Campo requerido',
 
-    passwordError: 'Contraseña invalida'
+    passwordError: 'Al menos un caracter especial'
 }
