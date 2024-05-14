@@ -29,7 +29,7 @@ const formData = (form) => {
     return {
         brands : getChekedInputsValue(form.brand),
         colors : getChekedInputsValue(form.color),
-        capacity : JSON.parse(form.capacity.value),
+        capacity : form.capacity.value ? JSON.parse(form.capacity.value) : { min:0, max:5000 },
         price : { 
             min: form.minPrice.value.length === 0 ? 0 : parseInt(form.minPrice.value), 
             max: form.maxPrice.value.length === 0 ? 1000000000 : parseInt(form.maxPrice.value)
