@@ -1,14 +1,14 @@
-import {users} from "../db/user.js"
-
-var idUser = 0
+import {addUser} from "../db/user.js"
 
 export const sendRegister = async (data) => {
+
+  console.log(data)
 
     const message = `Registro realizado correctamente`
 
     try{
 
-      const send = await axios.post('https://jsonplaceholder.typicode.com/posts', consulta, {
+      const send = await axios.post('https://jsonplaceholder.typicode.com/posts', data, {
       headers: {
 
         'Content-Type': 'application/json'
@@ -19,20 +19,8 @@ export const sendRegister = async (data) => {
 
     if (send.request.status >= 200 && send.request.status < 300){
 
-      idUser += 1
-
-      users[idUser] = {
-
-        "name":"",
-
-        "username":"",
-
-        "email":"",
-
-        "password":""
-        
-      }
-
+      addUser(data)
+      
       return {status:true, message}
 
     }else{
