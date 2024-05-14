@@ -132,26 +132,36 @@
                     <fieldset class="brands grid-layout dinamyc-rows dinamyc-cols gap-regular top-margin-strong">
                         <legend class="subtitle-a">Marca:</legend>
                         <input id="brand-a" type="checkbox" name="brand" value="yamaha">
+                        <input id="brand-a" type="checkbox" name="brand" value="yamaha">
                         <label class="col-size-1" for="brand-a">Yamaha</label>
+                        <input id="brand-b" type="checkbox" name="brand" value="zanella">
                         <input id="brand-b" type="checkbox" name="brand" value="zanella">
                         <label class="col-size-1" for="brand-b">Zanella</label>
                         <input id="brand-c" type="checkbox" name="brand" value="honda">
+                        <input id="brand-c" type="checkbox" name="brand" value="honda">
                         <label class="col-size-1" for="brand-c">Honda</label>
+                        <input id="brand-d" type="checkbox" name="brand" value="kawasaki">
                         <input id="brand-d" type="checkbox" name="brand" value="kawasaki">
                         <label class="col-size-1" for="brand-d">Kawasaki</label>
                     </fieldset>
                     <fieldset class="colors grid-layout dinamyc-rows dinamyc-cols gap-regular top-margin-strong">
                         <legend class="subtitle-a">Color:</legend>
                         <input id="color-a" type="checkbox" name="color" value="blanco">
+                        <input id="color-a" type="checkbox" name="color" value="blanco">
                         <label class="col-size-1" for="color-a">Blanco</label>
+                        <input id="color-b" type="checkbox" name="color" value="negro">
                         <input id="color-b" type="checkbox" name="color" value="negro">
                         <label class="col-size-1" for="color-b">Negro</label>
                         <input id="color-c" type="checkbox" name="color" value="gris">
+                        <input id="color-c" type="checkbox" name="color" value="gris">
                         <label class="col-size-1" for="color-c">Gris</label>
+                        <input id="color-d" type="checkbox" name="color" value="rojo">
                         <input id="color-d" type="checkbox" name="color" value="rojo">
                         <label class="col-size-1" for="color-d">Rojo</label>
                         <input id="color-e" type="checkbox" name="color" value="amarillo">
+                        <input id="color-e" type="checkbox" name="color" value="amarillo">
                         <label class="col-size-1" for="color-e">Amarillo</label>
+                        <input id="color-f" type="checkbox" name="color" value="azul">
                         <input id="color-f" type="checkbox" name="color" value="azul">
                         <label class="col-size-1" for="color-f">Azul</label>
                     </fieldset>
@@ -194,7 +204,7 @@
                     <label style="display: none;" for="email"></label>
                     <input id="email" class="full-row top-margin-strong" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="contacto">
                     <label style="display: none;" for="consulta"></label>
-                    <input id="consulta" class="full-row top-margin-strong" type="text" placeholder="Consulta..." data-validate="false" data-form="contacto">
+                    <input id="consulta" class="full-row top-margin-strong" type="text" placeholder="Consulta..." oninput="validateInput(event)" data-validate="false" data-form="contacto">
                     <button id="send" class="btn-a fx-shrink-x-on-active top-margin-strong" type="submit" onclick="validateForm(event)">Enviar</button>
                     <label style="display: none; flex-flow:row nowrap; justify-content: stretch; align-self: center; font-family: 'Times New Roman'; margin-left:4vw;" for="send"></label>
                 </form>
