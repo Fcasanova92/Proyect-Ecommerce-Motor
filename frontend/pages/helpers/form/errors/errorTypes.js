@@ -8,5 +8,5 @@ export const errors = {
 
     empty: 'Campo requerido',
 
-    passwordError: 'Al menos un caracter especial'
+    passwordError: '<ul style=" display:flex; flex-flow: column; row-gap: 0.25vw; justify-content: flex-start"> <li> Minimo ocho caracteres <li/> <li>Caracter especial<li/> <li>Mayuscula<li/> <li>Al menos un numero<li/>  <ul/>'
 }

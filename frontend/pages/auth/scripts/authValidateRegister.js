@@ -1,8 +1,8 @@
 import {errors} from '../../helpers/form/errors/errorTypes.js'
+import { login } from '../api/login.js'
 
 import {sendRegister} from "../api/sendRegister.js"
 
-import {setForm} from "../../helpers/form/setForm.js"
 
 export const authValidateRegister = (event) => {
 
@@ -54,16 +54,15 @@ export const authValidateRegister = (event) => {
    
       const response = sendRegister(dataInput)
 
+
       response.then((res) => {
 
         if(res.status){
 
-          messageSendForm.innerHTML = res.message
-          messageSendForm.style.display = "flex";
-          messageSendForm.style.color = "green";
-          button.innerHTML = "Enviado"
-          setForm(inputsArray, messageSendForm, button)
-       
+          button.innerHTML = '<span class="material-symbols-outlined" size="41">check</span>'
+          button.style.backgroundColor ="green"
+          login()
+
         }
        }
         ).
