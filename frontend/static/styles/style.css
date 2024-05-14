@@ -737,6 +737,11 @@ button {
     justify-content: space-around;
 }
 
+#register > .content {
+
+    align-items: center;
+}
+
 footer {
     width: 100%;
     text-align: center;

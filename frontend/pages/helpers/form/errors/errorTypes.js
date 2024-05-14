@@ -6,5 +6,7 @@ export const errors = {
 
     textError : 'Solamente puede contener letras',
 
-    empty: 'Campo requerido'
+    empty: 'Campo requerido',
+
+    passwordError: 'Contraseña invalida'
 }

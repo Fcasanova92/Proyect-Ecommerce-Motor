@@ -9,9 +9,9 @@ export const validateInput = ({target}) => {
 
     const {id, value} = target
 
-    const {text, telephone, email} = regexTypes
+    const {text, telephone, email, consulta, password} = regexTypes
 
-    const {textError, telephoneError, emailError} = errors
+    const {textError, telephoneError, emailError, passwordError} = errors
 
     const inputSelected = document.querySelector(`input[id=${id}]`)
 
@@ -28,13 +28,33 @@ export const validateInput = ({target}) => {
 
           validateField(telephone, value, telephoneError, alertValidate, inputSelected)
 
-        break;
+          break;
         
-        default:
+        case "name":
 
           validateField(text, value, textError, alertValidate, inputSelected)
 
-        break;
+          break;
+
+
+        case "surname":
+
+          validateField(text, value, textError, alertValidate, inputSelected)
+
+          break;
+
+
+        case "consulta":
+
+          validateField(consulta, value, textError, alertValidate, inputSelected)
+
+          break;
+
+        case "password":
+
+          validateField(password, value, passwordError, alertValidate, inputSelected)
+
+          break;
     }
 }
 
