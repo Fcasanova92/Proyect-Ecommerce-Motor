@@ -7,14 +7,14 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="../static/styles/style.css">
     <title>Catalogo</title>
-    <script>
+    <script language="JavaScript">
         window.onload = function() {
     // Comprobar si hay una sesión activa
     var sesion = sessionStorage.getItem('sesion');
     
     if (sesion !== 'activa') {
         // Si no hay una sesión activa, redirigir a la página de registro
-        window.location.href = 'pages/auth/login.html';
+        window.location.href = './auth/login.html';
     }
     
     // Evitar que el usuario retroceda a esta página
@@ -242,6 +242,25 @@
     </script>
     <script src="helpers/product/dataDisplay.js" type="module"></script>
 
+    <script language="JavaScript">
+        
+    window.onload = function() {
+    // Comprobar si hay una sesión activa
+    var sesion = sessionStorage.getItem('sesion');
+    
+    if (sesion !== 'activa') {
+        // Si no hay una sesión activa, redirigir a la página de registro
+        window.location.href = './auth/login.html';
+    }
+    
+    // Evitar que el usuario retroceda a esta página
+ 
+    window.history.forward(1);
+        // Deshabilitar el botón de retroceso del navegador
+    window.onbeforeunload = function() {
+            return "¿Seguro que quieres abandonar esta página?";
+        }}
+    </script>
+
 </body>
 </html>
-
