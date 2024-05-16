@@ -74,16 +74,6 @@
         window.passwordVisuality = passwordVisuality
         
     </script>
-
-<script>
-    // Verificar si el usuario ya está autenticado
-    window.onload = function() {
-        var sesion = sessionStorage.getItem("sesion");
-        if (sesion) {
-            // Si el usuario ya está autenticado, redirigir a la página principal
-            window.location.href = "../../pages/index.html";
-        }
-    }
-</script>
+    <script type="module" src="../auth/api/checkedLogin.js"></script>
 </body>
 </html>

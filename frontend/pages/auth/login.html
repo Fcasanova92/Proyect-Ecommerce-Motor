@@ -9,16 +9,6 @@
     <link rel="stylesheet" href="../../static/styles/style.css">
     <title>Login</title>
 
-    <script>
-        // Verificar si el usuario ya está autenticado
-        window.onload = function() {
-            var sesion = sessionStorage.getItem("sesion");
-            if (sesion) {
-                // Si el usuario ya está autenticado, redirigir a la página principal
-                window.location.href = "../../pages/index.html";
-            }
-        }
-    </script>
     
 </head>
 <body>
@@ -44,12 +34,12 @@
                     <h2 class="headline-b mid-row">Inicia Sesion</h2>
                     <i class="fa-envelopes-bulk fa-solid mid-row"></i>
                     <label style="display: none;" for="email"></label>
-                    <input id="email" class="full-row top-margin-strong" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="register">
+                    <input id="email" class="full-row top-margin-strong" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="login">
                     <div style="display: flex; flex-flow: column;">
                         
                     <div style="display: flex; flex-flow: row; justify-content: last baseline; column-gap: 1vw;">
 
-                        <input id="password" class="full-row top-margin-strong" type="password" oninput="validateInput(event)" placeholder="Password" data-validate="false" data-form="register">
+                        <input id="password" class="full-row top-margin-strong" type="password" oninput="validateInput(event)" placeholder="Password" data-validate="false" data-form="login">
                         
                         <span id="eye" class="material-symbols-outlined" style="align-self: flex-end; cursor: pointer" onclick="passwordVisuality(event)">
                                 visibility_off
@@ -60,7 +50,7 @@
                   
                     </div>
 
-                    <button id="send" class="btn-a fx-shrink-x-on-active top-margin-strong" type="submit" onclick="authValidateRegister(event)">Login</button>
+                    <button id="send" class="btn-a fx-shrink-x-on-active top-margin-strong" type="submit" onclick="authValidateLogin(event)">Enviar</button>
                     <a href="./register.html">No tienes cuenta? Registrate Aqui</a>
                     <label style="display: none; flex-flow:row nowrap; justify-content: stretch; align-self: center; font-family: 'Times New Roman'; margin-left:4vw;" for="send"></label>
                 </form>
@@ -69,6 +59,18 @@
     <footer class="top-margin-strong">
         <h2 class="headline-a">FOOTER</h2>
     </footer>
+        <script type="module">
+        
+        import {validateInput} from "../helpers/form/validateInput.js"
+        import {authValidateLogin} from  "../auth/scripts/authValidateLogin.js"
+        import {passwordVisuality} from "./helpers/passwordVisuality.js"
 
-    <a href="../../pages/index.html"></a>
+        window.validateInput = validateInput;
+        window.authValidateLogin = authValidateLogin;
+        window.passwordVisuality = passwordVisuality
+        
+    </script>
+    <script type="module" src="../auth/api/checkedLogin.js"></script>
+
+
 </body>

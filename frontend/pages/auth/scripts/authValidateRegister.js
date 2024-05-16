@@ -1,5 +1,5 @@
 import {errors} from '../../helpers/form/errors/errorTypes.js'
-import { login } from '../api/login.js'
+import { loginWithRegister } from '../api/loginWithRegister.js'
 
 import {sendRegister} from "../api/sendRegister.js"
 
@@ -54,15 +54,14 @@ export const authValidateRegister = (event) => {
    
       const response = sendRegister(dataInput)
 
-
       response.then((res) => {
 
         if(res.status){
 
           button.innerHTML = '<span class="material-symbols-outlined" size="41">check</span>'
           button.style.backgroundColor ="green"
-          login()
-
+          loginWithRegister()
+          
         }
        }
         ).
