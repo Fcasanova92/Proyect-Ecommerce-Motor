@@ -2,7 +2,14 @@ import {users} from "./userDb.js"
 
 export const addUser = (data) =>{
 
+    console.log(data)
+
     users.push(data)
 
-    console.log(users)
+}
+
+export const getUser = () =>{
+
+    return users
+
 }

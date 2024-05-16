@@ -216,14 +216,18 @@
     <footer class="top-margin-strong">
         <h2 class="headline-a">FOOTER</h2>
     </footer>
+    <a href="./auth/db/userMethods.js"></a>
     <script type="module">
         import {validateInput} from "./helpers/form/validateInput.js"
         import {validateForm} from  "./helpers/form/validateForm.js"
+        import {getUser} from  "./auth/db/userMethods.js"
     
         window.validateInput = validateInput;
         window.validateForm = validateForm;
+        console.log(getUser())
         
     </script>
+    
     <script src="helpers/product/dataDisplay.js" type="module"></script>
 
 </body>
