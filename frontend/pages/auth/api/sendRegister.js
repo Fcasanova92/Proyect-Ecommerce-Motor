@@ -1,4 +1,4 @@
-import {addUser} from "../db/user.js"
+import {addUser} from "../db/userMethods.js"
 
 export const sendRegister = async (data) => {
 
@@ -16,7 +16,16 @@ export const sendRegister = async (data) => {
 
     if (send.request.status >= 200 && send.request.status < 300){
 
-      // addUser(data)
+      const usuario = {
+
+        name:data[0],
+        surname:data[1],
+        email:data[2],
+        password:data[3]
+
+      }
+
+      addUser(usuario)
       
       return {status:true}
 

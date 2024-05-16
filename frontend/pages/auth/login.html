@@ -7,9 +7,19 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="../../static/styles/style.css">
-  
-
     <title>Login</title>
+
+    <script>
+        // Verificar si el usuario ya está autenticado
+        window.onload = function() {
+            var sesion = sessionStorage.getItem("sesion");
+            if (sesion) {
+                // Si el usuario ya está autenticado, redirigir a la página principal
+                window.location.href = "../../pages/index.html";
+            }
+        }
+    </script>
+    
 </head>
 <body>
     <nav id="primary-nav" class="depth-00">
@@ -31,7 +41,7 @@
     <section id="register" class="top-margin-strong">  
     <div class="content grid-layout dinamyc-cols gap-strong top-margin-strong bottom-margin-strong">
             <form class="contact cell fx-shadow-static flex-layout wrap-elements row-size-4 col-size-4" method="post">
-                    <h2 class="headline-b mid-row">Registro</h2>
+                    <h2 class="headline-b mid-row">Inicia Sesion</h2>
                     <i class="fa-envelopes-bulk fa-solid mid-row"></i>
                     <label style="display: none;" for="email"></label>
                     <input id="email" class="full-row top-margin-strong" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="register">
@@ -62,13 +72,3 @@
 
     <a href="../../pages/index.html"></a>
 </body>
-<script>
-    // Verificar si el usuario ya está autenticado
-    window.onload = function() {
-        var sesion = sessionStorage.getItem("sesion");
-        if (sesion) {
-            // Si el usuario ya está autenticado, redirigir a la página principal
-            window.location.href = "../../pages/index.html";
-        }
-    }
-</script>
