@@ -1,12 +1,24 @@
-import { getUser } from "../db/userMethods.js";
+export const login = async (email, password) => {
 
-export const login = (data) => {
+    try{
+        const response =  await new Promise((resolve, reject) => {
 
-    console.log("los usuarios son" , getUser())
-
-    sessionStorage.setItem('sesion', 'activa');
+            const userDb = {email:"ferprofe92@gmail.com", password:"asdasd!93!M"}
     
-    // Redirigir a la página de inicio
-    window.location.href = '../../pages/index.html';
+            if(email === userDb.email && userDb.password === password){
+        
+                sessionStorage.setItem('sesion', 'activa');
+        
+                resolve ({status:200, message:"Bienvenido a MotorShop"})
+            }
+    
+            reject({status:401, message:"Email o Password nvalido"})
+            
+        })
 
+        return response
+    }
+    catch (error) {
+        return error;
+    }
 }

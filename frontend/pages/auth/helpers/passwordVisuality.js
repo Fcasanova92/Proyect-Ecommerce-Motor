@@ -2,11 +2,8 @@ export const passwordVisuality = ({target}) =>{
 
     const eye = document.querySelector(`#${target.id}`);
 
-    console.log(eye)
-
     const password = document.querySelector("#password")
 
-    console.log(password.type)
 
     if(password.type === "password"){
 

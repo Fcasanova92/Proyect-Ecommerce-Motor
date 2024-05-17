@@ -1,16 +1,14 @@
 import {errors} from '../../helpers/form/errors/errorTypes.js'
 import { login } from '../api/login.js'
+import {setForm} from '../../helpers/form/setForm.js'
 
-import {sendRegister} from "../api/sendRegister.js"
-
-
-export const authValidateLogin = (event) => {
+export const authValidateLogin = async (event) => {
 
     event.preventDefault()
 
     const {empty} = errors
   
-    const inputs = document.querySelectorAll("input[data-form='register']")
+    const inputs = document.querySelectorAll("input[data-form='login']")
   
     const inputsArray = Array.from(inputs)
 
@@ -51,22 +49,27 @@ export const authValidateLogin = (event) => {
     if(dataInput.length === inputsArray.length){
 
       button.innerHTML = '<span class="loader"></span> Enviando...'
-   
-      const response = sendRegister(dataInput)
 
+      const email = dataInput[0]
+      const password = dataInput[1]
 
-      response.then((res) => {
+      login(email, password).then((res)=>{
 
-        if(res.status){
+        if(res.status !== 401){
 
           button.innerHTML = '<span class="material-symbols-outlined" size="41">check</span>'
           button.style.backgroundColor ="green"
-          login()
+                 // Redirigir a la página de inicio
+          window.location.href = '../../pages/index.html';
+   
+        }else{
 
+         messageSendForm.innerHTML = res.message
+         setForm(inputsArray, messageSendForm, button)
         }
-       }
-        ).
-       catch(error => console.log(error))
-    }
+      
+   })
+      }
+
   }
   
