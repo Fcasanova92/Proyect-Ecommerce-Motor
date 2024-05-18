@@ -55,7 +55,9 @@ export const authValidateLogin = async (event) => {
 
       login(email, password).then((res)=>{
 
-        if(res.status !== 401){
+        console.log(res.status)
+
+        if(res.status === 200){
 
           button.innerHTML = '<span class="material-symbols-outlined" size="41">check</span>'
           button.style.backgroundColor ="green"
@@ -64,7 +66,9 @@ export const authValidateLogin = async (event) => {
    
         }else{
 
+         button.innerHTML = '<span class="material-symbols-outlined" size="41">close</span>'
          messageSendForm.innerHTML = res.message
+         messageSendForm.style.display = "flex"
          setForm(inputsArray, messageSendForm, button)
         }
       
