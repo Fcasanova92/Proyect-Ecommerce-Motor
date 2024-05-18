@@ -6,7 +6,7 @@ export const setForm = (inputs, messageSendForm, button) => {
 
         input.value = ""
 
-        input.style.borderColor = "black"
+        input.style.borderColor = "#ccc"
 
         button.disabled = false
 
