@@ -122,6 +122,13 @@ html {
     letter-spacing: 0.4px;
 }
 
+.link-c {
+    color: #604EEF;
+    font-size: 0.86rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+}
+
 input, label, .trigger-a, .trigger-b {
     color: #2e2e2e;
     font-size: 0.8rem;
@@ -165,7 +172,7 @@ input[type="checkbox"], input[type="radio"] {
     cursor: pointer;
 }
 
-a.link-a, a.link-b {
+a.link-a, a.link-b, .link-c {
     transition: color ease-in-out 300ms;
 }
 
@@ -176,7 +183,7 @@ a.link-a, a.link-b {
     transition: color ease-in-out 300ms, border ease-in-out 300ms, background-color ease-in-out 300ms, width ease-in-out 300ms;
 } 
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
     border: 1px solid #ccc;
     background-color: #fff;
 }
@@ -205,6 +212,14 @@ input[type="text"]:focus {
     color: #2a2a2a;
 }
 
+.link-c:hover {
+    color: #322fbc;
+}
+
+.link-c:active {
+    color: #3044b5;
+}
+
 .trigger-a:hover, .trigger-b:hover, input+label:not(.message):hover {
     color: #0b0b0b;
     background-color: #aaa;
@@ -220,6 +235,10 @@ input[type="text"]:focus {
 }
 
 /* <<-------------------------------------------- Formularios -------------------------------------------->> */
+
+form .message {
+    display: none;
+}
 
 #filter {
     padding: 0.8rem;
@@ -237,6 +256,40 @@ input[type="text"]:focus {
 #search-bar > input{
     width: 100%;
     display: block;
+}
+
+#login, #register {
+    width: 40%;
+    border-radius: 6px;
+    margin: 5rem auto;
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background-color: #fff;
+}
+
+#login > .headline, #register > .headline {
+    margin-bottom: 0px;
+}
+
+#login > .headline > i, #register > .headline > i{
+    color: #6b6b6b;
+}
+
+#login > a, #register > a {
+    text-align: center;
+}
+
+#login > .pass, #register > .pass {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+#login > .pass > input, #register > .pass > input {
+    flex-grow: 1;
 }
 
 /* <<--------------------------------------------- Imagenes ---------------------------------------------->> */
@@ -274,9 +327,9 @@ input[type="text"]:focus {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
     margin-bottom: 0.8rem;
     padding-bottom: 0.4rem;
+    justify-content: space-between;
     border-bottom: 1px solid #ccc;
 }
 
@@ -297,7 +350,13 @@ input[type="text"]:focus {
 
 #primary > .menu {
     width: 40%;
-    justify-content: space-around;
+    justify-content: right;
+}
+
+#primary > .menu > li{
+    min-width: 22%;
+    margin-left: 0.8rem;
+    text-align: center;
 }
 
 #primary > i {
@@ -637,6 +696,10 @@ header, section {
     footer > * {
         flex: 1 0 100%;
     }
+
+    #login, #register {
+        width: 80%;
+    }
 }
 
 @media (width < 480px) { 
@@ -675,5 +738,9 @@ header, section {
     #products > #viewer > #card-wrapper > .card > .supporting-text {
         padding: 0.8rem;
         flex: 1 0 calc(64% - 0.4rem);
+    }
+
+    #login, #register {
+        width: 100%;
     }
 }

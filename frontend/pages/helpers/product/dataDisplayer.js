@@ -8,7 +8,6 @@ const wrapper = document.getElementById('card-wrapper');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 
-
 init();
 hideFilter.forEach(button=>button.addEventListener('click',()=>filter.classList.toggle('visible')));
 

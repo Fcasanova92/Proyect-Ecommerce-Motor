@@ -6,10 +6,6 @@
     <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="../static/styles/style.css">
-    <script type="module" src="../auth/api/checkedLogin.js"></script>
-    </script>
-    <title>Catalogo</title>
-
     <title>Motorshop</title>
 </head>
 <body>
@@ -24,7 +20,7 @@
                     <a class="link-a" href="#about-us">Sobre Nosotros</a>
                 </li>
                 <li>
-                    <a class="link-a" href="#">Ingresar</a>
+                    <a id="user-session" class="link-a" href="./auth/login.html">Ingresar</a>
                 </li>
             </ul>
         </nav>
@@ -229,18 +225,18 @@
                     <h3 class="title-c">Contacto</h3>
                     <i class="fa-solid fa-comments"></i>
                 </div>
-                <label class="message" style="display: none;" for="name" >asd</label>
+                <label class="message" for="name" >asd</label>
                 <input id="name" type="text" oninput="validateInput(event)" placeholder="Nombre..." data-validate="false" data-form="contacto">
-                <label class="message" style="display: none;" for="surname"></label>
+                <label class="message" for="surname"></label>
                 <input id="surname" type="text" oninput="validateInput(event)"  placeholder="Apellido..." data-validate="false" data-form="contacto">
-                <label class="message" style="display: none;" for="telephone"></label>
+                <label class="message" for="telephone"></label>
                 <input id="telephone" type="text" oninput="validateInput(event)" placeholder="Telefono" data-validate="false" data-form="contacto">
-                <label class="message" style="display: none;" for="email"></label>
+                <label class="message" for="email"></label>
                 <input id="email" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="contacto">
-                <label class="message" style="display: none;" for="consulta"></label>
+                <label class="message" for="consulta"></label>
                 <input id="consulta" type="text" placeholder="Consulta..." oninput="validateInput(event)" data-validate="false" data-form="contacto">
                 <button id="send" class="trigger-a" type="submit" onclick="validateForm(event)">Enviar</button>
-                <label class="message" style="display: none; flex-flow:row nowrap; justify-content: stretch; align-self: center; font-family: 'Times New Roman'; margin-left:4vw;" for="send"></label>
+                <label class="message" for="send"></label>
             </form>
             <div class="branchs fx-deep-shadow-static">
                 <div class="headline">
@@ -305,6 +301,6 @@
         console.log(getUser())
         
     </script>
-    <script src="helpers/product/dataDisplay.js" type="module"></script>
+    <script src="./helpers/product/dataDisplayer.js" type="module"></script>
 </body>
 </html>
