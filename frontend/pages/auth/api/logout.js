@@ -1,7 +1,7 @@
 export const logout = () => {
 
-    sessionStorage.setItem('','');
+    sessionStorage.setItem('sesion','');
 
-    window.location.href = '';
+    window.history.replaceState({}, document.title, window.location.href="./auth/login.html");
 
 }

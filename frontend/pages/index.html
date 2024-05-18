@@ -6,6 +6,7 @@
     <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="../static/styles/style.css">
+    <script type="module" src="./auth/api/stateLogin.js"></script>
     <title>Motorshop</title>
 </head>
 <body>
@@ -293,13 +294,15 @@
         </div>
     </footer>
     <a href="./auth/db/userMethods.js"></a>
-    <script type="module">
+    <script type="module" >
         import {validateInput} from "./helpers/form/validateInput.js"
         import {validateForm} from  "./helpers/form/validateForm.js"
+        import {logout} from "./auth/api/logout.js"
         import {getUser} from  "./auth/db/userMethods.js"
     
         window.validateInput = validateInput;
         window.validateForm = validateForm;
+        window.logout = logout
         console.log(getUser())
         
     </script>

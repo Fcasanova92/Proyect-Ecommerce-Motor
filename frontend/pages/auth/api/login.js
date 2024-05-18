@@ -14,7 +14,7 @@ export const login = async (email, password) => {
                     resolve ({status:200, message:"Bienvenido a MotorShop"})
                 }
         
-                reject({status:401, message:"Email o Password nvalido"})
+                reject({status:401, message:"Email o Password invalido"})
                 
             }, 3000);
     
