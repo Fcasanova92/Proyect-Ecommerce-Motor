@@ -21,28 +21,30 @@
             </ul>
         </nav>
     </header>
-    <section id="user-session">
-        <form id="register" method="post">
-            <div class="headline">
-                <h2 class="title-c">Registro</h2>
-                <i class="fa-regular fa-address-card"></i>
-            </div>
-            <label class="message" for="name" ></label>
-            <input id="name" type="text" oninput="validateInput(event)" placeholder="Nombre..." data-validate="false" data-form="register">
-            <label class="message" for="surname"></label>
-            <input id="surname" type="text" oninput="validateInput(event)"  placeholder="Apellido..." data-validate="false" data-form="register">
-            <label class="message" for="email"></label>
-            <input id="email" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="register">
-            <label  class="message" for="password"></label>
-            <div class="pass">
-                <input id="password" type="password" oninput="validateInput(event)" placeholder="Password" data-validate="false" data-form="register">
-                <span id="eye" class="material-symbols-outlined trigger-b" onclick="passwordVisuality(event)">visibility_off</span>
-            </div>
-            <button id="send" class="trigger-a" type="submit" onclick="authValidateRegister(event)">Enviar</button>
-            <label class="message" for="send"></label>
-            <a class="link-c" href="./login.html">Tienes cuenta? Inicia sesion aquí</a>
-        </form>
-    </section>
+    <main>
+        <section id="user-session">
+            <form id="register" class="fx-deep-shadow-static" method="post">
+                <div class="headline">
+                    <h2 class="title-c">Registro</h2>
+                    <i class="fa-regular fa-address-card"></i>
+                </div>
+                <label class="message" for="name" ></label>
+                <input id="name" type="text" oninput="validateInput(event)" placeholder="Nombre..." data-validate="false" data-form="register">
+                <label class="message" for="surname"></label>
+                <input id="surname" type="text" oninput="validateInput(event)"  placeholder="Apellido..." data-validate="false" data-form="register">
+                <label class="message" for="email"></label>
+                <input id="email" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="register">
+                <label  class="message" for="password"></label>
+                <div class="pass">
+                    <input id="password" type="password" oninput="validateInput(event)" placeholder="Password" data-validate="false" data-form="register">
+                    <span id="eye" class="material-symbols-outlined trigger-b" onclick="passwordVisuality(event)">visibility_off</span>
+                </div>
+                <button id="send" class="trigger-a" type="submit" onclick="authValidateRegister(event)">Enviar</button>
+                <label class="message" for="send"></label>
+                <a class="link-c" href="./login.html">Tienes cuenta? Inicia sesion aquí</a>
+            </form>
+        </section>
+    </main>
     <footer>
         <div class="social-networks">
             <div class="headline">
