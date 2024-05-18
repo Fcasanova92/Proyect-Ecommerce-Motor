@@ -1,6 +1,13 @@
+
 export const setForm = (inputs, messageSendForm, button) => {
 
     setTimeout(() => {
+
+    button.disabled = false
+
+    button.innerHTML = "Enviar"
+
+    messageSendForm.style.display = "none"
 
        inputs.map((input)=>{
 
@@ -8,9 +15,6 @@ export const setForm = (inputs, messageSendForm, button) => {
 
         input.style.borderColor = "#ccc"
 
-        button.disabled = false
-
-        messageSendForm.style.display = "none"
 
        }) 
     }, 2000);

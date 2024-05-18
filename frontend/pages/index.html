@@ -6,6 +6,10 @@
     <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="../static/styles/style.css">
+    <script type="module" src="../auth/api/checkedLogin.js"></script>
+    </script>
+    <title>Catalogo</title>
+
     <title>Motorshop</title>
 </head>
 <body>
@@ -290,15 +294,17 @@
 
         </div>
     </footer>
+    <a href="./auth/db/userMethods.js"></a>
     <script type="module">
         import {validateInput} from "./helpers/form/validateInput.js"
         import {validateForm} from  "./helpers/form/validateForm.js"
-        import {dataFilter} from "./helpers/product/dataFilter.js"
+        import {getUser} from  "./auth/db/userMethods.js"
+    
         window.validateInput = validateInput;
         window.validateForm = validateForm;
-        window.dataFilter = dataFilter
+        console.log(getUser())
+        
     </script>
-    <script src="helpers/product/dataDisplayer.js" type="module"></script>
+    <script src="helpers/product/dataDisplay.js" type="module"></script>
 </body>
 </html>
-
