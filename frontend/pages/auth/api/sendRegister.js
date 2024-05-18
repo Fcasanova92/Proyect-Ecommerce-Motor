@@ -1,4 +1,4 @@
-import {addUser} from "../db/userMethods.js"
+
 
 export const sendRegister = async (data) => {
 

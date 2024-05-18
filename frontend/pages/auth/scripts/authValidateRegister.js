@@ -1,8 +1,7 @@
 import {errors} from '../../helpers/form/errors/errorTypes.js'
 import { loginWithRegister } from '../api/loginWithRegister.js'
-
 import {sendRegister} from "../api/sendRegister.js"
-import { addUser, getUser } from '../db/userMethods.js'
+
 
 
 export const authValidateRegister = (event) => {
@@ -61,9 +60,8 @@ export const authValidateRegister = (event) => {
 
           button.innerHTML = '<span class="material-symbols-outlined" size="41">check</span>'
           button.style.backgroundColor ="green"
-          addUser(dataInput)
-          getUser(dataInput)
-          // loginWithRegister()
+
+          loginWithRegister()
           
         }
        }
