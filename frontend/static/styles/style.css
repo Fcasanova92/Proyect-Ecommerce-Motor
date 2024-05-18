@@ -225,7 +225,7 @@ input[type="text"]:focus {
     background-color: #aaa;
 }
 
-.trigger-a:active, .trigger-b:active, input:checked+label {
+.trigger-a:active, .trigger-b:active, input:checked+label:not(.message) {
     color: #fff;
     background-color: #000;
 }
@@ -489,6 +489,18 @@ form .message {
 #products > #viewer, #products > .headline > .actions {
     flex: 1 0 calc(74% - 0.4rem);
 }
+
+#products > #viewer > #filter-message {
+    margin-bottom: 0.6rem;
+}
+
+#products > #viewer > #filter-message > .title-c {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 6px;
+    background-color: #ccc;
+}
+
 
 #products > #viewer > #pages {
     display: flex;

@@ -39,3 +39,8 @@ export const makeCardGrid = (parent,data) => {
         });
     }
 }
+
+export const addMessage = (parent,message) => {
+    const node = addNode(parent, 'h3', {class:"message title-c"});
+    return node.textContent = message;
+}
