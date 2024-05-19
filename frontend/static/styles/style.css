@@ -404,16 +404,22 @@ form .message {
 
 /* <<--------------------------------------------- Grillas ----------------------------------------------->> */
 
-.card-track {
+.card-track, #card-wrapper, .location-wrapper {
     display: grid;
     gap: 0.8rem;
+    grid-auto-rows: auto;
+}
+
+.card-track {
     grid-template-columns: repeat(auto-fill,minmax(8rem,1fr));
 }
 
 #card-wrapper {
-    display: grid;
-    gap: 0.8rem;
     grid-template-columns: repeat(auto-fill,minmax(14rem,1fr));
+}
+
+.location-wrapper {
+    grid-template-columns: repeat(auto-fill,minmax(10rem,1fr));
 }
 
 .input-grid {
@@ -552,22 +558,16 @@ form .message {
     gap: 0.8rem;
 }
 
+#about-us > .headline{
+    flex: 1 0 100%;
+    margin-bottom: 0px;
+}
+
 #about-us > *:not(.headline) {
     border-radius: 6px;
     padding: 0.8rem;
     background-color: #fff;
-}
-
-#about-us > .headline{
-    margin-bottom: 0px;
-}
-
-#about-us > #contact, #about-us > .company{
     flex: 1 0 calc(50% - 0.4rem);
-}
-
-#about-us > .headline, #about-us > .branchs{
-    flex: 1 0 100%;
 }
 
 #about-us > #contact {
@@ -576,29 +576,55 @@ form .message {
     gap: 0.8rem;
 }
 
-#about-us > .info > .company {
-    margin-bottom: 0.8rem;
-}
-
 #about-us > .company > p {
     margin-bottom: 0.8rem;
-}
-
-#about-us > .branchs > .location {
-    display: flex;
-    flex-wrap: row;
-    justify-content: space-around;
-    gap: 0.8rem;
-} 
-
-#about-us > .branchs > .location > * {
-    flex: 1 0 calc(100% / 3 - 0.8rem);
 }
 
 #about-us .fa-solid {
     color: #4b4b4b;
     font-size: 1.8rem;
 }
+
+/* <<-------------------------------------------- Sucursales --------------------------------------------->> */
+
+#branchs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
+#branchs > .headline{
+    flex: 1 0 100%;
+    margin-bottom: 0px;
+}
+
+#branchs > *:not(.headline) {
+    flex: 1 0 calc(50% - 0.4rem);
+}
+
+#branchs > .info { 
+    padding: 0.8rem;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+#branchs > .info > .body-b {  
+    line-height: 1.6rem;
+    margin-top: 0.8rem;
+}
+
+#branchs > .location-wrapper > .card > .supporting-text > .title-c {
+    margin-bottom: 0.4rem;
+    border-bottom: 1px solid #ccc;
+}
+
+#branchs > .location-wrapper > .card > .supporting-text > p > i {  
+    color: #4b4b4b;
+    margin-right: 0.4rem;
+}
+
 
 /* <<---------------------------------------------- Footer ----------------------------------------------->> */
 
@@ -747,12 +773,7 @@ header, section {
         flex: 1 0 100%;
     }
 
-    #about-us > .branchs > .location, footer{
-        flex-wrap: wrap;
-        flex-direction: unset;
-    }
-
-    #about-us > .branchs > .location > *, footer > * {
+    #branchs > *:not(.headline) {
         flex: 1 0 100%;
     }
 
