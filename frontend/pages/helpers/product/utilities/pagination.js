@@ -14,6 +14,9 @@ export class Pagination {
             this._pageCount = Math.ceil(this._data.length / this.perPage) - 1;
         }
     }
+    get data(){
+        return this._data;
+    }
     setNext(value) {
         this._index = clamp(this._index + value , 0, this._pageCount);
         this._offset = this._index * this.perPage;

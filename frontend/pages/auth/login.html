@@ -2,19 +2,25 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="../../static/styles/style.css">
     <script src="./api/checkedLogin.js" defer></script>
     <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/favicon/favicon.ico">
 </head>
 <body>
     <header>
         <nav id="primary">
             <i class="fa-solid fa-motorcycle">LOGO</i>
             <ul class="menu">
+                <li>
+                    <a class="link-a" href="../index.html#products">Productos</a>
+                </li>
+                <li>
+                    <a class="link-a" href="../index.html#about-us">Sobre Nosotros</a>
+                </li>
                 <li>
                     <a class="link-a" href="../index.html">Inicio</a>
                 </li>
@@ -33,7 +39,7 @@
                 <label class="message" for="password"></label>
                 <div class="pass">
                     <input id="password" type="password" oninput="validateInput(event)" placeholder="Password" data-validate="false" data-form="login">
-                    <span id="eye" class="material-symbols-outlined trigger-b" onclick="passwordVisuality(event)">visibility_off</span>
+                    <i id="eye" class="fa-regular fa-eye trigger-b" onclick="passwordVisuality(event)"></i>
                 </div>
                 <button id="send" class="trigger-a" type="submit" onclick="authValidateLogin(event)">Enviar</button>
                 <a class="link-c" href="./register.html">No tienes cuenta? Registrate Aqui</a>
@@ -77,8 +83,11 @@
                 </li>
             </ul>
         </div>
-        <div class="logo">
-
+        <div class="data-fiscal">
+            <div class="headline">
+                <h3 class="title-c">Data Fiscal </h3>
+            </div>
+            <img class="data-fiscal-thumbnail" src="../../static/img/qr Afip/data_fiscal.png" alt="QR data fiscal">
         </div>
     </footer>
     <script type="module">

@@ -136,8 +136,21 @@ input, label, .trigger-a, .trigger-b {
     letter-spacing: 0.6px;
 }
 
+i.trigger-b{
+    font-weight: 500;
+    font-size: 1rem;
+}
+
 input, label {
     font-weight: 300;
+}
+
+/* Mensajes */
+.message {
+    font-size: 0.8rem;
+    color: #4b4b4b;
+    font-weight: 500;
+    letter-spacing: 0.8px;
 }
 
 /* <<------------------------------------- Enlaces, Inputs y Botones ------------------------------------->> */
@@ -168,7 +181,7 @@ input[type="checkbox"], input[type="radio"] {
     margin: 0 auto;
 }
 
-.trigger-a, .trigger-b {
+.trigger-a, .trigger-b, input+label:not(.message) {
     cursor: pointer;
 }
 
@@ -227,7 +240,7 @@ input[type="text"]:focus {
 
 .trigger-a:active, .trigger-b:active, input:checked+label:not(.message) {
     color: #fff;
-    background-color: #000;
+    background-color: #1E88E5;
 }
 
 .trigger-a:active {
@@ -307,6 +320,12 @@ form .message {
     margin: 2rem auto 0 auto;
 }
 
+.data-fiscal-thumbnail {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+}
+
 /* <<-------------------------------------------- Efectos --------------------------------------------->> */
 
 .fx-deep-shadow-static, .fx-deep-shadow-dinamyc {
@@ -319,6 +338,23 @@ form .message {
 
 .fx-move-up:hover {
     transform: translateY(-2px);
+}
+
+/* <<------------------------------------------- Mensajes --------------------------------------------->> */
+
+.message.error, .message.success {
+    color: #fff;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 6px;
+}
+
+.message.error {
+    background-color: #E53935;
+}
+
+.message.success {
+    background-color: #7CB342;
 }
 
 /* <<-------------------------------------- Cabeceras de Sección -------------------------------------->> */
@@ -463,7 +499,7 @@ form .message {
     flex: 1 0 calc(26% - 0.4rem);
 }
 
-#products > #filter > .headline > .actions > .hide-filter {
+#products > #filter > .headline > .actions > .trigger-b {
     display: none;
 }
 
@@ -491,14 +527,8 @@ form .message {
 }
 
 #products > #viewer > #filter-message {
+    text-align: center;
     margin-bottom: 0.6rem;
-}
-
-#products > #viewer > #filter-message > .title-c {
-    width: 100%;
-    padding: 0.8rem;
-    border-radius: 6px;
-    background-color: #ccc;
 }
 
 
@@ -507,6 +537,10 @@ form .message {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 0.8rem;
+}
+
+#products > #viewer > #pages > li{
+    display: none;
 }
 
 /* <<------------------------------------------ Sobre Nosotros ------------------------------------------->> */
@@ -552,9 +586,14 @@ form .message {
 
 #about-us > .branchs > .location {
     display: flex;
-    flex-direction: row;
+    flex-wrap: row;
     justify-content: space-around;
+    gap: 0.8rem;
 } 
+
+#about-us > .branchs > .location > * {
+    flex: 1 0 calc(100% / 3 - 0.8rem);
+}
 
 #about-us .fa-solid {
     color: #4b4b4b;
@@ -623,11 +662,13 @@ header, section {
 
 /* <<------------------------------------------- Media Queries ------------------------------------------->> */
 
+/* Tablets */
+
 @media (width < 768px) {
 
     .banner {
         display: block;
-        background-image: url('../img/banner.png');
+        background-image: url('../img/banners/banner.png');
         background-position: right;
         background-size: contain;
         background-repeat: no-repeat;
@@ -660,8 +701,14 @@ header, section {
     }
 
     #primary > .menu {
-        width: 80%;
-        margin: 0 auto;
+        width: 100%;
+        margin: 0px;
+        gap: 0.8rem;
+    }
+
+    #primary > .menu > li{
+        margin: 0px;
+        flex: 1 0 auto;
     }
 
     #products > #viewer {
@@ -672,7 +719,7 @@ header, section {
         display: none;
     }
 
-    #products > #filter > .headline > .actions > .hide-filter {
+    #products > #filter > .headline > .actions > .trigger-b {
         display: block;
     }
 
@@ -700,12 +747,12 @@ header, section {
         flex: 1 0 100%;
     }
 
-    footer {
+    #about-us > .branchs > .location, footer{
         flex-wrap: wrap;
         flex-direction: unset;
     }
 
-    footer > * {
+    #about-us > .branchs > .location > *, footer > * {
         flex: 1 0 100%;
     }
 
@@ -713,6 +760,8 @@ header, section {
         width: 80%;
     }
 }
+
+/* Moviles */
 
 @media (width < 480px) { 
 
