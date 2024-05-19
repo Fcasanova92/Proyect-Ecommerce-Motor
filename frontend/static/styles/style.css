@@ -115,17 +115,11 @@ html {
 
 /* Enlaces, Inputs y Botones */
 
-.link-a, .link-b {
-    display: flex;
-    flex-flow: row nowrap;
-    column-gap: 0.5vw;
-    justify-content: flex-start;
-    align-items: flex-end;
+.link-a, .link-b, .with-check-icon {
     color: #6e6e6e;
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: 0.4px;
-
 }
 
 .link-c {
@@ -178,7 +172,7 @@ input:focus {
 }
 
 input[type="checkbox"], input[type="radio"] {
-    display: flex;
+    display: none;
 }
 
 .trigger-a {
@@ -195,7 +189,39 @@ a.link-a, a.link-b, .link-c {
     transition: color ease-in-out 300ms;
 }
 
-.trigger-a, .trigger-b, input, button, input+label:not(.message)  {
+a.link-a > i, a.link-b > i, .link-c > i {
+    margin-left: 0.4rem;
+}
+
+input+label.with-check-icon {
+    position: relative;
+    padding: 0.6rem 0.8rem;
+    transition: color ease-in-out 300ms;
+}
+
+input+label.with-check-icon:hover {
+    padding: 0.6rem 0.8rem;
+}
+
+input+label.with-check-icon:active {
+    padding: 0.6rem 0.8rem;
+}
+
+input+label.with-check-icon::after {
+    color: #b4b4b4;
+    font: var(--fa-font-regular);
+    content: '\f0c8';
+    position: absolute;
+    right: 0.8rem;
+    top: 0.8rem;
+    transition: color ease-in-out 300ms;
+}
+
+input:checked+label.with-check-icon::after {
+    content: '\f14a';
+}
+
+.trigger-a, .trigger-b, input, button, input+label:not(.message,.with-check-icon)  {
     border-radius: 4px;
     padding: 0.6rem 0.8rem;
     background-color: #ccc;
@@ -231,20 +257,24 @@ input[type="text"]:focus {
     color: #2a2a2a;
 }
 
-.link-c:hover {
-    color: #322fbc;
-}
-
-.link-c:active {
+.link-c:active, input+label.with-check-icon:hover::after {
     color: #3044b5;
 }
 
-.trigger-a:hover, .trigger-b:hover, input+label:not(.message):hover {
+.link-c:active, input+label.with-check-icon:active::after{
+    color: #3044b5;
+}
+
+.link-c:active,  input:checked+label.with-check-icon::after {
+    color: #3044b5;
+}
+
+.trigger-a:hover, .trigger-b:hover, input+label:not(.message,.with-check-icon):hover {
     color: #0b0b0b;
     background-color: #aaa;
 }
 
-.trigger-a:active, .trigger-b:active, input:checked+label:not(.message) {
+.trigger-a:active, .trigger-b:active, input:checked+label:not(.message,.with-check-icon) {
     color: #fff;
     background-color: #1E88E5;
 }
