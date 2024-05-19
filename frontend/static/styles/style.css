@@ -269,6 +269,10 @@ input[type="text"]:focus {
     color: #3044b5;
 }
 
+.link-c:active,  input:checked+label.with-check-icon::after {
+    color: #7CB342;
+}
+
 .trigger-a:hover, .trigger-b:hover, input+label:not(.message,.with-check-icon):hover {
     color: #0b0b0b;
     background-color: #aaa;
