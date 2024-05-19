@@ -116,10 +116,16 @@ html {
 /* Enlaces, Inputs y Botones */
 
 .link-a, .link-b {
+    display: flex;
+    flex-flow: row nowrap;
+    column-gap: 0.5vw;
+    justify-content: flex-start;
+    align-items: flex-end;
     color: #6e6e6e;
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: 0.4px;
+
 }
 
 .link-c {
@@ -159,7 +165,7 @@ input:focus {
 }
 
 input[type="checkbox"], input[type="radio"] {
-    display: none;
+    display: flex;
 }
 
 .trigger-a {
@@ -291,6 +297,15 @@ form .message {
 #login > .pass > input, #register > .pass > input {
     flex-grow: 1;
 }
+
+#register > #condicion {
+
+    display: flex;
+    flex-flow: row nowrap;
+    column-gap: 1vw;
+}
+
+
 
 /* <<--------------------------------------------- Imagenes ---------------------------------------------->> */
 

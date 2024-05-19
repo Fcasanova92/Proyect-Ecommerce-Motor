@@ -6,6 +6,7 @@
     <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="../../static/styles/style.css">
     <script type="module" src="../auth/api/checkedLogin.js"></script>
     <title>Registro</title>
@@ -16,7 +17,7 @@
             <i class="fa-solid fa-motorcycle">LOGO</i>
             <ul class="menu">
                 <li>
-                    <a class="link-a" href="../index.html">Inicio</a>
+                    <a class="link-a" href="../index.html"><span class="material-symbols-outlined">home</span>Homepage</a>
                 </li>
             </ul>
         </nav>
@@ -39,6 +40,7 @@
                     <input id="password" type="password" oninput="validateInput(event)" placeholder="Password" data-validate="false" data-form="register">
                     <span id="eye" class="material-symbols-outlined trigger-b" onclick="passwordVisuality(event)">visibility_off</span>
                 </div>
+                <label id="condicion"><input type="checkbox">Acepto terminos y condiciones</label>
                 <button id="send" class="trigger-a" type="submit" onclick="authValidateRegister(event)">Enviar</button>
                 <label class="message" for="send"></label>
                 <a class="link-c" href="./login.html">Tienes cuenta? Inicia sesion aquí</a>
