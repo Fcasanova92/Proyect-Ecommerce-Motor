@@ -58,7 +58,7 @@ export const authValidateRegister = (event) => {
 
         if(res.status){
 
-          button.innerHTML = '<span class="material-symbols-outlined" size="41">check</span>'
+          button.innerHTML = '<i class="fa-solid fa-check"></i>'
           button.style.backgroundColor ="green"
 
           loginWithRegister()
