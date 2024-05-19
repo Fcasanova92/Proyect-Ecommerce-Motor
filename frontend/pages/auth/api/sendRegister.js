@@ -1,4 +1,4 @@
-import {almacenarDatosUsuario} from '../../../db/usersMethods.js'
+
 
 export const sendRegister = async (data) => {
 
@@ -14,8 +14,6 @@ export const sendRegister = async (data) => {
     })
 
     if (send.request.status >= 200 && send.request.status < 300){
-
-      almacenarDatosUsuario(data)
       
       return {status:true}
 
