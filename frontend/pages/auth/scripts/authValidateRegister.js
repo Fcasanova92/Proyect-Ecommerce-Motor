@@ -1,4 +1,5 @@
 import {errors} from '../../helpers/form/errors/errorTypes.js'
+import { setForm } from '../../helpers/form/setForm.js'
 import { loginWithRegister } from '../api/loginWithRegister.js'
 import {sendRegister} from "../api/sendRegister.js"
 
@@ -54,6 +55,8 @@ export const authValidateRegister = (event) => {
    
       const response = sendRegister(dataInput)
 
+      console.log(response)
+
       response.then((res) => {
 
         if(res.status){
@@ -62,7 +65,13 @@ export const authValidateRegister = (event) => {
           button.style.backgroundColor ="green"
 
           loginWithRegister()
-          
+        
+        }else{
+
+          messageSendForm.innerHTML = res.message
+          messageSendForm.style.display = "flex"
+          button.innerHTML = '<i class="fa-solid fa-x"></i>'
+          setForm(inputsArray, messageSendForm, button)
         }
        }
         ).

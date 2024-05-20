@@ -59,14 +59,14 @@ export const authValidateLogin = async (event) => {
 
         if(res.status === 200){
 
-          button.innerHTML = '<span class="material-symbols-outlined" size="41">check</span>'
+          button.innerHTML = '<i class="fa-solid fa-check"></i>'
           button.style.backgroundColor ="green"
                  // Redirigir a la página de inicio
           window.location.href = '../../pages/index.html';
    
         }else{
 
-         button.innerHTML = '<span class="material-symbols-outlined" size="41">close</span>'
+         button.innerHTML = '<i class="fa-solid fa-x"></i>'
          messageSendForm.innerHTML = res.message
          messageSendForm.style.display = "flex"
          setForm(inputsArray, messageSendForm, button)
