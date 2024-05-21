@@ -2,13 +2,13 @@ import { addMessage, addCards, removeNodes } from './utilities/nodes.js';
 import { getAll, getByFilter } from './dataHandler.js';
 import { Pagination } from './utilities/pagination.js';
 
+let filterVisible = false;
+
 const filter = document.getElementById('filter');
 const logger = document.getElementById('filter-message');
 const wrapper = document.getElementById('card-wrapper');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
-
-
 
 export const init = () => {
     const pages = new Pagination();
@@ -18,7 +18,9 @@ export const init = () => {
     });
     filter.addEventListener('submit', (event)=>{
         event.preventDefault();
-        // hide(filter.id);
+        if(window.innerWidth < 768 && filter.classList.contains('visible')) {
+            hide(filter.id);
+        }
         getByFilter(event.target).then(items=>{
             pages.data = items;
             display(wrapper,pages,logger);
@@ -50,5 +52,5 @@ const display = (wrapper,pagination,logger) => {
 }
 
 export const hide = (id) => {
-    document.getElementById(id).classList.toggle('visible');
+    setTimeout(()=>document.getElementById(id).classList.toggle('visible'),100);
 }
