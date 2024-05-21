@@ -62,7 +62,7 @@ export const authValidateLogin = async (event) => {
           button.innerHTML = '<i class="fa-solid fa-check"></i>'
           button.style.backgroundColor ="green"
                  // Redirigir a la página de inicio
-          window.location.href = '../../pages/index.html';
+          window.location.href = '../../index.html';
    
         }else{
 

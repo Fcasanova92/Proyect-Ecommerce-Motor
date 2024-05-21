@@ -4,5 +4,5 @@ document.addEventListener("DOMContentLoaded", function checkedLogin(){
 
     if (sesion) {
         // Si el usuario ya está autenticado, redirigir a la página principal
-        window.location.href = "../../pages/index.html";}
+        window.location.href = "../../index.html";}
 }) 

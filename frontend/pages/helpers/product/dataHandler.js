@@ -14,7 +14,7 @@ const filterData = {
 }
 
 const getData = async () => {
-    const resp = await fetch('../static/db/local.json');
+    const resp = await fetch('./static/db/local.json');
     if(!resp.ok){
         throw new Error(getMessage(resp.status));
     }

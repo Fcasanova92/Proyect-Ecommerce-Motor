@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function checkedLogin(){
                     }
                 }
             };
-            xhr.open('GET', 'components/loginComponent.html', true);
+            xhr.open('GET', './pages/components/loginComponent.html', true);
             xhr.send();
 
             const name = document.querySelector("#name")
