@@ -595,7 +595,7 @@ form .message {
 }
 
 #products > #viewer > #pages > li{
-    display: none;
+    visibility: hidden;
 }
 
 /* <<------------------------------------------ Sobre Nosotros ------------------------------------------->> */
@@ -806,7 +806,7 @@ header, section {
         z-index: 100;
         opacity: 0;
         box-shadow: 0px 8px 16px -1px #2a2a2a;
-        transition: left ease-in-out 300ms, opacity ease-in-out 300ms;
+        transition: left ease-in-out 300ms, opacity ease-in-out 500ms;
     }
 
     #products > #filter.visible {
