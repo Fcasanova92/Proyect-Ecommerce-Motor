@@ -1,10 +1,11 @@
 import express from 'express'
+import { router } from '../routes/routes.js'
 
 export const server = () => {
 
     const app = express()
 
-    // a contiunacion estarian las rutas
+    app.use('/api', router)
 
     return app
 }
