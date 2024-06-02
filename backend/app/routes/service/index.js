@@ -1,1 +1,1 @@
-export {router as servicetRouther} from './routes'
+export {router as servicetRouther} from './routes.js'

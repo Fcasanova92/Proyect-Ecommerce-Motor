@@ -1,1 +1,1 @@
-export {router as authRouther} from './routes'
+export {router as authRouther} from './routes.js'

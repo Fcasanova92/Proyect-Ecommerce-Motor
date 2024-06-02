@@ -1,1 +1,1 @@
-export {router as productRouther} from './routes'
+export {router as productRouther} from './routes.js'

@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-export var router = Router();
+export const router = Router();
 
 
 // define the home page route
