@@ -1,9 +1,13 @@
+
+import { dbConnection } from "./db/dbConnection.js";
 import { server } from "./server/server.js";
 import { config } from 'dotenv';
 
 config()
 
 const port = process.env.PORT
+
+dbConnection()
 
 const app =  server()
 
