@@ -15,7 +15,7 @@ export const dbConnection = () => {
             throw Error('error al conectar la base de datos :' + error)
         }
     
-        console.log('Base datos Mysql correctamente conectada')
+        console.log('Servidor de base de datos correctamente conectado')
     
     })
 
