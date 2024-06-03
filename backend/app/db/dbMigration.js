@@ -1,15 +1,17 @@
-import  {dbConnection}  from './dbConnection.js';
+import  {dbConnection, getConnection}  from './dbConnection.js';
 
 import { config } from 'dotenv';
 
 config()
 
-const db = dbConnection()
+dbConnection()
 
+const db = getConnection()
 
 db.query(` CREATE DATABASE IF NOT EXISTS ${process.env.DB_DATABASE}` , (err) => {
     if (err) {
       console.error('Error al crear la base de datos:', err);
+      db.end()
       return;
     }
     console.log('Base de datos creada exitosamente');
@@ -18,6 +20,7 @@ db.query(` CREATE DATABASE IF NOT EXISTS ${process.env.DB_DATABASE}` , (err) => 
 db.query(`USE ${process.env.DB_DATABASE}`, (err) => {
     if (err) {
         console.error('Error selecting database:', err);
+        db.end()
         return;
     }
     console.log(`Using database ${process.env.DB_DATABASE}`);
@@ -34,6 +37,7 @@ db.query(`CREATE TABLE IF NOT EXISTS users (
 )`, (err) => {
   if (err) {
     console.error('Error al crear la tabla "users":', err);
+    db.end()
     return;
   }
   console.log('Tabla "users" creada exitosamente');
@@ -48,8 +52,10 @@ db.query(`CREATE TABLE IF NOT EXISTS productos (
 )`, (err) => {
   if (err) {
     console.error('Error al crear la tabla "productos":', err);
+    db.end()
     return;
   }
   console.log('Tabla "productos" creada exitosamente');
 });
-;
+
+db.end()
