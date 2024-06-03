@@ -1,13 +1,15 @@
 // funciones para interactuar con la base de datos, dependientes de los parametros necesarios en las rutas de la aplicacion
 
-export const getUserByEmail = (db, email) => {
-    return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
-            if (err) return reject(err);
-            resolve(results[0]);
-        });
-    });
-};
+export const getUserByEmail = async (db, email) => {
+   
+    try {
+        const result = await db.query('SELECT * FROM users WHERE email = ?', [email]);
+        return result;
+
+    } catch (error) {
+        throw new Error("Error en la búsqueda del registro: " + error.message);
+    }
+    };
 
 export const registerUser = async (db, data)=>{
 
@@ -19,5 +21,5 @@ export const registerUser = async (db, data)=>{
         throw new Error(`Error en la conexión a la base de datos: ${result.error}`);
     }
 
-    return { status: true, message: 'Usuario registrado' };
+    return true;
 }

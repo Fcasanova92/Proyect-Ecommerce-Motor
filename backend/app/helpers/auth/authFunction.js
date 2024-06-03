@@ -1,6 +1,8 @@
 import { getUserByEmail, registerUser } from "../db/dbQuerys.js";
 
-export const onRegisterUser = async (data) => {
+export const onRegister = async (data) => {
+
+    const {nombre, apellido, email, password} = data
     
     const db = getConnection();
    
@@ -12,7 +14,13 @@ export const onRegisterUser = async (data) => {
            return ({status:false, message:'El usuario ya existe'});
        }
    
-       return await registerUser(db, data)
+       const register = await registerUser(db, data)
+
+       if(register){
+
+        return({status:true, message:"Usuario registrado"})
+
+       }
        
     } catch (error) {
        throw new Error(`Error en el registro del usuario: ${error}`);
@@ -20,7 +28,7 @@ export const onRegisterUser = async (data) => {
     };
    
    
-    export const onloginUser = async (data) => {
+export const onlogin = async (data) => {
        try {
            const { email, password } = data;
    
