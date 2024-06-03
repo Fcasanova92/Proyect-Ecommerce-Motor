@@ -2,29 +2,50 @@
 
 import { getConnection } from "../../db/dbConnection.js"
 
-export const registerUser = async (data) => {
+export const registerUser = async (data) => {const { nombre, apellido, email, password } = data;
 
-    const {nombre, apellido, email, password} = data;
+ const db = getConnection();
 
-    const db = getConnection();
+ try { 
+    const user = await getUserByEmail(db, email);
+    
+    if (user) {
+        return ({status:false, message:'El usuario ya existe'});
+    }
 
+    const result = await db.query('INSERT INTO users (nombre, apellido, email, password) VALUES (?, ?, ?, ?)', [nombre, apellido, email, password]);
+
+    if (result.error) {
+        throw new Error(`Error en la conexión a la base de datos: ${result.error}`);
+    }
+
+    return { status: true, message: 'Usuario registrado' };
+    
+ } catch (error) {
+    throw new Error(`Error en el registro del usuario: ${error}`);
+ }
+ };
+
+
+ export const loginUser = async (data) => {
     try {
-        const user = await getUserByEmail(db, email);
-        if (user) {
-            throw new Error('El usuario ya existe');
-        }
+        const { email, password } = data;
 
-        return new Promise((resolve, reject) => {
-            db.query('INSERT INTO users (nombre, apellido, email, password) VALUES (?, ?, ?, ?)', [nombre, apellido, email, password], (err) => {
-                if (err) {
-                    return reject(`Error en el registro del usuario: ${err}`);
-                }
-                resolve(true);
-            });
-        });
+        const user = await getUserByEmail(email);
+
+        if (user) {
+            if (password === user.password) {
+                return ({status:true, message:"Bienvenido"}); // Contraseña correcta
+            } else {
+                return({status:false, message:"Contraseña incorrecta"});
+            }
+        } else {
+            return({status:false, message:"Email incorrecto"});
+        }
     } catch (error) {
-        return Promise.reject(`Error en el registro del usuario: ${error}`);
-    }};
+        throw new Error("Error en el logeo: " + error.message);
+    }
+};
 
 
 const getUserByEmail = (db, email) => {
