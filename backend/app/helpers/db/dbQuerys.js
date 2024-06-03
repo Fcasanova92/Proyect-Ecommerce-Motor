@@ -3,7 +3,7 @@
 export const getUserByEmail = async (db, email) => {
    
     try {
-        const result = await db.query('SELECT * FROM users WHERE email = ?', [email]);
+        const result = db.query('SELECT * FROM users WHERE email = ?', [email]);
         return result;
 
     } catch (error) {
@@ -15,7 +15,7 @@ export const registerUser = async (db, data)=>{
 
     const { nombre, apellido, email, password } = data
 
-    const result = await db.query('INSERT INTO users (nombre, apellido, email, password) VALUES (?, ?, ?, ?)', [nombre, apellido, email, password]);
+    const result = db.query('INSERT INTO users (nombre, apellido, email, password) VALUES (?, ?, ?, ?)', [nombre, apellido, email, password]);
 
     if (result.error) {
         throw new Error(`Error en la conexión a la base de datos: ${result.error}`);
