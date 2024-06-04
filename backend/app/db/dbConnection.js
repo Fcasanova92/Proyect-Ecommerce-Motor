@@ -36,7 +36,7 @@ export const dbConnection = () => {
             if (error) {
                 throw new Error('Error al conectar a la base de datos: ' + error);
             }
-            console.log(`Connected to ${database}`);
+            console.log(`Connected to database: ${database}`);
         });
         
     } catch (error) {
