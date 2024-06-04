@@ -23,22 +23,20 @@ export const dbConnection = () => {
                 throw Error('error al conectar la base de datos :' + error)
             }
         
-            console.log('Servidor de base de datos correctamente conectado')
+            console.log('Connected to database service')
         
         })
     
         conecction.query(`CREATE DATABASE IF NOT EXISTS \`${database}\``, (error) => {
             if (error) {
                 throw new Error('Error al crear la base de datos: ' + error);
-            }
-            console.log(`Base de datos '${database}' creada o ya existente`)})
+            }})
 
-    
          conecction.changeUser({ database }, (error) => {
             if (error) {
                 throw new Error('Error al conectar a la base de datos: ' + error);
             }
-            console.log(`Conexión exitosa a la base de datos: ${database}`);
+            console.log(`Connected to ${database}`);
         });
         
     } catch (error) {
