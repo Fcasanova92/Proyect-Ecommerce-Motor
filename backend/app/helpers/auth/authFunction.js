@@ -26,13 +26,12 @@ export const onRegister = async (data) => {
    
    
 export const onlogin = async (data) => {
+
        try {
            const { email, password } = data;
-   
-           const db = getConnection();
-   
-           const user = await getUserByEmail(db, email);
-   
+
+           const user = await getUserByEmail(email);
+        
            if (user) {
                if (password === user.password) {
                    return ({status:true, message:"Bienvenido"}); // Contraseña correcta

@@ -11,7 +11,7 @@ export const getUserByEmail = (email) => {
             return;
           }
     
-          connection.query('SELECT id FROM users WHERE email = ?', [email], (error, results) => {
+          connection.query('SELECT * FROM users WHERE email = ?', [email], (error, results) => {
             connection.release(); // Libera la conexión de vuelta al pool
     
             if (error) {

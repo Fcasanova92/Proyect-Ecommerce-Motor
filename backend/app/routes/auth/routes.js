@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { onRegister } from '../../helpers/auth/authFunction.js';
+import { onRegister, onlogin } from '../../helpers/auth/authFunction.js';
 
 export const router = Router();
 
@@ -27,6 +27,24 @@ router.post('/register', async function(req, res) {
   
 });
 // define the about route
-router.get('/login', function(req, res) {
-  res.send('login endpoint');
+router.post('/login', async function(req, res) {
+
+  try {
+
+    const data = req.body
+
+    const user = await onlogin(data)
+
+    if(user.status){
+      res.status(200).send(user.message)
+    }else{
+
+      res.status(401).send(user.message)
+    }
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  }
+  
 });
