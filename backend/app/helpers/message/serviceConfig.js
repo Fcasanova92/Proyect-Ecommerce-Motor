@@ -1,7 +1,7 @@
 import { config } from "dotenv";
+import nodemailer from 'nodemailer' 
 
 config()
-
 
 export const transporter = nodemailer.createTransport({
     service: 'gmail',
