@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { registerUser } from '../../helpers/db/dbQuerys.js';
+import { onRegister } from '../../helpers/auth/authFunction.js';
 
 export const router = Router();
 
@@ -7,14 +7,24 @@ export const router = Router();
 // define the home page route
 router.post('/register', async function(req, res) {
 
-  console.log(req.body)
-  const data = req.body
-  console.log(data)
-  const user = await registerUser(data)
-  if(user){
+  try {
 
-    res.send("usuario registrado")
+    const data = req.body
+
+    const user = await onRegister(data)
+
+    if(user.status){
+      res.status(200).send(user.message)
+    }else{
+
+      res.status(401).send(user.message)
+    }
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
   }
+  
 });
 // define the about route
 router.get('/login', function(req, res) {

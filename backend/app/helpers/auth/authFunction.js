@@ -1,20 +1,17 @@
 import { getUserByEmail, registerUser } from "../db/dbQuerys.js";
 
 export const onRegister = async (data) => {
-
-    const {nombre, apellido, email, password} = data
-    
-    const db = getConnection();
    
     try { 
    
-       const user = await getUserByEmail(db, email);
+       const user =  await getUserByEmail(data.email);
        
-       if (user) {
+       if (user !== undefined) {
            return ({status:false, message:'El usuario ya existe'});
        }
    
-       const register = await registerUser(db, data)
+       const register = await registerUser(data)
+
 
        if(register){
 
