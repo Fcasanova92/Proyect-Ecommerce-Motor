@@ -27,7 +27,7 @@ export const getUserByEmail = (email) => {
 
 export const registerUser = async (data)=>{
 
-    const { nombre, apellido, email, password } = data
+    const { name, surname, email, password } = data
 
     return new Promise((resolve, reject)=>{
 
@@ -37,7 +37,7 @@ export const registerUser = async (data)=>{
               return;
             }
       
-            connection.query('INSERT INTO users (nombre, apellido, email, password) VALUES (?, ?, ?, ?)', [nombre, apellido, email, password], (error, results) => {
+            connection.query('INSERT INTO users (nombre, apellido, email, password) VALUES (?, ?, ?, ?)', [name, surname, email, password], (error, results) => {
               connection.release(); // Libera la conexión de vuelta al pool
       
               if (error) {

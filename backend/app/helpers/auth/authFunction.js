@@ -7,11 +7,10 @@ export const onRegister = async (data) => {
        const user =  await getUserByEmail(data.email);
        
        if (user !== undefined) {
-           return ({status:false, message:'El usuario ya existe'});
+           return ({status:false, message:'Este correo electrónico ya está en uso'});
        }
    
        const register = await registerUser(data)
-
 
        if(register){
 

@@ -19,7 +19,7 @@ export const authValidateRegister = (event) => {
 
     const button = document.getElementById('send');
   
-    let dataInput = []
+    let dataInput = {}
   
     inputsArray.map((input)=>{
 
@@ -39,23 +39,22 @@ export const authValidateRegister = (event) => {
 
         const validate = Boolean(input.getAttribute('data-validate'))
 
-        dataInput.push(input.value)
+        dataInput[input.id] = input.value
 
         if (validate){
 
-          if (!dataInput.includes(input.value)){
+          if (!Object.values(dataInput).includes(input.value)){
 
               dataInput[input.id] = input.value 
           }}
+
     } })
 
-    if(dataInput.length === inputsArray.length){
+    if(Object.values(dataInput).length === inputsArray.length){
 
       button.innerHTML = '<span class="loader"></span> Enviando...'
    
       const response = sendRegister(dataInput)
-
-      console.log(response)
 
       response.then((res) => {
 
