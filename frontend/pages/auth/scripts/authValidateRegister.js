@@ -1,6 +1,6 @@
 import {errors} from '../../helpers/form/errors/errorTypes.js'
 import { setForm } from '../../helpers/form/setForm.js'
-import { loginWithRegister } from '../api/loginWithRegister.js'
+import { loginRedirect } from '../api/loginRedirect.js'
 import {sendRegister} from "../api/sendRegister.js"
 
 
@@ -52,7 +52,7 @@ export const authValidateRegister = (event) => {
 
     if(Object.values(dataInput).length === inputsArray.length){
 
-      button.innerHTML = '<span class="loader"></span> Enviando...'
+      button.innerHTML = '<span class="loader"></span> Register and Login...'
    
       const response = sendRegister(dataInput)
 
@@ -60,12 +60,7 @@ export const authValidateRegister = (event) => {
 
         if(res.status){
 
-          console.log(res.status)
-
-          button.innerHTML = '<i class="fa-solid fa-check"></i>'
-          button.style.backgroundColor ="green"
-
-          // loginWithRegister()
+          loginRedirect()
         
         }else{
 
@@ -73,12 +68,13 @@ export const authValidateRegister = (event) => {
 
           messageSendForm.innerHTML = res.message
           messageSendForm.style.display = "flex"
+          messageSendForm.style.color = "red"
           button.innerHTML = '<i class="fa-solid fa-x"></i>'
           setForm(inputsArray, messageSendForm, button)
         }
        }
         ).
-       catch(error => console.log(error))
+       catch(error => {throw new Error(error)})
     }
   }
   

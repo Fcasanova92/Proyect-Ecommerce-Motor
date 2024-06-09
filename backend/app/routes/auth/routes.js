@@ -37,10 +37,10 @@ router.post('/login', async function(req, res) {
     const user = await onlogin(data)
 
     if(user.status){
-      res.status(200).send(user.message)
+      res.status(200).json({message:user.message})
     }else{
 
-      res.status(401).send(user.message)
+      res.status(409).json({message:user.message})
     }
     
   } catch (error) {

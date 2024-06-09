@@ -1,6 +1,7 @@
 import {errors} from '../../helpers/form/errors/errorTypes.js'
 import { login } from '../api/login.js'
 import {setForm} from '../../helpers/form/setForm.js'
+import { loginRedirect } from '../api/loginRedirect.js'
 
 export const authValidateLogin = async (event) => {
 
@@ -16,7 +17,7 @@ export const authValidateLogin = async (event) => {
 
     const button = document.getElementById('send');
   
-    let dataInput = []
+    let dataInput = {}
   
     inputsArray.map((input)=>{
 
@@ -36,44 +37,35 @@ export const authValidateLogin = async (event) => {
 
         const validate = Boolean(input.getAttribute('data-validate'))
 
-        dataInput.push(input.value)
+        dataInput[input.id] = input.value
 
         if (validate){
 
-          if (!dataInput.includes(input.value)){
+          if (!Object.values(dataInput).includes(input.value)){
 
               dataInput[input.id] = input.value 
           }}
     } })
 
-    if(dataInput.length === inputsArray.length){
+    if(Object.values(dataInput).length === inputsArray.length){
 
-      button.innerHTML = '<span class="loader"></span> Enviando...'
+      button.innerHTML = '<span class="loader"></span> Login...'
 
-      const email = dataInput[0]
-      const password = dataInput[1]
+      const response = await login(dataInput)
 
-      login(email, password).then((res)=>{
+        if(response.status ){
+          loginRedirect()
 
-        console.log(res.status)
-
-        if(res.status === 200){
-
-          button.innerHTML = '<i class="fa-solid fa-check"></i>'
-          button.style.backgroundColor ="green"
-                 // Redirigir a la página de inicio
-          window.location.href = '../../index.html';
    
         }else{
 
          button.innerHTML = '<i class="fa-solid fa-x"></i>'
-         messageSendForm.innerHTML = res.message
+         messageSendForm.innerHTML = response.message
          messageSendForm.style.display = "flex"
+         messageSendForm.style.color = "red"
          setForm(inputsArray, messageSendForm, button)
         }
       
-   })
-      }
-
+   }
   }
   

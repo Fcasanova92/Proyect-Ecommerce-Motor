@@ -1,31 +1,26 @@
-import {users} from '../../../db/users.js'
 
-export const login = async (email, password) => {
+export const login = async (data) => {
 
     try{
-        const response =  await new Promise((resolve, reject) => {
 
-            users.map((user)=>{
+        const response =  await axios.post("http://127.0.0.1:3000/api/auth/login", data, {
 
-                setTimeout(() => {
+            'Content-Type': 'application/json'
+        })
 
-                    if(email === user.email && user.password === password){
-            
-                        sessionStorage.setItem('sesion', 'activa');
+        if (response.status >= 200 && response.status < 300){
+        
+            sessionStorage.setItem('sesion', 'activa');
                 
-                        resolve ({status:200, message:"Bienvenido a MotorShop"})
-                    }
+            return {status:true, message:"Bienvenido a MotorShop"}
+        }
+      
+          } catch (error) {
             
-                    reject({status:401, message:"Email o Password invalido"})
-                    
-                }, 3000)
+            if(error.response.status === 409){
 
-            })
-         })
-
-        return response
+                return {status:false, message:error.response.data.message}
+            }
+        }
     }
-    catch (error) {
-        return error;
-    }
-}
+        
