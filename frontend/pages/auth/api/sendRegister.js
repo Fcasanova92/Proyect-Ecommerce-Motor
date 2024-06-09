@@ -3,7 +3,7 @@ export const sendRegister = async (data) => {
 
       try{
 
-        const send = await axios.post('https://jsonplaceholder.typicode.com/posts', data, {
+        const response = await axios.post('http://127.0.0.1:3000/api/auth/register', data, {
         headers: {
   
           'Content-Type': 'application/json'
@@ -12,19 +12,22 @@ export const sendRegister = async (data) => {
   ,
       })
   
-      if (send.request.status >= 200 && send.request.status < 300){
+      if (response.status >= 200 && response.status < 300){
         
-        return {status:true}
+        return {status:true, message:response.data.message}
   
-      }else{
-  
-        return {status:true}
       }
-  
+      
       }catch(error){
   
-        return (`Error al enviar el formulario: ${error.message}`)
+        if (error.response) {
+   
+          if (error.response.status === 409) {
+    
+              return { status: false, message: error.response.data.message};
       }
 
-    }
+    }}
+
+  }
     

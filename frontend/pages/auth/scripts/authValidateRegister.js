@@ -60,12 +60,16 @@ export const authValidateRegister = (event) => {
 
         if(res.status){
 
+          console.log(res.status)
+
           button.innerHTML = '<i class="fa-solid fa-check"></i>'
           button.style.backgroundColor ="green"
 
-          loginWithRegister()
+          // loginWithRegister()
         
         }else{
+
+          console.log(res.status)
 
           messageSendForm.innerHTML = res.message
           messageSendForm.style.display = "flex"

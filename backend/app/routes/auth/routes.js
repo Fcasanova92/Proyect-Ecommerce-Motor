@@ -11,13 +11,17 @@ router.post('/register', async function(req, res) {
 
     const data = req.body
 
+
+
     const user = await onRegister(data)
 
+
     if(user.status){
+
       res.status(200).send(user.message)
     }else{
 
-      res.status(401).send(user.message)
+      res.status(409).send(user.message)
     }
     
   } catch (error) {
