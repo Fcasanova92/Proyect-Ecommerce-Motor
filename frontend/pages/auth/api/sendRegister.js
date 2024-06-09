@@ -1,13 +1,5 @@
-import {users} from '../../../db/users.js'
 
 export const sendRegister = async (data) => {
-
-  const email = data[2]
-
-  for (let i = 0; i < users.length; i++) {
-    const user = users[i];
-
-    if (user.email !== email){
 
       try{
 
@@ -26,7 +18,7 @@ export const sendRegister = async (data) => {
   
       }else{
   
-        throw new Error(`Error al enviar el formulario. Código de estado: ${response.status}`)
+        return {status:true}
       }
   
       }catch(error){
@@ -34,10 +26,5 @@ export const sendRegister = async (data) => {
         return (`Error al enviar el formulario: ${error.message}`)
       }
 
-    }else{
-
-      return {status:false, message: "El email se encuentra registrado"}
     }
     
-  }
-}
