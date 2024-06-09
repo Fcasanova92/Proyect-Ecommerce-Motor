@@ -11,9 +11,9 @@ try {
 
   const sendMessage = sendConsultation(req.body)
   if(sendMessage){
-    res.status(200).send('Consulta enviada')
+    res.status(200).json({message:'Consulta enviada'})
   }else{
-    res.status(401)('La consulta no fue enviada')
+    res.status(400)({message:'La consulta no fue enviada'})
   }
   
 } catch (error) {
