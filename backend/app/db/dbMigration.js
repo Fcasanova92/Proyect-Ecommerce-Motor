@@ -37,16 +37,16 @@ db.query(`CREATE TABLE IF NOT EXISTS users (
 });
 
 // Ejecutar la consulta para crear la tabla 'productos'
-db.query(`CREATE TABLE IF NOT EXISTS productos (
+db.query(`CREATE TABLE IF NOT EXISTS product (
     id INT AUTO_INCREMENT PRIMARY KEY,
     marca VARCHAR(255) NOT NULL,
     precio DECIMAL(10, 2) NOT NULL,
     cantidad INT NOT NULL,
-    category VARCHAR(50) NOT NULL,
-    FOREIGN KEY (category) REFERENCES category(id)
+    category_id INT NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES category(id)
 )`, (err) => {
   if (err) {
-    console.error('Error al crear la tabla "productos":', err);
+    console.error('Error al crear la tabla "product":', err);
     db.end()
     return;
   }
@@ -54,11 +54,12 @@ db.query(`CREATE TABLE IF NOT EXISTS productos (
 });
 
 db.query(`CREATE TABLE IF NOT EXISTS likes (
-  id INT NOT NULL,
-  product_id JSON NOT NULL,
-  FOREIGN KEY (product_id) REFERENCES productos(id),
-  FOREIGN KEY (id) REFERENCES users(id)
-)`, (err) => {
+  like_id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  product_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (product_id) REFERENCES product(id)
+);`, (err) => {
 if (err) {
   console.error('Error al crear la tabla "likes":', err);
   db.end()
