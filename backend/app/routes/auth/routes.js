@@ -51,9 +51,21 @@ router.post('/login', async function(req, res) {
   
 });
 
-router.post('/protected', validateToken, async function(req, res) { 
+router.get('/protected', validateToken, async function(req, res) { 
 
-  res.send(`Hola ${req.user.username}, tienes acceso a esta ruta protegida`)
+  try {
+
+    return res.status(200).json({username : req.user.username, surname:req.user.surname})
+    
+  } catch (error) {
+
+    console.log(error)
+
+    if(error.response.status === 403)
+
+    return res.status(403).json("dont token provider")
+    
+  }
   
 });
 

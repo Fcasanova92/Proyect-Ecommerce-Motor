@@ -1,45 +1,35 @@
-document.addEventListener("DOMContentLoaded", function checkedLogin(){
+import { loadUserComponent } from "../../components/user/loadUserComponent.js";
+import { loadUserinfo } from "../../components/user/loadUserInfo.js";
+import { preventBackNavigation } from "../helpers/preventBackNavigation.js";
+
+document.addEventListener("DOMContentLoaded", async function checkedLogin(){
     
     const user = document.querySelector("#user-session")
 
-    console.log(user)
+    const token = sessionStorage.getItem("token");
 
-    const sesion = sessionStorage.getItem("sesion");
+    try {
 
-    if (sesion) {
+        if(token){
 
-        window.history.replaceState(null, '', window.location.href);
+            const response = await axios.get("http://127.0.0.1:3000/api/auth/protected", {
 
-        window.history.pushState(null, '', window.location.href)
+                headers: {
+        
+                    'Authorization': `Bearer ${token}`
+                  }
+            })
+        
+            if (response.status === 200) {
+                preventBackNavigation()
+                await loadUserComponent(user)
+                loadUserinfo(response.data)          
+        }
+        
+        }} catch (error) {
 
-        // Escuchar eventos de popstate para prevenir la navegación hacia atrás
-        window.addEventListener('popstate', function() {
-            window.history.pushState(null, '', window.location.href);
-        });
+            console.error('Error durante la verificación del token:', error);
 
-        var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        var newNode = document.createElement('div')
-                        newNode.innerHTML = xhr.responseText
-                        user.parentNode.replaceChild( newNode, user);
-                    } else {
-                        console.error('Error al cargar el componente HTML');
-                    }
-                }
-            };
-            xhr.open('GET', './pages/components/loginComponent.html', true);
-            xhr.send();
+        }
 
-            const name = document.querySelector("#name")
-            const surname = document.querySelector("#surname")
-
-            name.innerHTML = "Fernando"
-            surname.innerHTML = "Casanova"
-
-}
-
-
-
-})
+        })

@@ -8,9 +8,11 @@ export const login = async (data) => {
             'Content-Type': 'application/json'
         })
 
+        const {token} = response.data
+
         if (response.status >= 200 && response.status < 300){
         
-            sessionStorage.setItem('sesion', 'activa');
+            sessionStorage.setItem('token', token);
                 
             return {status:true, message:"Bienvenido a MotorShop"}
         }

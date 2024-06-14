@@ -19,7 +19,8 @@ export const validateToken = (req, res, next) => {
     
     try {
       const decoded = jwt.verify(token, process.env.SECRET_KEY);
-      req.user = { username: decoded.username }; // Extrae el nombre de usuario
+      console.log(decoded)
+      req.user = { username: decoded.name , surname:decoded.surname}; // Extrae el nombre de usuario
       next();
     } catch (err) {
       return res.status(403).json({ message: 'Token no válido' });
