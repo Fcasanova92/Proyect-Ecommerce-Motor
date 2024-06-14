@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { onRegister, onlogin } from '../../helpers/auth/authFunction.js';
+import { validateToken } from '../../helpers/auth/jwt/middleware/validateToken.js';
 
 export const router = Router();
 
@@ -34,13 +35,13 @@ router.post('/login', async function(req, res) {
 
     const data = req.body
 
-    const user = await onlogin(data)
+    const {status, message, token} = await onlogin(data)
 
-    if(user.status){
-      res.status(200).json({message:user.message})
+    if(status){
+      res.status(200).json({token})
     }else{
 
-      res.status(409).json({message:user.message})
+      res.status(409).json({message})
     }
     
   } catch (error) {
@@ -49,3 +50,10 @@ router.post('/login', async function(req, res) {
   }
   
 });
+
+router.post('/protected', validateToken, async function(req, res) { 
+
+  res.send(`Hola ${req.user.username}, tienes acceso a esta ruta protegida`)
+  
+});
+

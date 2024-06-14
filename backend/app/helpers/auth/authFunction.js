@@ -1,4 +1,5 @@
 import { getUserByEmail, registerUser } from "../db/dbQuerys.js";
+import { createToken } from "./jwt/createToken.js";
 
 export const onRegister = async (data) => {
    
@@ -34,7 +35,10 @@ export const onlogin = async (data) => {
         
            if (user) {
                if (password === user.password) {
-                   return ({status:true, message:"Bienvenido"}); // Contraseña correcta
+                    
+                    const token = createToken(user.nombre)
+
+                   return ({status:true, token}); // Contraseña correcta
                } else {
                    return({status:false, message:"Contraseña incorrecta"});
                }
