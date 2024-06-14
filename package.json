@@ -21,5 +21,8 @@
     "dotenv": "^16.4.5",
     "nodemailer": "^6.9.13",
     "require": "^2.4.20"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
   }
 }
