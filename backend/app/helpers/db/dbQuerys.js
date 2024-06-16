@@ -51,4 +51,42 @@ export const registerUser = async (data)=>{
         });
 
     }
+    //Traer todos los produtos
+    export const getAllItems = async () => {
+      return new Promise((resolve,reject) => {
+        pool.getConnection((error,connection) => {
+          if(error){
+            reject(new Error(`Error en la conexión: ${error.message}`));
+            return;
+          }
+          connection.query('SELECT * FROM product', (error,results) => {
+            connection.release();
+            if(error){
+              reject(new Error("Error en la consulta: " + error.message));
+              return;
+            }
+            resolve(results);
+          });
+        });
+      });
+    }
+    //Traer solo los productos segun el filtro
+    export const getItemsByFilter = async (brand,capacity,color,price) => {
+      return new Promise((resolve,reject)=>{
+        pool.getConnection((error,connection)=>{
+          if(error){
+            reject(new Error(`Error en la conexión: ${error.message}`));
+            return;
+          }
+          connection.query('SELECT * FROM product WHERE (marca, cilindrada, color, precio) VALUES (?, ?, ?, ?)', [brand, capacity, color, price],(error,results) => {
+            connection.release();
+            if(error){
+              reject(new Error("Error en la consulta: " + error.message));
+              return;
+            }
+            resolve(results);
+          });
+        });
+      }); 
+    }
 

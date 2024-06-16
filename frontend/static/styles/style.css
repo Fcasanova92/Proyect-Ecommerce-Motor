@@ -129,6 +129,25 @@ html {
     letter-spacing: 0.4px;
 }
 
+.like, .see {
+    color: #8d8d8d;
+    font-size: 1rem;
+    letter-spacing: 0.4px;
+}
+
+.price > .title {
+    color: #8d8d8d;
+    font-weight: 700;
+    font-size: 0.86rem;
+    letter-spacing: 0.6px;
+}
+
+.price > .amount {
+    color: #7CB342;
+    font-weight: 300;
+    font-size: 0.76rem;
+}
+
 input, label, .trigger-a, .trigger-b {
     color: #2e2e2e;
     font-size: 0.8rem;
@@ -287,6 +306,19 @@ input[type="text"]:focus {
     width: 92%;
 }
 
+.like, .see {
+    cursor: pointer;
+    transition: color 600ms;
+}
+
+.like:hover {
+    color: #E53935;
+}
+
+.see:hover {
+    color: #3044b5;
+}
+
 /* <<-------------------------------------------- Formularios -------------------------------------------->> */
 
 form .message {
@@ -438,10 +470,14 @@ form .message {
     justify-content: right;
 }
 
-#primary > .menu > li{
+#primary > .menu > li {
     min-width: 22%;
     margin-left: 0.8rem;
     text-align: center;
+}
+
+#primary > .menu > li.sub-menu {
+    position: relative;
 }
 
 #primary > i {
@@ -449,6 +485,32 @@ form .message {
     font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: 16px;
+}
+
+#secondary {
+    top: 2rem;
+    left: 0rem;
+    width: calc(100% + 0.8rem);
+    position: absolute;
+    background-color: #323232;
+}
+
+#secondary > .menu {
+    height: 0px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    transition: height ease-in-out 300ms;
+}
+
+#primary > .menu > li.sub-menu:hover > #secondary > .menu{
+    height: 100%;
+}
+
+#secondary > .menu > li{
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid #181818;
 }
 
 /* <<--------------------------------------------- Grillas ----------------------------------------------->> */
@@ -489,6 +551,18 @@ form .message {
     transition: box-shadow ease-in-out 300ms, transform ease-in-out 300ms;
 }
 
+.card.full-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding: 0.8rem;
+}
+
+.card.full-view > * {
+    flex: 0 1 calc(50% - 0.8rem);
+}
+
 .card > .supporting-text {
     display: flex;
     flex-direction: column;
@@ -501,6 +575,27 @@ form .message {
     padding-bottom: 0.2rem;
 }
 
+.card > .supporting-text > .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card > .supporting-text > .footer > .price  {
+    display: flex;
+    gap: 0.2rem;
+    align-items: flex-end;
+}
+
+.card > .supporting-text > .footer > .actions  {
+    display: flex;
+    gap: 0.2rem;
+    justify-content: space-between;
+}
+
+.card.full-view > .supporting-text > .footer {
+    margin-top: auto;
+}
 
 /* <<---------------------------------------------- Header ----------------------------------------------->> */
 
@@ -829,6 +924,14 @@ header, section {
     #login, #register {
         width: 80%;
     }
+
+    footer {
+        flex-wrap: wrap;
+    }
+
+    footer > .data-fiscal {
+        flex: 0 1 100%;
+    }
 }
 
 /* Moviles */
@@ -860,6 +963,10 @@ header, section {
         flex-direction: row;
         justify-content: space-between;
     }
+    
+    .card.full-view > * {
+        flex: 0 1 100%;
+    }
 
     #products > #viewer > #card-wrapper > .card > .media {
         height: 8rem;
@@ -873,5 +980,9 @@ header, section {
 
     #login, #register {
         width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
     }
 }

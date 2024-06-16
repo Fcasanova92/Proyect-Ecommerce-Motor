@@ -43,6 +43,16 @@ export const addCard = (parent,data) => {
     addNode(supportingText, 'h3', {class:'title-c'}).textContent = data.brand;
     addNode(supportingText, 'p', {class:'caption'}).textContent = `${data.type} | ${data.capacity}cc | ${data.color}`;
     addNode(supportingText, 'p', {class:'body-b'}).textContent = data.description;
+    const footer = addNode(supportingText, 'div', {class : 'footer'});
+    const price = addNode(footer, 'div', {class : 'price'});
+    addNode(price,'h4',{class:'title'}).textContent = 'Precio: ';
+    addNode(price,'span', {class:'amount'}).textContent = data.price;
+    const actions = addNode(footer, 'ul', {class:'actions'});
+    const see = addNode(actions, 'a', {class:'see', href:'pages/viewitem.html'});
+    addNode(see,'i', {class:'fa-regular fa-eye '});
+    const like = addNode(actions, 'a', {class:'like', href:'#'});
+    addNode(like,'i', {class:'fa-regular fa-heart'});
+
 }
 
 //Agrega un nodos carta con información al padre 
