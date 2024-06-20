@@ -1,74 +1,106 @@
-import {errors} from './errors/errorTypes.js'
+import { errors } from "./errors/errorTypes.js"
 
-import { sendForm } from './api/sendForm.js'
-
-import {setForm} from './setForm.js'
 
 export const validateForm = (event) => {
 
     event.preventDefault()
 
-    const {empty} = errors
-  
-    const inputs = document.querySelectorAll("input[type='text'][data-form='contacto']")
-  
-    const inputsArray = Array.from(inputs)
+    const formType = event.target.getAttribute("data-id")
 
-    const messageSendForm = document.querySelector("label[for=send]")
+    const inputsArray = Array.from(document.querySelectorAll(`input[type='text'][data-form='${formType}']`))
 
-    const button = document.getElementById('send');
+    fieldRequiredOnClick(inputsArray)
+
+    const data = getValidateDataForm(inputsArray)
+
+    if(data){
+
+      console.log(data)
+
+      return data
+    }
+   
+  }
+
+export const getValidateDataForm = (inputsArray) => {
   
-    let dataInput = []
+    let dataInput = {}
   
     inputsArray.map((input)=>{
 
-      const alertValidate = document.querySelector(`label[for=${input.id}]`)
+      const validateInput = JSON.parse(input.getAttribute('data-validate'))
   
-      if (input.value.length === 0){
-  
-        input.style.borderColor = "#EF5350"
+      if (validateInput){
 
-        alertValidate.innerHTML = empty
-
-        alertValidate.style.color = "#EF5350"
-
-        alertValidate.style.display = 'flex'
-
-      }else{
-
-        const validate = Boolean(input.getAttribute('data-validate'))
-
-        dataInput.push(input.value)
-
-        if (validate){
-
-          if (!dataInput.includes(input.value)){
-
-              dataInput[input.id] = input.value 
-          }}
-    } })
-
-    if(dataInput.length === inputsArray.length){
-
-      button.innerHTML = '<span class="loader"></span> Enviando...'
-   
-      const response = sendForm(dataInput)
-
-      response.then((res) => {
-
-        if(res.status){
-
-          messageSendForm.innerHTML = res.message
-          messageSendForm.style.display = "flex";
-          messageSendForm.style.color = "green";
-          button.innerHTML = "Enviado"
-          setForm(inputsArray, messageSendForm, button)
+        dataInput[input.id] = input.value 
        
-        }
-       }
-        ).
-       catch(error => console.log(error))
+      }
+    })
+
+    
+    if(Object.values(dataInput).length === inputsArray.length){
+
+      return dataInput
     }
-  }
+}
+
+
+export const fieldRequiredOnClick = (inputsArray) => {
+
+  const {empty} = errors
+
+  inputsArray.map((input)=>{
+
+    const {id, value} = input
+
+    console.log(id, value)
+
+    const alertValidate = document.querySelector(`label[for=${id}]`)
+
+    if (value.length === 0){
+
+      input.style.borderColor = "#EF5350"
+
+      input.setAttribute('data-validate', 'false');
+
+      alertValidate.innerHTML = empty
+
+      alertValidate.style.color = "#EF5350"
+
+      alertValidate.style.display = 'flex'
+     
+    }
+  })
+
+}
+
+  
+
+
+  // const messageSendForm = document.querySelector("label[for=send]")
+
+  // const button = document.getElementById('send');
+
+  // if(dataInput.length === inputsArray.length){
+
+  //   button.innerHTML = '<span class="loader"></span> Enviando...'
+ 
+  //   const response = sendForm(dataInput)
+
+  //   response.then((res) => {
+
+  //     if(res.status){
+
+  //       messageSendForm.innerHTML = res.message
+  //       messageSendForm.style.display = "flex";
+  //       messageSendForm.style.color = "green";
+  //       button.innerHTML = "Enviado"
+  //       setForm(inputsArray, messageSendForm, button)
+     
+  //     }
+  //    }
+  //     ).
+  //    catch(error => console.log(error))
+  // }
   
   

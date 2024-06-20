@@ -240,16 +240,16 @@
                     <i class="fa-solid fa-comments"></i>
                 </div>
                 <label class="message" for="name" >asd</label>
-                <input id="name" type="text" oninput="validateInput(event)" placeholder="Nombre..." data-validate="false" data-form="contacto">
+                <input id="name" type="text" oninput="validateInput(event)" placeholder="Nombre..." data-validate="false" data-form="contact">
                 <label class="message" for="surname"></label>
-                <input id="surname" type="text" oninput="validateInput(event)"  placeholder="Apellido..." data-validate="false" data-form="contacto">
+                <input id="surname" type="text" oninput="validateInput(event)"  placeholder="Apellido..." data-validate="false" data-form="contact">
                 <label class="message" for="telephone"></label>
-                <input id="telephone" type="text" oninput="validateInput(event)" placeholder="Telefono" data-validate="false" data-form="contacto">
+                <input id="telephone" type="text" oninput="validateInput(event)" placeholder="Telefono" data-validate="false" data-form="contact">
                 <label class="message" for="email"></label>
-                <input id="email" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="contacto">
+                <input id="email" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="contact">
                 <label class="message" for="consulta"></label>
-                <input id="consulta" type="text" placeholder="Consulta..." oninput="validateInput(event)" data-validate="false" data-form="contacto">
-                <button id="send" class="trigger-a" type="submit" onclick="validateForm(event)">Enviar</button>
+                <input id="consulta" type="text" placeholder="Consulta..." oninput="validateInput(event)" data-validate="false" data-form="contact">
+                <button id="send" class="trigger-a" type="submit" data-id="contact" onclick="validateForm(event)">Enviar</button>
                 <label class="message" for="send"></label>
             </form>
         </section>
