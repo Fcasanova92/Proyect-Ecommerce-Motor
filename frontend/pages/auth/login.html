@@ -40,7 +40,7 @@
                     <input id="password" type="password" oninput="validateInput(event)" placeholder="Password" data-validate="false" data-form="login">
                     <i id="eye" class="fa-regular fa-eye-slash trigger-b" onclick="passwordVisuality(event)"></i>
                 </div>
-                <button id="send" class="trigger-a" type="submit" onclick="authValidateLogin(event)">Enviar</button>
+                <button id="send" class="trigger-a" type="submit" onclick="authValidateAndRedirect(event)">Enviar</button>
                 <a class="link-c" href="./register.html">No tienes cuenta? Registrate Aqui</a>
                 <label class="message" for="send"></label>
             </form>
@@ -91,10 +91,10 @@
     </footer>
     <script type="module">
         import {validateInput} from "../helpers/form/validateInput.js"
-        import {authValidateLogin} from  "../auth/scripts/authValidateLogin.js"
+        import {authValidateAndRedirect} from  "../auth/scripts/authValidateAndRedirect.js"
         import {passwordVisuality} from "./helpers/passwordVisuality.js"
         window.validateInput = validateInput;
-        window.authValidateLogin = authValidateLogin;
+        window.authValidateAndRedirect = authValidateAndRedirect;
         window.passwordVisuality = passwordVisuality
     </script>
 </body>

@@ -249,7 +249,7 @@
                 <input id="email" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="contact">
                 <label class="message" for="consulta"></label>
                 <input id="consulta" type="text" placeholder="Consulta..." oninput="validateInput(event)" data-validate="false" data-form="contact">
-                <button id="send" class="trigger-a" type="submit" data-id="contact" onclick="validateForm(event)">Enviar</button>
+                <button id="send" class="trigger-a" type="submit" data-id="contact" onclick="sendMessageEmail(event)">Enviar</button>
                 <label class="message" for="send"></label>
             </form>
         </section>
@@ -362,12 +362,12 @@
     <script type="module">
         import { init, hide } from './pages/helpers/product/dataDisplayer.js';
         import {validateInput} from "./pages/helpers/form/validateInput.js"
-        import {validateForm} from  "./pages/helpers/form/validateForm.js"
+        import {sendMessageEmail} from  "./service/email/sendMessageEmail.js"
         import {logout} from "./pages/auth/api/logout.js"
 
     
         window.validateInput = validateInput;
-        window.validateForm = validateForm;
+        window.sendMessageEmail = sendMessageEmail;
         window.logout = logout
         window.hide = hide;
         init();

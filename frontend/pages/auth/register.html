@@ -46,7 +46,7 @@
                 </div>
                 <input id="condition" type="checkbox">
                 <label class="with-check-icon" for="condition">Acepto terminos y condiciones</label>
-                <button id="send" class="trigger-a" type="submit" onclick="authValidateRegister(event)">Enviar</button>
+                <button id="send" class="trigger-a" type="submit" onclick="authValidateAndRedirect(event)">Enviar</button>
                 <label class="message" for="send"></label>
                 <a class="link-c" href="./login.html">Tienes cuenta? Inicia sesion aquí</a>
             </form>
@@ -97,10 +97,10 @@
     </footer>
     <script type="module">
         import {validateInput} from "../helpers/form/validateInput.js"
-        import {authValidateRegister} from  "../auth/scripts/authValidateRegister.js"
+        import {authValidateAndRedirect} from  "../auth/scripts/authValidateAndRedirect.js"
         import {passwordVisuality} from "./helpers/passwordVisuality.js"
         window.validateInput = validateInput;
-        window.authValidateRegister = authValidateRegister;
+        window.authValidateAndRedirect = authValidateAndRedirect;
         window.passwordVisuality = passwordVisuality
     </script>
   

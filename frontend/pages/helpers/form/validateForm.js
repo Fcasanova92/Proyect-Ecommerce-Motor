@@ -15,9 +15,7 @@ export const validateForm = (event) => {
 
     if(data){
 
-      console.log(data)
-
-      return data
+      return {data, type:formType, inputsArray}
     }
    
   }
