@@ -44,7 +44,7 @@ export const handleAuthentication = async (formData)=> {
 
           const fieldIdError = response.id
   
-          handleAuthenticationError(inputsArray, message, fieldIdError, type, button)
+          handleAuthenticationError( message, fieldIdError, type, button)
 
         }
       }, 3000);

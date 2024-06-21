@@ -1,5 +1,5 @@
-import {regexTypes} from './regex/regexTypes.js';
-import {errors} from './errors/errorTypes.js';
+import {regexTypes} from '../regex/regexTypes.js';
+import {errors} from '../errors/errorTypes.js';
 import {validateAndStyleField} from './validateAndStyleField.js';
 
 export const validateInput = ({ target }) => {

@@ -1,4 +1,4 @@
-export const handleAuthenticationError = (inputsArray, message, id, type, button) => {
+export const handleAuthenticationError = (message, id, type, button) => {
 
     const errorMessageLabel = document.querySelector("label[for=send]");
 

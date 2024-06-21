@@ -1,4 +1,4 @@
-import {regexValidate} from './regex/regexValidate.js'
+import {regexValidate} from '../regex/regexValidate.js'
 
 export const validateAndStyleField = (regex, value, error, alertValidate, inputSelected, empty) => {
   if (value.length === 0) {

@@ -1,5 +1,5 @@
 
-export const sendRegister = async (data) => {
+export const register = async (data) => {
 
       try{
 
