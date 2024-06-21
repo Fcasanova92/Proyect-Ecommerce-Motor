@@ -32,8 +32,6 @@ export const handleAuthentication = async (formData)=> {
       setTimeout(async () => {
 
         button.disabled = true
-
-        console.log(response)
         
         if(response.status ){
           loginRedirect()
@@ -41,6 +39,7 @@ export const handleAuthentication = async (formData)=> {
    
         }else{
 
+          
           const message = response.message
 
           const fieldIdError = response.id

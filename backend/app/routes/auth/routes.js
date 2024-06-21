@@ -12,14 +12,14 @@ router.post('/register', async function(req, res) {
 
     const data = req.body
 
-    const user = await onRegister(data)
+    const {status, message, token, id} = await onRegister(data)
 
-    if(user.status){
+    if(status){
 
-      res.status(200).json({message:user.message})
+      res.status(200).json({token:token, message:message})
     }else{
 
-      res.status(409).json({message:user.message})
+      res.status(409).json({id:id, message:message})
     }
     
   } catch (error) {
@@ -35,13 +35,13 @@ router.post('/login', async function(req, res) {
 
     const data = req.body
 
-    const {status, message, token} = await onlogin(data)
+    const {status, message, token, id} = await onlogin(data)
 
     if(status){
-      res.status(200).json({token})
+      res.status(200).json({token:token, message:message})
     }else{
 
-      res.status(409).json({message})
+      res.status(409).json({id:id, message:message})
     }
     
   } catch (error) {
@@ -58,8 +58,6 @@ router.get('/protected', validateToken, async function(req, res) {
     return res.status(200).json({username : req.user.username, surname:req.user.surname})
     
   } catch (error) {
-
-    console.log(error)
 
     if(error.response.status === 403)
 

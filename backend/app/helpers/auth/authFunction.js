@@ -2,6 +2,8 @@ import { getUserByEmail, registerUser } from "../db/dbQuerys.js";
 import { createToken } from "./jwt/createToken.js";
 
 export const onRegister = async (data) => {
+
+    console.log(data)
    
     try { 
    
@@ -9,14 +11,16 @@ export const onRegister = async (data) => {
        
        if (user !== undefined) {
      
-           return ({status:false, message:'Este correo electrónico ya está en uso'});
+           return ({status:false,  id:"email", message:'Este correo electrónico ya está en uso'});
        }
    
        const register = await registerUser(data)
 
        if(register){
 
-        return({status:true, message:"Usuario registrado"})
+        const token = createToken(data.name, data.surname)
+
+        return({status:true, token:token, message:"Usuario registrado"})
 
        }
        
@@ -40,10 +44,10 @@ export const onlogin = async (data) => {
 
                    return ({status:true, token}); // Contraseña correcta
                } else {
-                   return({status:false, message:"Contraseña incorrecta"});
+                   return({status:false, id:"password", message:"Contraseña incorrecta"});
                }
            } else {
-               return({status:false, message:"Email incorrecto"});
+               return({status:false, id:"email", message:"Email incorrecto"});
            }
        } catch (error) {
            throw new Error("Error en el logeo: " + error.message);

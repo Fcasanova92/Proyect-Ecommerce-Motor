@@ -11,20 +11,25 @@ export const sendRegister = async (data) => {
         }
   ,
       })
+
+      const {token, message} = response.data
   
       if (response.status >= 200 && response.status < 300){
+
+        sessionStorage.setItem("token", token)
         
-        return {status:true, message:response.data.message}
+        return {status:true, message}
   
       }
       
       }catch(error){
   
         if (error.response) {
+
    
           if (error.response.status === 409) {
     
-              return { status: false, message: error.response.data.message};
+              return { status: false, id: error.response.data.id , message: error.response.data.message};
       }
 
     }}

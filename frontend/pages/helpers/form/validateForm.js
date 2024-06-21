@@ -7,13 +7,15 @@ export const validateForm = (event) => {
 
     const formType = event.target.getAttribute("data-id")
 
-    const inputsArray = Array.from(document.querySelectorAll(`input[type='text'][data-form='${formType}']`))
+    const inputsArray = Array.from(document.querySelectorAll(`[data-form='${formType}']`))
+
 
     fieldRequiredOnClick(inputsArray)
 
     const data = getValidateDataForm(inputsArray)
 
     if(data){
+
 
       return {data, type:formType, inputsArray}
     }
@@ -72,33 +74,4 @@ export const fieldRequiredOnClick = (inputsArray) => {
 
 }
 
-  
-
-
-  // const messageSendForm = document.querySelector("label[for=send]")
-
-  // const button = document.getElementById('send');
-
-  // if(dataInput.length === inputsArray.length){
-
-  //   button.innerHTML = '<span class="loader"></span> Enviando...'
- 
-  //   const response = sendForm(dataInput)
-
-  //   response.then((res) => {
-
-  //     if(res.status){
-
-  //       messageSendForm.innerHTML = res.message
-  //       messageSendForm.style.display = "flex";
-  //       messageSendForm.style.color = "green";
-  //       button.innerHTML = "Enviado"
-  //       setForm(inputsArray, messageSendForm, button)
-     
-  //     }
-  //    }
-  //     ).
-  //    catch(error => console.log(error))
-  // }
-  
   

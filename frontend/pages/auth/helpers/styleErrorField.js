@@ -4,26 +4,22 @@ export const handleAuthenticationError = (inputsArray, message, id, type, button
 
     button.innerHTML = (type === "login") ? "Login" : "Register";
 
+    const inputError = document.getElementById(`${id}`)
+
     button.disabled = false;
 
-    inputsArray.forEach(input => {
+    inputError.style.borderColor = "#EF5350";
 
-        console.log(id, input.id)
+    errorMessageLabel.style.display = (inputError.id === `${id}`) ? "flex": "none";
 
-        input.style.borderColor = (input.id === `${id}`) ? "#EF5350": "none";
+    errorMessageLabel.innerHTML =  message;
 
-        errorMessageLabel.style.display = (input.id === `${id}`) ? "none": "flex";
+    errorMessageLabel.style.color = "red";
 
-        errorMessageLabel.innerHTML =  message;
+    setTimeout(() => {
 
-        errorMessageLabel.style.color = "red";
-
-        setTimeout(() => {
-
-            errorMessageLabel.style.display = (input.id === `${id}`) ? "flex": "none";
+            errorMessageLabel.style.display = (inputError.id === `${id}`) ? "none": "flex";
             
         }, 2500);
-    });
 
-    
-}
+};
