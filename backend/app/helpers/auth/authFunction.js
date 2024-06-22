@@ -2,8 +2,6 @@ import { getUserByEmail, registerUser } from "../db/dbQuerys.js";
 import { createToken } from "./jwt/createToken.js";
 
 export const onRegister = async (data) => {
-
-    console.log(data)
    
     try { 
    

@@ -19,7 +19,7 @@ export const login = async (data) => {
       
           } catch (error) {
             
-            if(error.response.status === 409){
+            if(error.response.status === 401){
 
                 return {status:false, id:error.response.data.id , message:error.response.data.message}
             }

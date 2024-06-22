@@ -1,9 +1,9 @@
 
 import { login } from '../api/login.js'
-import { loginRedirect } from '../api/loginRedirect.js'
+import {loginRedirect} from '../helpers/loginRedirect.js'
 import { validateForm } from '../../helpers/form/validateForm.js'
-import {sendRegister} from '../api/sendRegister.js'
-import { handleAuthenticationError } from '../helpers/styleErrorField.js'
+import {register} from '../api/register.js'
+import {styleErrorField} from '../helpers/styleErrorField.js'
 
 export const authValidateAndRedirect = async (event) => {
 
@@ -19,7 +19,7 @@ export const authValidateAndRedirect = async (event) => {
 
 export const handleAuthentication = async (formData)=> {
 
-    const {data, type, inputsArray} = formData
+    const {data, type} = formData
 
     const button = document.getElementById("send")
   
@@ -27,7 +27,7 @@ export const handleAuthentication = async (formData)=> {
 
     try {
 
-      const response = (type === "login") ? await login(data) : await sendRegister(data)
+      const response = (type === "login") ? await login(data) : await register(data)
 
       setTimeout(async () => {
 
@@ -44,7 +44,7 @@ export const handleAuthentication = async (formData)=> {
 
           const fieldIdError = response.id
   
-          handleAuthenticationError( message, fieldIdError, type, button)
+          styleErrorField( message, fieldIdError, type, button)
 
         }
       }, 3000);

@@ -1,6 +1,6 @@
 import { loadUserComponent } from "../../components/user/loadUserComponent.js";
 import { loadUserinfo } from "../../components/user/loadUserInfo.js";
-import { preventBackNavigation } from "../helpers/preventBackNavigation.js";
+
 
 document.addEventListener("DOMContentLoaded", async function checkedLogin(){
     
@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", async function checkedLogin(){
             })
         
             if (response.status === 200) {
-                preventBackNavigation()
                 await loadUserComponent(user)
                 loadUserinfo(response.data)          
         }

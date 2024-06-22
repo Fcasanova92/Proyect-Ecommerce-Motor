@@ -6,7 +6,8 @@
     <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./static/styles/style.css">
-    <script type="module" src="./pages/auth/api/stateLogin.js"></script>
+    <script type="module" src="./pages/auth/api/checkedLogin.js"></script>
+    <script type="module" src="./pages/auth/helpers/preventBackNavigation.js"></script>
     <title>Motorshop</title>
     <link rel="icon" type="image/x-icon" href="./static/img/favicon/favicon.ico">
 </head>
@@ -361,9 +362,9 @@
     <a href="./auth/db/userMethods.js"></a>
     <script type="module">
         import { init, hide } from './pages/helpers/product/dataDisplayer.js';
-        import {validateInput} from "./pages/helpers/form/validateInput.js"
+        import {validateInput} from "./pages/helpers/form/utilities/validateInput.js"
         import {sendMessageEmail} from  "./service/email/sendMessageEmail.js"
-        import {logout} from "./pages/auth/api/logout.js"
+        import {logout} from "./pages/auth/helpers/logout.js"
 
     
         window.validateInput = validateInput;

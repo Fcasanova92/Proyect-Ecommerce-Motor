@@ -19,11 +19,11 @@ router.post('/register', async function(req, res) {
       res.status(200).json({token:token, message:message})
     }else{
 
-      res.status(409).json({id:id, message:message})
+      res.status(401).json({id:id, message:message})
     }
     
   } catch (error) {
-    console.error(error);
+
     res.status(500).json({ message: error.message });
   }
   
@@ -41,11 +41,11 @@ router.post('/login', async function(req, res) {
       res.status(200).json({token:token, message:message})
     }else{
 
-      res.status(409).json({id:id, message:message})
+      res.status(401).json({id:id, message:message})
     }
     
   } catch (error) {
-    console.error(error);
+
     res.status(500).json({ message: error.message });
   }
   

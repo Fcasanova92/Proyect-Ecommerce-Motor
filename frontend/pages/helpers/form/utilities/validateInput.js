@@ -1,6 +1,7 @@
 import {regexTypes} from '../regex/regexTypes.js';
 import {errors} from '../errors/errorTypes.js';
-import {validateAndStyleField} from './validateAndStyleField.js';
+import { handleAuthenticationError } from './validateAndStyleField.js';
+
 
 export const validateInput = ({ target }) => {
   const { id, value } = target;
@@ -21,6 +22,6 @@ export const validateInput = ({ target }) => {
 
   const { regex, error } = config[id] || {};
   if (regex) {
-      validateAndStyleField(regex, value, error, alertValidate, inputSelected, empty);
+      handleAuthenticationError(regex, value, error, alertValidate, inputSelected, empty);
   }
 }

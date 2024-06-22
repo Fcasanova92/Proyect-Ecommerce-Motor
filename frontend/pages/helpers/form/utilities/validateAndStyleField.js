@@ -1,6 +1,6 @@
 import {regexValidate} from '../regex/regexValidate.js'
 
-export const validateAndStyleField = (regex, value, error, alertValidate, inputSelected, empty) => {
+export const handleAuthenticationError = (regex, value, error, alertValidate, inputSelected, empty) => {
   if (value.length === 0) {
       showValidationError(inputSelected, alertValidate, empty, "#EF5350");
   } else if (regexValidate(regex, value)) {
