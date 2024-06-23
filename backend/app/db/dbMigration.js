@@ -39,11 +39,16 @@ db.query(`CREATE TABLE IF NOT EXISTS users (
 // Ejecutar la consulta para crear la tabla 'productos'
 db.query(`CREATE TABLE IF NOT EXISTS product (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    marca VARCHAR(255) NOT NULL,
-    precio DECIMAL(10, 2) NOT NULL,
-    cantidad INT NOT NULL,
-    category_id INT NOT NULL,
-    FOREIGN KEY (category_id) REFERENCES category(id)
+    sku VARCHAR(30) UNIQUE NOT NULL,
+    isNews BOOLEAN,
+    brand VARCHAR(255),
+    capacity INT NOT NULL,
+    color VARCHAR(15) NOT NULL,
+    thumbnail VARCHAR(200),
+    description VARCHAR (80),
+    price INT NOT NULL,
+    type INT NOT NULL,
+    FOREIGN KEY (type) REFERENCES category(id)
 )`, (err) => {
   if (err) {
     console.error('Error al crear la tabla "product":', err);
