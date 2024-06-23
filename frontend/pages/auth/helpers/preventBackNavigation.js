@@ -13,12 +13,6 @@ const preventBackNavigation = (token) => {
         window.addEventListener('popstate', function() {
 
             window.history.pushState(null, '', window.location.href);
-        });
-
-        window.addEventListener('keydown', function(e) {
-            if (e.key === 'Backspace' || e.key === 'ArrowLeft') {
-                e.preventDefault();
-            }
-        });   
+        }); 
         };
     }
