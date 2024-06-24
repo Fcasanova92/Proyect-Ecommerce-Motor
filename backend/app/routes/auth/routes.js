@@ -16,15 +16,15 @@ router.post('/register', async function(req, res) {
 
     if(status){
 
-      res.status(200).json({token:token, message:message})
+      return res.status(200).json({token:token, message:message})
     }else{
 
-      res.status(401).json({id:id, message:message})
+      return res.status(401).json({id:id, message:message})
     }
     
   } catch (error) {
 
-    res.status(500).json({ message: error.message });
+    return res.status(500).json({ message: error.message });
   }
   
 });
@@ -38,15 +38,15 @@ router.post('/login', async function(req, res) {
     const {status, message, token, id} = await onlogin(data)
 
     if(status){
-      res.status(200).json({token:token, message:message})
+      return res.status(200).json({token:token, message:message})
     }else{
 
-      res.status(401).json({id:id, message:message})
+      return res.status(401).json({id:id, message:message})
     }
     
   } catch (error) {
 
-    res.status(500).json({ message: error.message });
+    return res.status(500).json({ message: error.message });
   }
   
 });

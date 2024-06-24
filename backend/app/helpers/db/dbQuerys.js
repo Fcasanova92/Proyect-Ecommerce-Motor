@@ -90,3 +90,29 @@ export const registerUser = async (data)=>{
       }); 
     }
 
+    export const getIdProductLikes = (id) => {
+
+      return new Promise((resolve, reject) => {
+        pool.getConnection((err, connection) => {
+          if (err) {
+            reject(new Error("Error en la conexión: " + err.message));
+            return;
+          }
+    
+          connection.query('SELECT * FROM product WHERE user_id = ?', [id], (error, results) => {
+            connection.release(); // Libera la conexión de vuelta al pool
+    
+            if (error) {
+              reject(new Error("Error en la consulta: " + error.message));
+              return;
+            }
+
+            if (Object.values(results).length > 0 ) {
+
+              resolve(results);
+            }
+          });
+        });
+      });
+    }
+

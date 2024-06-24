@@ -93,3 +93,5 @@ const checkCategory = (value) => {
         return result > 0;
     });
 }
+
+fill()

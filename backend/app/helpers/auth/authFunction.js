@@ -1,5 +1,5 @@
 import { getUserByEmail, registerUser } from "../db/dbQuerys.js";
-import { createToken } from "./jwt/createToken.js";
+import { createToken } from "./jwt/helpers/createToken.js";
 
 export const onRegister = async (data) => {
    
@@ -13,6 +13,8 @@ export const onRegister = async (data) => {
        }
    
        const register = await registerUser(data)
+
+       console.log(register, typeof(register))
 
        if(register){
 

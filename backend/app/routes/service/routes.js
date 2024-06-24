@@ -11,13 +11,13 @@ try {
 
   const sendMessage = sendConsultation(req.body)
   if(sendMessage){
-    res.status(200).json({message:'Consulta enviada'})
+    return res.status(200).json({message:'Consulta enviada'})
   }else{
-    res.status(400)({message:'La consulta no fue enviada'})
+    return res.status(400)({message:'La consulta no fue enviada'})
   }
   
 } catch (error) {
-  res.status(500).send('error en al conexion de servicio de mensajeria'+error)
+  return res.status(500).send('error en al conexion de servicio de mensajeria'+error)
   
 }
 });

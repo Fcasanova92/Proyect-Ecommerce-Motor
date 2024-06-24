@@ -1,5 +1,6 @@
 import jwt, { decode } from 'jsonwebtoken'
 import {config} from 'dotenv'
+import { decodedToken } from '../helpers/decodedToken';
 
 config()
 
@@ -11,18 +12,11 @@ export const validateToken = (req, res, next) => {
     return res.status(401).json({ message: 'Token no provisto o mal formado' });
   }
 
-  const token = authHeader.split(' ')[1];
-    
-    if (!token) {
-      return res.sendStatus(401);
-    }
-    
-    try {
-      const decoded = jwt.verify(token, process.env.SECRET_KEY);
-      console.log(decoded)
-      req.user = { username: decoded.name , surname:decoded.surname}; // Extrae el nombre de usuario
-      next();
-    } catch (err) {
-      return res.status(403).json({ message: 'Token no válido' });
-    };
+  try {
+    const decoded = decodedToken(token);
+    req.user = { username: decoded.name, surname: decoded.surname }; // Extract user details
+    next();
+  } catch (err) {
+    return res.status(403).json({ message: 'Token no válido' });
+  }
   };
