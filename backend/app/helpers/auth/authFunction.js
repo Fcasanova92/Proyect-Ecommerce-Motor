@@ -14,11 +14,11 @@ export const onRegister = async (data) => {
    
        const register = await registerUser(data)
 
-       console.log(register, typeof(register))
-
        if(register){
 
-        const token = createToken(data.name, data.surname)
+        const idUser = register.insertId
+
+        const token = createToken( idUser, data.name, data.surname)
 
         return({status:true, token:token, message:"Usuario registrado"})
 

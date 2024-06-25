@@ -44,6 +44,8 @@ export const registerUser = async (data)=>{
                 reject(new Error("Error en la consulta: " + error.message));
                 return;
               }
+
+              console.log(results)
       
               resolve(results);
             });
@@ -90,6 +92,7 @@ export const registerUser = async (data)=>{
       }); 
     }
 
+
     export const getIdProductLikes = (id) => {
 
       return new Promise((resolve, reject) => {
@@ -99,7 +102,7 @@ export const registerUser = async (data)=>{
             return;
           }
     
-          connection.query('SELECT * FROM product WHERE user_id = ?', [id], (error, results) => {
+          connection.query('SELECT * FROM product WHERE id = ?', [id], (error, results) => {
             connection.release(); // Libera la conexión de vuelta al pool
     
             if (error) {
@@ -107,10 +110,8 @@ export const registerUser = async (data)=>{
               return;
             }
 
-            if (Object.values(results).length > 0 ) {
-
-              resolve(results);
-            }
+            resolve(results);
+            
           });
         });
       });

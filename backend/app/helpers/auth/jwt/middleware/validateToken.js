@@ -13,8 +13,9 @@ export const validateToken = (req, res, next) => {
   }
 
   try {
-    const decoded = decodedToken(token);
-    req.user = { username: decoded.name, surname: decoded.surname }; // Extract user details
+    const decoded = decodedToken(authHeader.split(" ")[1].trim());
+    req.user = { id: decoded.id, username: decoded.name, surname: decoded.surname }; // Extract user details
+
     next();
   } catch (err) {
     return res.status(403).json({ message: 'Token no válido' });
