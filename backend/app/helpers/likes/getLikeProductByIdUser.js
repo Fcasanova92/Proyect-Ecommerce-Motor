@@ -1,4 +1,4 @@
-import { getIdProductLikes } from "../db/dbQuerys"
+import { getIdProductLikes } from "../db/dbQuerys.js"
 
 
 export const getLikeProductByIdUser = async (id) => {

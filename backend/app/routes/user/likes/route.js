@@ -1,6 +1,6 @@
 // endpoints para obtener productos
 import { Router } from 'express';
-import { validateToken } from '../../../helpers/auth/jwt/middleware/validateToken';
+import { validateToken } from '../../../helpers/auth/jwt/middleware/validateToken.js';
 
 export const router = Router();
 

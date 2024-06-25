@@ -1,6 +1,6 @@
-import jwt, { decode } from 'jsonwebtoken'
+
 import {config} from 'dotenv'
-import { decodedToken } from '../helpers/decodedToken';
+import { decodedToken } from '../helpers/decodedToken.js';
 
 config()
 
