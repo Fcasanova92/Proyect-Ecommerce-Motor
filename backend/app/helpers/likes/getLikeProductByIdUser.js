@@ -5,9 +5,17 @@ export const getLikeProductByIdUser = async (id) => {
 
     const userId = id
 
-    const data = await getIdProductLikes(userId)
+    try {
 
-    return data
+        const data = await getIdProductLikes(userId)
+
+        return data
+        
+    } catch (error) {
+
+        console.error(error)
+        
+    }
 
 
 }

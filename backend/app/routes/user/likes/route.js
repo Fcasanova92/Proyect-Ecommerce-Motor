@@ -31,3 +31,34 @@ router.get('/product-likes', validateToken, async function(req, res) {
   
 });
 
+
+router.post('/get-likes', validateToken, async function(req, res) {
+
+  const idUser = req.user.id
+
+  const id_product = req.body.id
+
+  try {
+
+    const resultSave = await getLikeProductByIdUser(idUser, id_product)
+
+    if(resultSave.status){
+
+      return res.status(200).json({message: resultSave.message})
+    }
+
+    else{
+
+      return res.status(404).json({message: resultSave.message})
+    }
+
+  }catch (err) {
+
+    console.log(err)
+
+    return res.status(500).send(`${err}`)
+    
+  }})
+  
+
+

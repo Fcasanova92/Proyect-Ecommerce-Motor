@@ -117,3 +117,26 @@ export const registerUser = async (data)=>{
       });
     }
 
+    export const saveLikeProduct = (product_id, user_id) => {
+
+      return new Promise((resolve, reject) => {
+        pool.getConnection((err, connection) => {
+          if (err) {
+            reject(new Error("Error en la conexión: " + err.message));
+            return;
+          }
+    
+          connection.query('INSERT INTO likes (user_id, product_id) VALUES (?,?)', [product_id, user_id], (error, results) => {
+            connection.release(); // Libera la conexión de vuelta al pool
+    
+            if (error) {
+              reject(new Error("Error en la consulta: " + error.message));
+              return;
+            }
+
+            resolve(results);
+            
+          });
+        });
+      });
+    }
