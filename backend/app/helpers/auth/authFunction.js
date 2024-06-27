@@ -9,7 +9,7 @@ export const onRegister = async (data) => {
        
        if (user !== undefined) {
      
-           return ({status:false,  id:"email", message:'Este correo electrónico ya está en uso'});
+           return ({status:false,  fieldError:"email", message:'Este correo electrónico ya está en uso'});
        }
    
        const register = await registerUser(data)
@@ -44,10 +44,10 @@ export const onlogin = async (data) => {
 
                    return ({status:true, token}); // Contraseña correcta
                } else {
-                   return({status:false, id:"password", message:"Contraseña incorrecta"});
+                   return({status:false, fieldError:"password", message:"Contraseña incorrecta"});
                }
            } else {
-               return({status:false, id:"email", message:"Email incorrecto"});
+               return({status:false, fieldError:"email", message:"Email incorrecto"});
            }
        } catch (error) {
            throw new Error("Error en el logeo: " + error.message);

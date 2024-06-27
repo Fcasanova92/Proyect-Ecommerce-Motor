@@ -33,7 +33,7 @@ export const saveLikeProductByUser = async (user_id, id_product) => {
 
     }catch(error){
 
-        console.erro(error)
+        throw new Error(error)
     }
    
 

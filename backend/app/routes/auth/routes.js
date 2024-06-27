@@ -12,14 +12,14 @@ router.post('/register', async function(req, res) {
 
     const data = req.body
 
-    const {status, message, token, id} = await onRegister(data)
+    const {status, message, token, fieldError} = await onRegister(data)
 
     if(status){
 
       return res.status(200).json({token:token, message:message})
     }else{
 
-      return res.status(401).json({id:id, message:message})
+      return res.status(401).json({fieldError, message:message})
     }
     
   } catch (error) {
@@ -35,13 +35,13 @@ router.post('/login', async function(req, res) {
 
     const data = req.body
 
-    const {status, message, token, id} = await onlogin(data)
+    const {status, message, token, fieldError} = await onlogin(data)
 
     if(status){
       return res.status(200).json({token:token, message:message})
     }else{
 
-      return res.status(401).json({id:id, message:message})
+      return res.status(401).json({fieldError, message:message})
     }
     
   } catch (error) {

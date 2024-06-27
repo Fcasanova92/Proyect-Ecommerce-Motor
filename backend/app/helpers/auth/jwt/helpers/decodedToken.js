@@ -10,6 +10,6 @@ export const decodedToken = (token) => {
       return decoded
   
     } catch (err) {
-      return res.status(403).json({ message: 'Token no válido' });
+      throw new Error(err);
     };
   };
