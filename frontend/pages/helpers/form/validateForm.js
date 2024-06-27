@@ -1,7 +1,7 @@
 import { errors } from "./errors/errorTypes.js"
 
 
-export const validateForm = (event) => {
+export const getValidateDataform = (event) => {
 
     event.preventDefault()
 
@@ -9,10 +9,9 @@ export const validateForm = (event) => {
 
     const inputsArray = Array.from(document.querySelectorAll(`[data-form='${formType}']`))
 
-
     fieldRequiredOnClick(inputsArray)
 
-    const data = getValidateDataForm(inputsArray)
+    const data = validateDataForm(inputsArray)
 
     if(data){
 
@@ -22,7 +21,7 @@ export const validateForm = (event) => {
    
   }
 
-export const getValidateDataForm = (inputsArray) => {
+const validateDataForm = (inputsArray) => {
   
     let dataInput = {}
   
@@ -45,15 +44,13 @@ export const getValidateDataForm = (inputsArray) => {
 }
 
 
-export const fieldRequiredOnClick = (inputsArray) => {
+const fieldRequiredOnClick = (inputsArray) => {
 
   const {empty} = errors
 
   inputsArray.map((input)=>{
 
     const {id, value} = input
-
-    console.log(id, value)
 
     const alertValidate = document.querySelector(`label[for=${id}]`)
 
