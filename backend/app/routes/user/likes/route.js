@@ -2,10 +2,11 @@
 import { Router } from 'express';
 import { validateToken } from '../../../helpers/auth/jwt/middleware/validateToken.js';
 import { getLikeProductByIdUser } from '../../../helpers/likes/getLikeProductByIdUser.js';
+import { saveLikeProductByUser } from '../../../helpers/likes/saveLikeProductByUser.js';
 
 export const router = Router();
 
-router.get('/product-likes', validateToken, async function(req, res) {
+router.get('/get-likes', validateToken, async function(req, res) {
 
   const idUser = req.user.id
 
@@ -32,15 +33,16 @@ router.get('/product-likes', validateToken, async function(req, res) {
 });
 
 
-router.post('/get-likes', validateToken, async function(req, res) {
+router.post('/save-like', validateToken, async function(req, res) {
 
   const idUser = req.user.id
 
-  const id_product = req.body.id
+  const id_product = req.body.id_product
+
 
   try {
 
-    const resultSave = await getLikeProductByIdUser(idUser, id_product)
+    const resultSave = await saveLikeProductByUser(idUser, id_product)
 
     if(resultSave.status){
 

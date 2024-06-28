@@ -119,6 +119,8 @@ export const registerUser = async (data)=>{
 
     export const saveLikeProduct = (product_id, user_id) => {
 
+      console.log(product_id, user_id)
+
       return new Promise((resolve, reject) => {
         pool.getConnection((err, connection) => {
           if (err) {
