@@ -1,12 +1,12 @@
-// import  {dbConnection, getConnection}  from './dbConnection.js';
+import  {dbConnection, getConnection}  from './dbConnection.js';
 
-// import { config } from 'dotenv';
+import { config } from 'dotenv';
 
-// config();
+config();
 
-// dbConnection();
+dbConnection();
 
-// const db = getConnection();
+const db = getConnection();
 
 // const categoryValue = ["scooter", "deportiva", "naked", "trail", "touring", "custom", "enduro"]
 
@@ -46,23 +46,39 @@
 // db.end()
 
 //Consulta la db local que tenemos, la recorre y por cada elemento crea un producto, si la categoria del mismo no existe, la crea.
-export const fill = () => fetch('./static/db/local.json')
-.then(res=>res.json())
-.then(data=>{
+
+import data from './local.json' assert { type: 'json' };
+
+export const fill = () => {
+
+    const categoria = []
+
     for (let i = 0; i < data.length; i++) {
-        if(!checkCategory(data[i].type)) {
-            insertCategory(data[i].type);
+
+        if(!categoria.includes(data[i].type)){
+
+            categoria.push(data[i].type)
+
         }
-        insertProduct(data[i]);
+        // insertProduct(data[i]);
     }
-})
-.catch(error=>console.log(error));
+
+    console.log(categoria)
+    
+}
 
 
 //Insertamos un Producto 
 const insertProduct = (data) => {
-    db.query(`INSERT INTO product (id, sku, isNews, brand, capacity, color, thumbnail, description, price, type)
-         VALUES ( ${data.id}, ${data.sku}, ${data.isNews}, ${data.brand}, ${data.capacity}, ${data.color}, ${data.thumbnail}, ${data.description}, ${data.price}, ${data.type},`, (err) => {
+
+    const category = getIdCategory(data.type)
+
+    const values = [data.sku, data.isNews, data.brand, data.capacity, data.color, data.thumbnail, data.description, data.price, category]
+
+    const sql = `INSERT INTO product (sku, isNews, brand, capacity, color, thumbnail, description, price, type)
+         VALUES (?,?,?,?,?,?,?,?,?)`
+
+    db.query(sql, values,  (err) => {
         if (err) {
             console.error('Error al creacion del producto:', err);
             db.end();
@@ -84,14 +100,20 @@ const insertCategory = (name) => {
 }
 
 //Chequeamos si la Categoria Existe
-const checkCategory = (value) => {
-    db.query(`SELECT COUNT(*) FROM category WHERE name = "${value}"`, (err, result) => {
+const getIdCategory = (value) => {
+
+    let category_id
+
+        db.query(`SELECT id FROM category WHERE name = "${value}"`, (err, result) => {
         if(err) {
             console.error('Error al consultar la base de datos:', err);
             return;
         }
-        return result > 0;
-    });
+        console.log(result[0].id)
+        category_id = result[0].id
+    })
+    
+    return category_id;
 }
 
 fill()
