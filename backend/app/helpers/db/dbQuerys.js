@@ -52,14 +52,15 @@ export const registerUser = async (data)=>{
 
     }
     //Traer todos los produtos
-    export const getAllItems = async () => {
+    export const getAllItems = async (offset, limit) => {
       return new Promise((resolve,reject) => {
+        const query = 'SELECT * FROM product LIMIT ? OFFSET ?'
         pool.getConnection((error,connection) => {
           if(error){
             reject(new Error(`Error en la conexión: ${error.message}`));
             return;
           }
-          connection.query('SELECT * FROM product', (error,results) => {
+          connection.query(query, [limit, offset] , (error,results) => {
             connection.release();
             if(error){
               reject(new Error("Error en la consulta: " + error.message));
@@ -71,19 +72,51 @@ export const registerUser = async (data)=>{
       });
     }
     //Traer solo los productos segun el filtro
-    export const getItemsByFilter = async (brand,capacity,color,price) => {
+    export const getItemsByFilter = async (filters) => {
+
+      const {brand, capacity, color, price} = filters
+
+      const filtersValues = Object.values(filters)
+
+      // dependiendo de los filtros se anaden dinamicamente a la query
+
+      let query = 'SELECT * FROM product WHERE 1=1 '
+
+      if(brand){
+
+        query += ' AND brand = ?'
+      }
+
+      if(capacity){
+
+        query +=  ' AND capacity = ?'
+      }
+      if(color){
+
+        query += ' AND color = ?'
+      }
+
+      if(price){
+
+        query += ' AND price = ?'
+      }
+
       return new Promise((resolve,reject)=>{
         pool.getConnection((error,connection)=>{
           if(error){
             reject(new Error(`Error en la conexión: ${error.message}`));
             return;
           }
-          connection.query('SELECT * FROM product WHERE (marca, cilindrada, color, precio) VALUES (?, ?, ?, ?)', [brand, capacity, color, price],(error,results) => {
+
+          // se pasan directamente los filtros, de esa manera evitamos dependencia directa
+
+          connection.query(query, filtersValues, (error,results) => {
             connection.release();
             if(error){
               reject(new Error("Error en la consulta: " + error.message));
               return;
             }
+  
             resolve(results);
           });
         });
