@@ -14,6 +14,8 @@ router.get('/get-likes', validateToken, async function(req, res) {
 
     const dataProduct = await getLikeProductByIdUser(idUser)
 
+    console.log(dataProduct)
+
     if(dataProduct.length > 0){
 
       return res.status(200).json({data:dataProduct})
@@ -43,6 +45,8 @@ router.post('/save-like', validateToken, async function(req, res) {
   try {
 
     const resultSave = await saveLikeProductByUser(idUser, id_product)
+
+
 
     if(resultSave.status){
 

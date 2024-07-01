@@ -44,8 +44,6 @@ export const registerUser = async (data)=>{
                 reject(new Error("Error en la consulta: " + error.message));
                 return;
               }
-
-              console.log(results)
       
               resolve(results);
             });
@@ -102,15 +100,15 @@ export const registerUser = async (data)=>{
             return;
           }
     
-          connection.query('SELECT * FROM product WHERE id = ?', [id], (error, results) => {
+          connection.query('SELECT * FROM likes WHERE user_id = ?', [id], (error, results) => {
             connection.release(); // Libera la conexión de vuelta al pool
     
             if (error) {
               reject(new Error("Error en la consulta: " + error.message));
               return;
             }
-
-            resolve(results);
+           
+            resolve(results || []);
             
           });
         });
@@ -118,8 +116,6 @@ export const registerUser = async (data)=>{
     }
 
     export const saveLikeProduct = (product_id, user_id) => {
-
-      console.log(product_id, user_id)
 
       return new Promise((resolve, reject) => {
         pool.getConnection((err, connection) => {
@@ -135,6 +131,8 @@ export const registerUser = async (data)=>{
               reject(new Error("Error en la consulta: " + error.message));
               return;
             }
+
+            console.log(results)
 
             resolve(results);
             
