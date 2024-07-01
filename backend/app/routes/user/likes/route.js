@@ -46,8 +46,6 @@ router.post('/save-like', validateToken, async function(req, res) {
 
     const resultSave = await saveLikeProductByUser(idUser, id_product)
 
-
-
     if(resultSave.status){
 
       return res.status(200).json({message: resultSave.message})

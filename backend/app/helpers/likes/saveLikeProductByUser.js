@@ -13,7 +13,7 @@ export const saveLikeProductByUser = async (user_id, id_product) => {
 
                 const saveLike = await saveLikeProduct(user_id, id_product)
     
-                if(saveLike.idInsert){
+                if(saveLike.insertId){
         
                         return {status:true, message:"producto likeado"}
                 }

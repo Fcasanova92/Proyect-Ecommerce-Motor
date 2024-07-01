@@ -132,8 +132,6 @@ export const registerUser = async (data)=>{
               return;
             }
 
-            console.log(results)
-
             resolve(results);
             
           });
