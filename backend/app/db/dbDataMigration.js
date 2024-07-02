@@ -38,4 +38,51 @@ data.map(item=>{
         }
     });
 });
-// <<---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->>
+
+
+// <<---------------------------------------------------------------------------Opcion asincronica----------------------------------------------------------------------------------->>
+
+// const findOrCreateCategory = async (params) => { 
+//     return new Promise((resolve, reject) => {
+//         db.query('SELECT id FROM category WHERE name = ?', [params], (error, result) => {
+//             if(error) {
+//                 return reject(error);
+//             }
+//             if(result.length > 0) {
+//                 return resolve(result[0].id);
+//             }
+//             db.query('INSERT INTO category (name) VALUES (?)', [params], (error,result) => {
+//                 if(error) {
+//                     return reject(error);
+//                 }
+//                 return resolve(result.insertId);
+//             });
+//         });
+//     });
+// }
+
+// const insertProduct = (params) => {
+//     return new Promise((resolve, reject) => {
+//         const sql = 'INSERT INTO product (token, isNews, brand, categoryID, capacity, color, thumbnail, description, price) VALUES (?)'
+//         db.query(sql, [params], (error, result) => {
+//             if(error) {
+//                 return reject(error);
+//             }
+//             return resolve(result);
+//         });
+//     });
+// }
+
+// const fill = async (data) => {
+//     try {
+//         for (const item of data) {
+//             const categoryID = await findOrCreateCategory(item.type);
+            // const values = [ item.token, item.isNews, item.brand, categoryID, item.capacity, item.color, item.thumbnail, item.description, item.price];
+//             await insertProduct(values);
+//         }
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+// const run = await fill(data);
