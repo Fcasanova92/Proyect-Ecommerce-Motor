@@ -1,6 +1,7 @@
 import { addMessage, addCards, removeNodes } from './utilities/nodes.js';
 import { getAll, getByFilter } from './dataHandler.js';
 import { Pagination } from './utilities/pagination.js';
+import { getproductsbyfilter } from '../../Products/api/getproductsbyfilters.js';
 
 let filterVisible = false;
 
@@ -21,10 +22,14 @@ export const init = () => {
         if(window.innerWidth < 768 && filter.classList.contains('visible')) {
             hide(filter.id);
         }
-        getByFilter(event.target).then(items=>{
+        getproductsbyfilter(event.target).then(items=>{
             pages.data = items;
             display(wrapper,pages,logger);
         });
+        // getByFilter(event.target).then(items=>{
+        //     pages.data = items;
+        //     display(wrapper,pages,logger);
+        // });
     });
     next.addEventListener('click',() => {
         pages.setNext(1);
