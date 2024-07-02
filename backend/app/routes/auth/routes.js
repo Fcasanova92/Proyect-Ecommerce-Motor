@@ -19,7 +19,7 @@ router.post('/register', async function(req, res) {
       return res.status(200).json({token:token, message:message})
     }else{
 
-      return res.status(401).json({fieldError, message:message})
+      return res.status(401).json({fieldError:fieldError, message:message})
     }
     
   } catch (error) {

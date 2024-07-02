@@ -6,6 +6,8 @@ export const styleErrorField = (message, id, type, button) => {
 
     const inputError = document.getElementById(`${id}`)
 
+    console.log(inputError)
+
     button.disabled = false;
 
     inputError.style.borderColor = "#EF5350";

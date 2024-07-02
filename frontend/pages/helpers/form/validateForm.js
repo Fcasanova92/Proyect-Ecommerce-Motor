@@ -1,4 +1,5 @@
 import { errors } from "./errors/errorTypes.js"
+import { validateCheckbox } from "./utilities/validateCheckbox.js"
 
 
 export const getValidateDataform = (event) => {
@@ -9,16 +10,37 @@ export const getValidateDataform = (event) => {
 
     const inputsArray = Array.from(document.querySelectorAll(`[data-form='${formType}']`))
 
+    const checkbox= document.querySelector("#condition")
+
     fieldRequiredOnClick(inputsArray)
 
     const data = validateDataForm(inputsArray)
 
-    if(data){
+    switch (formType) {
+      case "register":
 
+      const checkboxValidate = validateCheckbox(checkbox)
+
+      console.log(checkboxValidate)
+
+      if(data && checkboxValidate){
 
       return {data, type:formType, inputsArray}
+
+            }
+        
+        break;
+    
+       case "login":
+
+       
+      if(data){
+
+        return {data, type:formType, inputsArray}
+        }
+        break;
     }
-   
+
   }
 
 const validateDataForm = (inputsArray) => {

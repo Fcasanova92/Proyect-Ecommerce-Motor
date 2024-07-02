@@ -21,7 +21,7 @@ export const login = async (data) => {
             
             if(error.response.status === 401){
 
-                return {status:false, id:error.response.data.id , message:error.response.data.message}
+                return {status:false, id:error.response.data.fieldError , message:error.response.data.message}
             }
         }
     }

@@ -1,9 +1,12 @@
 import { loginRedirect } from "./loginRedirect.js"
 import { resetButtonState, updateButtonState } from "./styleButton.js"
 import { styleErrorField } from "./styleErrorField.js"
-
+import {register} from '../api/register.js'
+import {login} from '../api/login.js'
 
 export const handleAuthentication = async (formData)=> {
+
+  console.log(formData)
 
     const {data, type} = formData
 
@@ -27,6 +30,8 @@ export const handleAuthentication = async (formData)=> {
 
           
           const message = response.message
+
+          console.log(response)
 
           const fieldIdError = response.id
   

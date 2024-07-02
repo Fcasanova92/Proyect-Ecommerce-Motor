@@ -1,11 +1,11 @@
 import { setForm } from "../../pages/helpers/form/setForm.js";
-import { validateForm } from "../../pages/helpers/form/validateForm.js"
+import { getValidateDataform } from "../../pages/helpers/form/validateForm.js"
 
 export const sendMessageEmail = async (event) => {
 
     event.preventDefault()
 
-    const formdata = validateForm(event)
+    const formdata = getValidateDataform(event)
 
     const messageLabel = document.querySelector("label[for=send]");
 
