@@ -35,6 +35,7 @@ export const addMessage = (parent,message,type) => {
 
 //Agrega un nodo carta con información al padre 
 export const addCard = (parent,data) => {
+    const token = sessionStorage.getItem("token")
     const card = addNode(parent, 'article', {id:`product_${data.id}_${data.index}`, class: 'card fx-deep-shadow-dinamyc fx-move-up'});
     const media = addNode(card, 'div', {class : 'media'});
     addNode(media,'img',{class : 'card-thumbnail', src : data.thumbnail, alt : 'Imagen a modo de referencia del producto.'});
@@ -51,7 +52,12 @@ export const addCard = (parent,data) => {
     const see = addNode(actions, 'a', {class:'see', href:'pages/viewitem.html'});
     addNode(see,'i', {class:'fa-regular fa-eye '});
     const like = addNode(actions, 'a', {class:'like', href:'#'});
-    addNode(like,'i', {class:'fa-regular fa-heart'});
+    
+    if(token){
+        addNode(like,'i', {class:'fa-regular fa-heart'});
+
+    }
+
 
 }
 

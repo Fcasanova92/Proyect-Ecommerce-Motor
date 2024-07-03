@@ -17,7 +17,7 @@
             <i class="fa-solid fa-motorcycle fa-tw">Logo</i>
             <ul class="menu">
                 <li>
-                    <a class="link-a" href="#products">Productos</a>
+                    <a class="link-a" href="#products" onclick="loadProductComponent()">Productos</a>
                 </li>
                 <li>
                     <a class="link-a" href="#about-us">Sobre Nosotros</a>
@@ -350,16 +350,21 @@
         </div>
     </footer>
     <a href="./auth/db/userMethods.js"></a>
+
     <script type="module">
         import { init, hide } from './pages/helpers/product/dataDisplayer.js';
         import {validateInput} from "./pages/helpers/form/utilities/validateInput.js"
         import {sendMessageEmail} from  "./service/email/sendMessageEmail.js"
+        import {loadLikeComponent} from "./pages/components/like/loadLikeComponent.js"
+         import {loadProductComponent} from "./pages/components/product/loadProductComponent.js"
         import {logout} from "./pages/auth/helpers/logout.js"
 
     
         window.validateInput = validateInput;
         window.sendMessageEmail = sendMessageEmail;
-        window.logout = logout
+        window.loadLikeComponent = loadLikeComponent;
+        window.loadProductComponent = loadProductComponent;
+        window.logout = logout;
         window.hide = hide;
         init();
     </script>
