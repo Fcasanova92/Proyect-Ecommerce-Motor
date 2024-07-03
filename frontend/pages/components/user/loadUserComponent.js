@@ -2,7 +2,7 @@
 
 export const loadUserComponent = async (user) => {
     try {
-        const response = await fetch('./pages/components/user/loginComponent.html');
+        const response = await fetch('/frontend/pages/components/user/loginComponent.html');
         if (!response.ok) throw new Error('Error al cargar el componente HTML');
 
         const newNode = document.createElement('li')
