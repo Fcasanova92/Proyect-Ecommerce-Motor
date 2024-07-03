@@ -37,9 +37,11 @@ router.get('/get-likes', validateToken, async function(req, res) {
 
 router.post('/save-like', validateToken, async function(req, res) {
 
+  console.log(req.body)
+
   const idUser = req.user.id
 
-  const id_product = req.body.id_product
+  const id_product = req.body.product_id
 
 
   try {
@@ -53,7 +55,7 @@ router.post('/save-like', validateToken, async function(req, res) {
 
     else{
 
-      return res.status(404).json({message: resultSave.message})
+      return res.status(400).json({message: resultSave.message})
     }
 
   }catch (err) {

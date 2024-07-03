@@ -17,10 +17,7 @@
             <i class="fa-solid fa-motorcycle fa-tw">Logo</i>
             <ul class="menu">
                 <li>
-                    <a class="link-a" href="#products">Productos</a>
-                </li>
-                <li>
-                    <a class="link-a" href="#about-us">Sobre Nosotros</a>
+                    <a style="display: flex; flex-flow: row; column-gap: 1vw;"  class="link-a" href="/frontend/index.html"><i class="fa-solid fa-house"></i><p>Home</p></a>
                 </li>
                 <li id="user-session" >
                     <a class="link-a" href="/frontend/pages/auth/login.html">Ingresar<i class="fa-solid fa-right-to-bracket"></i></a>
@@ -30,15 +27,17 @@
     </header>
     <main>
         <section id="products">
-            <div class="headline">
-                <h2 class="title-b">Productos</h2>
-                <ul class="actions">
-                    
-                   <li class="toggler">
-                        <button class="trigger-a" onclick="hide('filter')">Filtrar<i class="fa-solid fa-sliders fa-fw"></i></button>
-                   </li>
-                </ul>
+        <div id="viewer">
+            <div id="filter-message">
             </div>
+            <div id="card-wrapper">
+            </div>
+            <ul id="pages">
+                <li id="prev" class="trigger-b">Anterior</li>
+                <li id="next" class="trigger-b">Siguiente</li>
+            </ul>
+        </div>
+        </section>
     </main>
     <footer>
         <div class="social-networks">
