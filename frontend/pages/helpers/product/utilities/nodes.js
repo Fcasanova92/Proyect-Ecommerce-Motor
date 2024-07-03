@@ -42,7 +42,7 @@ export const addCard = (parent,data) => {
     const supportingText = addNode(card, 'div', {class : 'supporting-text'});
     addNode(supportingText, 'p', {class:'overline'}).textContent = "MODELO";
     addNode(supportingText, 'h3', {class:'title-c'}).textContent = data.brand;
-    addNode(supportingText, 'p', {class:'caption'}).textContent = `${data.type} | ${data.capacity}cc | ${data.color}`;
+    addNode(supportingText, 'p', {class:'caption'}).textContent = `${data.categoryID} | ${data.capacity}cc | ${data.color}`;
     addNode(supportingText, 'p', {class:'body-b'}).textContent = data.description;
     const footer = addNode(supportingText, 'div', {class : 'footer'});
     const price = addNode(footer, 'div', {class : 'price'});

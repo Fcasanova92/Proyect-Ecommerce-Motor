@@ -1,34 +1,11 @@
 import { getMessage } from './error/serverError.js'
+import { getProducts } from '../../Products/api/getProducts.js';
 
-const filterData = {
-    brands : [],
-    colors : [],
-    capacity : { 
-        min: 0, 
-        max: 0 
-    },
-    price : {
-        min : 0,
-        max : 0
-    } 
-}
-
-const getData = async () => {
-    const resp = await fetch('./static/db/local.json');
-    if(!resp.ok){
-        throw new Error(getMessage(resp.status));
-    }
-    return resp.json();
-}
-
-
-export const getAll = async () => {
-    return await getData();
-}
+export const getAll = async () => await getProducts();
 
 export const getByFilter = async (form) => {
     if(form) {
-        const data = await getData();
+        const data = await getAll();
         const query = filterValues(form); 
         return data.filter(item=>
             (query.brands.length === 0 || query.brands.some((brand) => brand === item.brand.toLowerCase())) &&

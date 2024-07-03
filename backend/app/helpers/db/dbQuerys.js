@@ -54,7 +54,7 @@ export const registerUser = async (data)=>{
     //Traer todos los produtos
     export const getAllItems = async (offset, limit) => {
       return new Promise((resolve,reject) => {
-        const query = 'SELECT * FROM product LIMIT ? OFFSET ?'
+        const query = 'SELECT * FROM product'
         pool.getConnection((error,connection) => {
           if(error){
             reject(new Error(`Error en la conexión: ${error.message}`));
