@@ -10,14 +10,7 @@ export const router = Router();
 router.get('/get-product', async function(req, res) {
 
 try {
-
-  // se mandan por parametros
-
-  const offset = parseInt(req.query.offset);
- 
-  const limit = parseInt(req.query.limit);
-
-  const product = await getAllItems(offset, limit);
+  const product = await getAllItems();
 
   if(product){
 
@@ -25,7 +18,7 @@ try {
 
     res.status(200).json(product);
 
-  }else{
+  } else{
 
     res.status(404).send("offset and limit out of range");
 
