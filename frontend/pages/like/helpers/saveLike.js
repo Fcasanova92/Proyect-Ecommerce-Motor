@@ -1,6 +1,10 @@
 export const saveLike = async (event) => {
 
-    const product_id = parseInt(event.target.id)
+    const likeSimbol = event.target
+
+    const product_id = parseInt(likeSimbol.id)
+
+    likeSimbol.style.color = "red"
 
     const token = sessionStorage.getItem("token")
    
