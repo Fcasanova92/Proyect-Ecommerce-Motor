@@ -4,6 +4,7 @@ const getComments = (data) => {
     return new Promise(async (res,rej)=>{
         try {
             const resp = await axios.post("http://127.0.0.1:3000/api/product/get-comment",data, {'Content-Type': 'application/json'});
+            console.log(resp.status)
             if(resp){
                 return res(resp.data);
             }
