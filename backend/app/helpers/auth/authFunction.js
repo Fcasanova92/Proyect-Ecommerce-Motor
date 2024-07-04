@@ -1,4 +1,5 @@
 import { getUserByEmail, registerUser } from "../db/dbQuerys.js";
+import { comparePassword } from "./bycs/comparePassword.js";
 import { createToken } from "./jwt/helpers/createToken.js";
 
 export const onRegister = async (data) => {
@@ -36,9 +37,13 @@ export const onlogin = async (data) => {
            const { email, password } = data;
 
            const user = await getUserByEmail(email);
+
+           const checkedPassword = await comparePassword(password, user.password)
+
+           console.log(checkedPassword)
         
            if (user) {
-               if (password === user.password) {
+               if (checkedPassword) {
                     
                     const token = createToken(user.id, user.nombre, user.apellido)
 

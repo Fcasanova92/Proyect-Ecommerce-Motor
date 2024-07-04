@@ -1,6 +1,7 @@
 // funciones para interactuar con la base de datos, dependientes de los parametros necesarios en las rutas de la aplicacion
 
 import { pool } from "../../db/dbPool.js";
+import { hashPassword } from "../auth/bycs/hashedPassword.js";
 
 export const getUserByEmail = (email) => {
 
@@ -29,6 +30,8 @@ export const registerUser = async (data)=>{
 
     const { name, surname, email, password } = data
 
+    const hashedPassword = await hashPassword(password);
+
     return new Promise((resolve, reject)=>{
 
         pool.getConnection((err, connection) => {
@@ -37,7 +40,7 @@ export const registerUser = async (data)=>{
               return;
             }
       
-            connection.query('INSERT INTO users (nombre, apellido, email, password) VALUES (?, ?, ?, ?)', [name, surname, email, password], (error, results) => {
+            connection.query('INSERT INTO users (nombre, apellido, email, password) VALUES (?, ?, ?, ?)', [name, surname, email, hashedPassword], (error, results) => {
               connection.release(); // Libera la conexión de vuelta al pool
       
               if (error) {
