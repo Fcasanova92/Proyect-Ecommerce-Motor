@@ -42,7 +42,7 @@ export const addCard = (parent,data) => {
     const supportingText = addNode(card, 'div', {class : 'supporting-text'});
     addNode(supportingText, 'p', {class:'overline'}).textContent = "MODELO";
     addNode(supportingText, 'h3', {class:'title-c'}).textContent = data.brand;
-    addNode(supportingText, 'p', {class:'caption'}).textContent = `${data.categoryID} | ${data.capacity}cc | ${data.color}`;
+    addNode(supportingText, 'p', {class:'caption'}).textContent = `${data.category} | ${data.capacity}cc | ${data.color}`;
     addNode(supportingText, 'p', {class:'body-b'}).textContent = data.description;
     const footer = addNode(supportingText, 'div', {class : 'footer'});
     const price = addNode(footer, 'div', {class : 'price'});
@@ -52,8 +52,9 @@ export const addCard = (parent,data) => {
     const see = addNode(actions, 'a', {class:'see', href:`pages/viewitem.html?id=${data.id}&token=${data.token}`});
     addNode(see,'i', {class:'fa-regular fa-eye '});
     if(token) {
-        const like = addNode(actions, 'a', {class:'like', href:'#'});
-        addNode(like,'i', {class:'fa-regular fa-heart', id:`${data.id}`, onclick:"saveLike(event)"});
+        const like = addNode(actions, 'span', {class:'like'});
+        like.onclick = () => {like.classList.toggle('active')};
+        addNode(like,'i', {class:'fa-solid fa-heart', id:`${data.id}`, onclick:"saveLike(event)"});
     }
 }
 

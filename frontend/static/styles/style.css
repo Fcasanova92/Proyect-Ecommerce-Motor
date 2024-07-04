@@ -311,7 +311,7 @@ input[type="text"]:focus {
     transition: color 600ms;
 }
 
-.like:hover {
+.like:hover, .like.active {
     color: #E53935;
 }
 
