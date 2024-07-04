@@ -84,10 +84,13 @@
     </footer>
     <a href="./auth/db/userMethods.js"></a>
 
+ 
     <script type="module">
         import { init, hide } from '../helpers/product/dataDisplayerLikes.js';
         import {logout} from "../auth/helpers/logout.js"
+        import {deleteLike} from "../like/helpers/deleteLike.js"
 
+        window.deleteLike = deleteLike
         window.logout = logout;
         window.hide = hide;
         init();

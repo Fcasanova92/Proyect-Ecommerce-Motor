@@ -1,4 +1,4 @@
-import { addMessage, addCards, removeNodes } from './utilities/nodes.js';
+import { addMessage, addCards, removeNodes } from './utilities/nodesLikes.js';
 import { getAllLike } from './dataHandler.js';
 import { Pagination } from './utilities/pagination.js';
 
@@ -9,9 +9,10 @@ const next = document.getElementById('next');
 export const init = () => {
     const pages = new Pagination();
     getAllLike().then(items=>{
-        pages.data = items.productData;
-        console.log(items.productData)
-        display(wrapper,pages);
+        if(Object.keys(items).length){
+            pages.data = items.productData;
+            display(wrapper,pages);
+        }
     });
     next.addEventListener('click',() => {
         pages.setNext(1);

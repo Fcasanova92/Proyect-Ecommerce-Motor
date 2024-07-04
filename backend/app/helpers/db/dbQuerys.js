@@ -212,4 +212,35 @@ export const registerUser = async (data)=>{
       });
     }
 
+    export const deleteLikeProduct = (user_id, product_id) => {
+
+      return new Promise((resolve, reject) => {
+        pool.getConnection((err, connection) => {
+          if (err) {
+            reject(new Error("Error en la conexión: " + err.message));
+            return;
+          }
+
+          connection.query('DELETE FROM likes WHERE user_id = ? AND product_id = ?', [user_id, product_id], (error, results) => {
+            connection.release(); // Libera la conexión de vuelta al pool
+    
+            if (error) {
+              reject(new Error("Error en la consulta: " + error.message));
+              return;
+            }
+
+            console.log(results.affectedRows, "filas afectadas")
+
+            if (results.affectedRows > 0) {
+              resolve(true);
+         
+            } else {
+              resolve(false); // No se eliminó ninguna fila (posiblemente no existía)
+            }
+            
+          });
+        });
+      });
+    }
+
     

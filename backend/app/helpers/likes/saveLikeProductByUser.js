@@ -15,12 +15,12 @@ export const saveLikeProductByUser = async (user_id, id_product) => {
     
                 if(saveLike.insertId){
         
-                        return {status:true, message:"producto likeado"}
+                        return {status:true, message:"Producto agregado en favoritos"}
                 }
 
         }else{
 
-                    return {status:false, message:"el producto ya fue likeado"}
+                    return {status:false, message:"El producto ya se encuentra guardado en favoritos"}
                 }
 }
 catch(error){

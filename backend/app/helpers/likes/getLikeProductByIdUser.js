@@ -10,6 +10,8 @@ export const getLikeProductByIdUser = async (id) => {
         const data = await getIdProductLikes(userId)
 
         return data
+
+    
         
     } catch (error) {
 

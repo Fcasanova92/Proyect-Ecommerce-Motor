@@ -1,8 +1,6 @@
 export const getLikes = async () => {
 
     const token = sessionStorage.getItem("token")
-
-    console.log(token)
    
     try{
 
@@ -16,8 +14,6 @@ export const getLikes = async () => {
         })
 
         if (response.status >= 200 && response.status < 300){
-
-            console.log(response.data)
                 
             return response.data
         }
@@ -27,7 +23,8 @@ export const getLikes = async () => {
             
             if(error.response.status === 400){
 
-                console.log( error.response.data.message)
+                return error.response.data.productData
+
             }
         }
 }
