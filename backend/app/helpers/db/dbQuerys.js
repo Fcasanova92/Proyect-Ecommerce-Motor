@@ -71,6 +71,26 @@ export const registerUser = async (data)=>{
         });
       });
     }
+
+    export const getItemsByID = async (id) => {
+      return new Promise((resolve,reject) => {
+        const query = 'SELECT * FROM product WHERE id = ?'
+        pool.getConnection((error,connection) => {
+          if(error){
+            reject(new Error(`Error en la conexión: ${error.message}`));
+            return;
+          }
+          connection.query(query, [id] , (error,results) => {
+            connection.release();
+            if(error){
+              reject(new Error("Error en la consulta: " + error.message));
+              return;
+            }
+            resolve(results[0]);
+          });
+        });
+      });
+    }
     //Traer solo los productos segun el filtro
     export const getItemsByFilter = async (filters) => {
 

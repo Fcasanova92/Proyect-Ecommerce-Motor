@@ -3,6 +3,7 @@ import { Router } from 'express';
 import { validateToken } from '../../../helpers/auth/jwt/middleware/validateToken.js';
 import { getLikeProductByIdUser } from '../../../helpers/likes/getLikeProductByIdUser.js';
 import { saveLikeProductByUser } from '../../../helpers/likes/saveLikeProductByUser.js';
+import { productJson } from '../../../helpers/product/productJson.js';
 
 export const router = Router();
 
@@ -14,11 +15,11 @@ router.get('/get-likes', validateToken, async function(req, res) {
 
     const dataProduct = await getLikeProductByIdUser(idUser)
 
-    console.log(dataProduct)
+    const productData = await productJson(dataProduct)
 
     if(dataProduct.length > 0){
 
-      return res.status(200).json({data:dataProduct})
+      return res.status(200).json({productData})
     }
     
     return res.status(401).send("el usuario no tiene productos favoritos")
