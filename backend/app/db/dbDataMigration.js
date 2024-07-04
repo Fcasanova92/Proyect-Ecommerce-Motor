@@ -87,7 +87,7 @@ const insertProduct = (item) => {
 const insertComment = (item) => {
     return new Promise((resolve, reject) => {
         const sql = 'INSERT INTO comments (product_id, message) VALUES (?, ?)'
-        db.query(sql, [item.product_id,item.message], (error, result) => {
+        db.query(sql, [item.product_id, item.message], (error, result) => {
             if(error) {
                 return reject(error);
             }
@@ -96,26 +96,29 @@ const insertComment = (item) => {
     });
 }
 
-// const getComments = async (id) => {
-//     return new Promise((resolve, reject) =>{
-//         const sql = 'SELECT * FROM comments WHERE product_id = ?';
-//         db.query(sql, [id], (error, result) => {
-//             if(error) {
-//                 reject(error);
-//             }
-//             return resolve(result);
-//         })
-//     });
-// } 
+const getComments = async (id) => {
+    return new Promise((resolve, reject) =>{
+        const sql = 'SELECT * FROM comments WHERE product_id = ?';
+        db.query(sql, [id], (error, result) => {
+            if(error) {
+                reject(error);
+            }
+            return resolve(result);
+        })
+    });
+} 
 
 const fill = async () => {
     try {
-        products.map(async (item) => await insertProduct(item));
-        // comments.map(async (item) => await insertComment(item));
+        for (let i = 0; i < products.length; i++) {
+            const resp = await insertProduct(products[i]);
+        }
+        for (let i = 0; i < comments.length; i++) {
+            const resp = await insertComment(comments[i]);
+        }
     } catch (error) {
         console.log(error);
     }
 }
 
 await fill();
-// await getComments(70).then(resp=>console.log(resp));
