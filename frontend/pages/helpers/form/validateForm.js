@@ -39,6 +39,16 @@ export const getValidateDataform = (event) => {
         return {data, type:formType, inputsArray}
         }
         break;
+
+        case "contact":
+
+       
+      if(data){
+
+        return {data, type:formType, inputsArray}
+        }
+        break;
+    
     }
 
   }

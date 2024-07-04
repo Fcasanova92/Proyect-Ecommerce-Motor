@@ -5,6 +5,7 @@ import { Pagination } from './utilities/pagination.js';
 const wrapper = document.getElementById('card-wrapper');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
+const messageLike = document.querySelector(".messageLike")
 
 export const init = () => {
     const pages = new Pagination();
@@ -12,6 +13,10 @@ export const init = () => {
         if(Object.keys(items).length){
             pages.data = items.productData;
             display(wrapper,pages);
+        }else{
+
+            messageLike.style.display = "flex"
+
         }
     });
     next.addEventListener('click',() => {
