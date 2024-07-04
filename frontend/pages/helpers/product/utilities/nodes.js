@@ -38,7 +38,7 @@ export const addCard = (parent,data) => {
     const token = sessionStorage.getItem("token")
     const card = addNode(parent, 'article', {id:`${data.id}`, class: 'card fx-deep-shadow-dinamyc fx-move-up'});
     const media = addNode(card, 'div', {class : 'media'});
-    addNode(media,'img',{class : 'card-thumbnail', src : data.thumbnail, alt : 'Imagen a modo de referencia del producto.'});
+    addNode(media,'img',{class : 'card-thumbnail', src : "/frontend/"+data.thumbnail, alt : 'Imagen a modo de referencia del producto.'});
     const supportingText = addNode(card, 'div', {class : 'supporting-text'});
     addNode(supportingText, 'p', {class:'overline'}).textContent = "MODELO";
     addNode(supportingText, 'h3', {class:'title-c'}).textContent = data.brand;

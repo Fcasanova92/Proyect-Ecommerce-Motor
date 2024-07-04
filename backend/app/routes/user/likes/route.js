@@ -11,6 +11,8 @@ router.get('/get-likes', validateToken, async function(req, res) {
 
   const idUser = req.user.id
 
+  console.log(idUser)
+
   try {
 
     const dataProduct = await getLikeProductByIdUser(idUser)

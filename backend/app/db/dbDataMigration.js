@@ -96,25 +96,25 @@ const insertComment = (item) => {
     });
 }
 
-const getComments = async (id) => {
-    return new Promise((resolve, reject) =>{
-        const sql = 'SELECT * FROM comments WHERE product_id = ?';
-        db.query(sql, [id], (error, result) => {
-            if(error) {
-                reject(error);
-            }
-            return resolve(result);
-        })
-    });
-} 
+// const getComments = async (id) => {
+//     return new Promise((resolve, reject) =>{
+//         const sql = 'SELECT * FROM comments WHERE product_id = ?';
+//         db.query(sql, [id], (error, result) => {
+//             if(error) {
+//                 reject(error);
+//             }
+//             return resolve(result);
+//         })
+//     });
+// } 
 
 const fill = async () => {
     try {
         for (let i = 0; i < products.length; i++) {
-            const resp = await insertProduct(products[i]);
+            await insertProduct(products[i]);
         }
         for (let i = 0; i < comments.length; i++) {
-            const resp = await insertComment(comments[i]);
+            await insertComment(comments[i]);
         }
     } catch (error) {
         console.log(error);
@@ -122,3 +122,4 @@ const fill = async () => {
 }
 
 await fill();
+

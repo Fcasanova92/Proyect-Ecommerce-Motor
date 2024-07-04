@@ -40,7 +40,7 @@ export const onlogin = async (data) => {
            if (user) {
                if (password === user.password) {
                     
-                    const token = createToken(user.nombre, user.apellido)
+                    const token = createToken(user.id, user.nombre, user.apellido)
 
                    return ({status:true, token}); // Contraseña correcta
                } else {
