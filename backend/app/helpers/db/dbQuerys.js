@@ -71,6 +71,26 @@ export const registerUser = async (data)=>{
         });
       });
     }
+    //Traer todos los produtos
+    export const getNewness = async () => {
+      return new Promise((resolve,reject) => {
+        const query = 'SELECT * FROM product WHERE newness = true LIMIT 8'
+        pool.getConnection((error,connection) => {
+          if(error){
+            reject(new Error(`Error en la conexión: ${error.message}`));
+            return;
+          }
+          connection.query(query, (error,results) => {
+            connection.release();
+            if(error){
+              reject(new Error("Error en la consulta: " + error.message));
+              return;
+            }
+            resolve(results);
+          });
+        });
+      });
+    }
 
     export const getItemsByID = async (id) => {
       return new Promise((resolve,reject) => {

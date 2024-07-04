@@ -1,10 +1,23 @@
 // endpoints para obtener productos
 import { Router } from 'express';
-import { getAllItems, getItemsByFilter } from '../../helpers/db/dbQuerys.js';
+import { getAllItems, getNewness ,getItemsByFilter } from '../../helpers/db/dbQuerys.js';
 
 
 export const router = Router();
 
+
+router.get('/get-newness', async function(req, res) {
+  try {
+    const newness = await getNewness();
+    if(newness){
+      res.status(200).json(newness);
+    } else{
+      res.status(404).send("Error:");
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 
 // define the home page route
 router.get('/get-product', async function(req, res) {

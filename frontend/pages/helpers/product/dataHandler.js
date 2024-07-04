@@ -1,10 +1,10 @@
 
-import { getProducts } from '../../Products/api/getProducts.js';
+import { getProducts, getNewness } from '../../Products/api/getProducts.js';
 import { getLikes } from '../../like/helpers/getLikes.js';
 
 export const getAll = async () => await getProducts();
-
-export const getAllLike = async () => await getLikes ()
+export const getNews = async () => await getNewness();
+export const getAllLike = async () => await getLikes();
 
 export const getByFilter = async (form) => {
     if(form) {

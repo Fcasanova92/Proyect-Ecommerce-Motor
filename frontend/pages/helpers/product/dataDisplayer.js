@@ -1,5 +1,5 @@
-import { addMessage, addCards, removeNodes } from './utilities/nodes.js';
-import { getAll, getByFilter } from './dataHandler.js';
+import { addMessage, addCards, addMiniCard, removeNodes } from './utilities/nodes.js';
+import { getAll, getByFilter, getNews } from './dataHandler.js';
 import { Pagination } from './utilities/pagination.js';
 
 let filterVisible = false;
@@ -11,6 +11,10 @@ const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 
 export const init = () => {
+    getNews().then(news=>{
+        const nWrapper = document.getElementById('newness');
+        displayNews(nWrapper,news);
+    });
     const pages = new Pagination();
     getAll().then(items=>{
         pages.data = items;
@@ -49,6 +53,10 @@ const display = (wrapper,pagination,logger) => {
     addCards(wrapper,pagination.getCurrent());
     prev.style.visibility = pagination._index <= 0 ? "hidden" : "visible";
     next.style.visibility = pagination._index >= pagination._pageCount ? "hidden" : "visible";
+}
+
+const displayNews = (wrapper, news) => {
+    news.map(item=>addMiniCard(wrapper,item));
 }
 
 export const hide = (id) => {

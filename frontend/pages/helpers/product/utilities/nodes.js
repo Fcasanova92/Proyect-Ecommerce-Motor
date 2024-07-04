@@ -35,8 +35,8 @@ export const addMessage = (parent,message,type) => {
 
 //Agrega un nodo carta con información al padre 
 export const addCard = (parent,data) => {
-    const token = sessionStorage.getItem("token")
-    const card = addNode(parent, 'article', {id:`${data.id}`, class: 'card fx-deep-shadow-dinamyc fx-move-up'});
+    const token = sessionStorage.getItem("token");
+    const card = addNode(parent, 'article', {class: 'card fx-deep-shadow-dinamyc fx-move-up'});
     const media = addNode(card, 'div', {class : 'media'});
     addNode(media,'img',{class : 'card-thumbnail', src : "/frontend/"+data.thumbnail, alt : 'Imagen a modo de referencia del producto.'});
     const supportingText = addNode(card, 'div', {class : 'supporting-text'});
@@ -49,16 +49,30 @@ export const addCard = (parent,data) => {
     addNode(price,'h4',{class:'title'}).textContent = 'Precio: ';
     addNode(price,'span', {class:'amount'}).textContent = data.price;
     const actions = addNode(footer, 'ul', {class:'actions'});
-    const see = addNode(actions, 'a', {class:'see', href:'pages/viewitem.html'});
+    const see = addNode(actions, 'a', {class:'see', href:`pages/viewitem.html?id=${data.id}&token=${data.token}`});
     addNode(see,'i', {class:'fa-regular fa-eye '});
-    const like = addNode(actions, 'a', {class:'like', href:'#'});
-    
-    if(token){
+    if(token) {
+        const like = addNode(actions, 'a', {class:'like', href:'#'});
         addNode(like,'i', {class:'fa-regular fa-heart', id:`${data.id}`, onclick:"saveLike(event)"});
-
     }
+}
 
-
+export const addMiniCard = (parent,data) => {
+    const token = sessionStorage.getItem("token");
+    const card = addNode(parent, 'article', {id:`${data.id}`, class: 'card fx-deep-shadow-dinamyc fx-move-up'});
+    const media = addNode(card, 'div', {class : 'media'});
+    addNode(media,'img',{class : 'card-thumbnail', src : "/frontend/"+data.thumbnail, alt : 'Imagen a modo de referencia del producto.'});
+    const supportingText = addNode(card, 'div', {class : 'supporting-text'});
+    addNode(supportingText, 'p', {class:'overline'}).textContent = "MODELO";
+    addNode(supportingText, 'h3', {class:'title-d'}).textContent = data.brand;
+    const footer = addNode(supportingText, 'div', {class : 'footer'});
+    const actions = addNode(footer, 'ul', {class:'actions'});
+    const see = addNode(actions, 'a', {class:'see', href:`pages/viewitem.html?id=${data.id}&token=${data.token}`});
+    addNode(see,'i', {class:'fa-regular fa-eye '});
+    if(token) {
+        const like = addNode(actions, 'a', {class:'like', href:'#'});
+        addNode(like,'i', {class:'fa-regular fa-heart', id:`${data.id}`, onclick:"saveLike(event)"});
+    }
 }
 
 //Agrega un nodos carta con información al padre 

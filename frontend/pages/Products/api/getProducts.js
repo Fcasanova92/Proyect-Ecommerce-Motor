@@ -12,6 +12,20 @@ export const getProducts = () => {
     });
 }
 
+export const getNewness = () => {
+    return new Promise(async (res,rej)=>{
+        try {
+            const resp = await axios.get("http://127.0.0.1:3000/api/product/get-newness");
+            if(resp){
+                return res(resp.data);
+            }
+            return rej([]);
+        } catch (error) {
+            console.log("Error inesperado: " + error);
+        }
+    });
+}
+
 const filterValues = (form) => {
     return {
         brands : getCheckedInputs(form.brand),
