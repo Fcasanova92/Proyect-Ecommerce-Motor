@@ -808,6 +808,19 @@ header, section {
     margin-bottom: 0.8rem;
 }
 
+/* <<--------------------------------------------- Comentarios --------------------------------------------->> */
+.comments {
+    flex: 0 1 100% !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.comments > li:first-child {
+    margin-bottom: 0.2rem;
+}
+
 /* <<----------------------------------------------- Loader ---------------------------------------------->> */
 
 .loader {

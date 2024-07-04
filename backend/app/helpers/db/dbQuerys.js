@@ -55,6 +55,26 @@ export const registerUser = async (data)=>{
 
     }
     //Traer todos los produtos
+    export const getComments = async (id) => {
+      return new Promise((resolve,reject) => {
+        const query = 'SELECT * FROM comments WHERE product_id = ?'
+        pool.getConnection((error,connection) => {
+          if(error){
+            reject(new Error(`Error en la conexión: ${error.message}`));
+            return;
+          }
+          connection.query(query, [id] , (error,results) => {
+            connection.release();
+            if(error){
+              reject(new Error("Error en la consulta: " + error.message));
+              return;
+            }
+            resolve(results);
+          });
+        });
+      });
+    }
+    //Traer todos los produtos
     export const getAllItems = async (offset, limit) => {
       return new Promise((resolve,reject) => {
         const query = 'SELECT * FROM product'

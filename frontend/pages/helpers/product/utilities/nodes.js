@@ -49,7 +49,11 @@ export const addCard = (parent,data) => {
     addNode(price,'h4',{class:'title'}).textContent = 'Precio: ';
     addNode(price,'span', {class:'amount'}).textContent = data.price;
     const actions = addNode(footer, 'ul', {class:'actions'});
-    const see = addNode(actions, 'a', {class:'see', href:`frontend/pages/viewitem.html?id=${data.id}&token=${data.token}`});
+    const see = addNode(actions, 'span', {class:'see'});
+    see.addEventListener('click',(e)=>{
+        sessionStorage.setItem("view_id",data.id);
+        window.location.href = "pages/viewitem.html";
+    });
     addNode(see,'i', {class:'fa-regular fa-eye '});
     if(token) {
         const like = addNode(actions, 'span', {class:'like'});
@@ -69,7 +73,11 @@ export const addMiniCard = (parent,data) => {
     addNode(supportingText, 'h3', {class:'title-d'}).textContent = data.brand;
     const footer = addNode(supportingText, 'div', {class : 'footer'});
     const actions = addNode(footer, 'ul', {class:'actions'});
-    const see = addNode(actions, 'a', {class:'see', href:`pages/viewitem.html?id=${data.id}&token=${data.token}`});
+    const see = addNode(actions, 'span', {class:'see'});
+    see.addEventListener('click',(e)=>{
+        sessionStorage.setItem("view_id",data.id);
+        window.location.href = "pages/viewitem.html";
+    });
     addNode(see,'i', {class:'fa-regular fa-eye '});
     if(token) {
         const like = addNode(actions, 'a', {class:'like'});
