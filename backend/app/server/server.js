@@ -32,6 +32,8 @@ app.use(express.static(join(__dirname, '../../public'), {
         // Agregar más tipos MIME según sea necesario
     }
 }));
+
+app.use('/api', router)
         
     app.get('/registro', (req, res) => {
         res.sendFile(join(__dirname, '../../public/pages/auth', 'register.html'));
@@ -48,8 +50,6 @@ app.use(express.static(join(__dirname, '../../public'), {
       app.get('/*', (req, res) => {
         res.sendFile(join(__dirname, '../../public', 'index.html'));
       });
-
-    app.use('/api', router)
 
     return app
 }
