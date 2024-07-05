@@ -9,9 +9,8 @@ export const server = () => {
 
     const __filename = fileURLToPath(import.meta.url);
 
-    console.log(__filename)
     const __dirname = dirname(__filename);
-    console.log(__dirname)
+
 
     const app = express()
 
@@ -20,8 +19,20 @@ export const server = () => {
     app.use(express.json());
 
 // Middleware para servir archivos estáticos desde 'public'
-    app.use(express.static(join(__dirname, '../../public')));
-
+app.use(express.static(join(__dirname, '../../public'), {
+    // Configurar tipos MIME para archivos específicos
+    setHeaders: (res, path, stat) => {
+        if (path.endsWith('.js')) {
+            res.set('Content-Type', 'application/javascript');
+        } else if (path.endsWith('.css')) {
+            res.set('Content-Type', 'text/css');
+        } else if (path.endsWith('.png')) {
+            res.set('Content-Type', 'image/png');
+        }
+        // Agregar más tipos MIME según sea necesario
+    }
+}));
+        
     app.get('/registro', (req, res) => {
         res.sendFile(join(__dirname, '../../public/pages/auth', 'register.html'));
       });
@@ -33,9 +44,8 @@ export const server = () => {
       app.get('/favoritos', (req, res) => {
         res.sendFile(join(__dirname, '../../public/like', 'like.html'));
       });
-
-
-    app.get('/index', (req, res) => {
+      
+      app.get('/*', (req, res) => {
         res.sendFile(join(__dirname, '../../public', 'index.html'));
       });
 

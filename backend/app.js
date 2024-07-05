@@ -11,4 +11,4 @@ dbConnection()
 
 const app =  server()
 
-app.listen(port, ()=> console.log(`Open your browser and visit: http://localhost:${port}/index`))
+app.listen(port, ()=> console.log(`Open your browser and visit: http://localhost:${port}/`))
