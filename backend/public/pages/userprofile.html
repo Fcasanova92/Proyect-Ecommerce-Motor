@@ -47,8 +47,11 @@
                 <div class="headline">
                     <h2 class="title-c">Actualizar contraseña</h2>
                 </div>
-                <input id="old" type="text" name="oldpass" placeholder="Contraseña Actual...">
-                <input id="new" type="text" name="newpass" placeholder="Nueva Contraseña...">
+                <input id="old" type="password" name="oldpass" placeholder="Contraseña Actual...">
+                <input id="new" type="password" name="newpass" placeholder="Nueva Contraseña...">
+                <div id="messages">
+
+                </div>
                 <input type="submit" value="Enviar">
             </form>
         </section>
@@ -97,4 +100,8 @@
         </div>
     </footer>
     <script src="../../pages/getDataProfile.js" type="module"></script>
+    <script type="module">
+        import {logout} from "../../pages/auth/helpers/logout.js"
+        window.logout = logout;
+    </script>
 </body>

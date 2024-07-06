@@ -15,9 +15,7 @@ router.patch('/update-password', validateToken, async function(req, res) {
   try {
 
     const updateUser = await updateUserPassword(idUser, passwords.oldpass, passwords.newpass)
-
-    console.log(updateUser)
-    
+    return res.status(200).json(updateUser)
   } catch (err) {
 
     console.log(err)

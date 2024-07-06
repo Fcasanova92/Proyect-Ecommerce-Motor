@@ -1,4 +1,6 @@
-import {addNode} from './helpers/product/utilities/nodes.js';
+import {addNode, removeNode, addMessage} from './helpers/product/utilities/nodes.js';
+
+let petition_in_progress = false;
 
 const getUserData = (token) => {
     return new Promise(async (res, rej)=>{
@@ -16,42 +18,48 @@ const getUserData = (token) => {
 }
 
 const passUpdate = async (data) => {
-    const token = sessionStorage.getItem("token")
-    return new Promise(async (res, rej)=>{
-        try {
-            const resp = await axios.patch("http://127.0.0.1:3000/api/perfil/update-password", data, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-            
-            console.log(resp)
-        // Aca la logica para cambiar el pass
-        } catch (error) {
-            console.log(error);
-        }
-    });
+    petition_in_progress = true;
+    const token = sessionStorage.getItem("token");
+    try {
+        const resp = await axios.patch("http://127.0.0.1:3000/api/perfil/update-password", data, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        return resp.data;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const handleUpdate = async (event) => {
     event.preventDefault();
+    if(petition_in_progress) {
+        console.log("peticion en proceso");
+        return;
+    }
     const data = Object.fromEntries(new FormData(event.target));
-    await passUpdate(data);
+    const resp = await passUpdate(data);
+    const message =  addMessage(document.getElementById('messages'),resp.message, resp.status ? 'success' : 'error');
+    message.style.display = "block";
+    setTimeout(()=>{
+        removeNode(message);
+        event.target.reset();
+        petition_in_progress = false;
+    },1000);
 }
 
 const display = async () => {
     //Usuario de ejemplo por q no puedo traer desde el Server
     const token = sessionStorage.getItem("token");
-    const user = await getUserData(token)
+    const user = await getUserData(token);
     if(user) {
         const user_data_attach = document.getElementById('user-data');
         for (const key in user) {
-            if(key !== 'id') {
-                const title =  key.toString();
-                const body = user[key].toString();
-                addNode(user_data_attach,'h2',{class:'title-d'}).textContent = title[0].toUpperCase() + title.slice(1) + ':';
-                addNode(user_data_attach,'p',{class:'body-c'}).textContent = body + '.';
-            }
+            const title =  key.toString();
+            const body = user[key].toString();
+            addNode(user_data_attach,'h2',{class:'title-d'}).textContent = title[0].toUpperCase() + title.slice(1) + ':';
+            addNode(user_data_attach,'p',{class:'body-c'}).textContent = body + '.';
         }
     }
 }

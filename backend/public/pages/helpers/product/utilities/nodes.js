@@ -12,7 +12,10 @@ export const addNode = (parent,tag,attr) => {
     }
     return console.log("El elemento padre ,al cual quieres agregar un nodo, no existe o es null");
 }
-
+// Remueve un nodo en especifico
+export const removeNode = (node) => {
+    node.parentNode.removeChild(node); 
+}
 //Remueve todos los nodos hijo dentro del padre
 export const removeNodes = (parent) => {
     if(parent !== null && parent !== undefined) {
@@ -27,8 +30,7 @@ export const removeNodes = (parent) => {
 
 //Agrega un nodo con texto al padre 
 export const addMessage = (parent,message,type) => {
-    const node = addNode(parent, 'p', {class:"message"});
-    node.classList.add(type);
+    const node = addNode(parent, 'p', {class: `message ${type}`});
     node.textContent = message;
     return node;
 }
