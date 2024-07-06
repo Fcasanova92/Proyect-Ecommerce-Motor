@@ -13,7 +13,7 @@ export const loginComponent = `
      <nav id="secondary" >
              <ul class="menu">
                 <li>
-                    <a class="link-a" href="./pages/userprofile.html">Perfil</a>
+                    <a class="link-a" href="/profile">Perfil</a>
                 </li>
                  <li>
                     <a class="link-a" href="/favoritos" >Favoritos<i class="fa-regular fa-heart"></i></a>

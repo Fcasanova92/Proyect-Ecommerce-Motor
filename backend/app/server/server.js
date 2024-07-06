@@ -44,7 +44,11 @@ app.use('/api', router)
       });
       
       app.get('/favoritos', (req, res) => {
-        res.sendFile(join(__dirname, '../../public/like', 'like.html'));
+        res.sendFile(join(__dirname, '../../public/pages/like', 'like.html'));
+      });
+
+      app.get('/profile', (req, res) => {
+        res.sendFile(join(__dirname, '../../public/pages', 'userprofile.html'));
       });
       
       app.get('/*', (req, res) => {

@@ -4,7 +4,7 @@ export const logout = () => {
 
     sessionStorage.removeItem('token','');
 
-    window.history.replaceState({}, document.title, window.location.href="/frontend/index.html");
+    window.history.replaceState({}, document.title, window.location.href="/*");
         
     }, 1000);
 

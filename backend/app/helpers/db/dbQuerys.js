@@ -266,4 +266,56 @@ export const registerUser = async (data)=>{
       });
     }
 
+    export const updatePasswordDatabase = async (id, newPassword)=>{
+  
+      const hashedPassword = await hashPassword(newPassword);
+  
+      return new Promise((resolve, reject)=>{
+  
+          pool.getConnection((err, connection) => {
+              if (err) {
+                reject(new Error("Error en la conexión: " + err.message));
+                return;
+              }
+        
+              connection.query('UPDATE users SET password = ?  WHERE id = ?', [hashedPassword, id], (error, results) => {
+                connection.release(); // Libera la conexión de vuelta al pool
+        
+                if (error) {
+                  reject(new Error("Error en la consulta: " + error.message));
+                  return;
+                }
+        
+                if (results.affectedRows > 0) {
+                  resolve(true);
+             
+                } else {
+                  resolve(false); // No se eliminó ninguna fila (posiblemente no existía)
+                }
+              });
+            });
+          });
+  
+      }
+
+      export const getUserByID = async (id) => {
+        return new Promise((resolve,reject) => {
+          const query = 'SELECT * FROM users WHERE id = ?'
+          pool.getConnection((error,connection) => {
+            if(error){
+              reject(new Error(`Error en la conexión: ${error.message}`));
+              return;
+            }
+            connection.query(query, [id] , (error,results) => {
+              connection.release();
+              if(error){
+                reject(new Error("Error en la consulta: " + error.message));
+                return;
+              }
+              resolve(results[0]);
+            });
+          });
+        });
+      }
+
     
