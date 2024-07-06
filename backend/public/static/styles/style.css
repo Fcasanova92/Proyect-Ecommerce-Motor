@@ -808,7 +808,7 @@ header, section {
     margin-bottom: 0.8rem;
 }
 
-/* <<--------------------------------------------- Comentarios --------------------------------------------->> */
+/* <<-------------------------------------------- Comentarios -------------------------------------------->> */
 .comments {
     flex: 0 1 100% !important;
     display: flex;
@@ -819,6 +819,25 @@ header, section {
 
 .comments > li:first-child {
     margin-bottom: 0.2rem;
+}
+
+/* <<---------------------------------------------- Perfil ----------------------------------------------->> */
+
+#profile {
+    width: 40%;
+    padding: 1rem;
+    margin: 1rem auto;
+    background-color: #f2f2f2;
+}
+
+#profile > #user-data, #profile > #update-pass {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+#profile > #update-pass > .headline {
+    margin-top: 1rem;
 }
 
 /* <<----------------------------------------------- Loader ---------------------------------------------->> */
