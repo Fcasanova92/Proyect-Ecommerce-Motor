@@ -957,6 +957,10 @@ header, section {
         width: 80%;
     }
 
+    #profile {
+        width: 80%;
+    }
+
     footer {
         flex-wrap: wrap;
     }
