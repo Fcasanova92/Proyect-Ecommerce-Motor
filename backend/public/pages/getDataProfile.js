@@ -1,6 +1,6 @@
 import {addNode} from './helpers/product/utilities/nodes.js';
 
-const getUserData = () => {
+const getData = () => {
     return new Promise(async (res, rej)=>{
         const token = sessionStorage.getItem("token");
         const resp = await axios.get("http://127.0.0.1:3000/api/auth/protected", {
@@ -13,7 +13,7 @@ const getUserData = () => {
 }
 
 const display = async () => {
-    const data = await getUserData(); 
+    const data = await getData(); 
     if(data) {
         const parent = document.getElementById('user-data');
         for (const key in data) {

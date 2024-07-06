@@ -12,8 +12,11 @@ export const loginComponent = `
 
      <nav id="secondary" >
              <ul class="menu">
+                <li>
+                    <a class="link-a" href="./pages/userprofile.html">Perfil</a>
+                </li>
                  <li>
-                <a class="link-a" href="/favoritos" >Favoritos<i class="fa-regular fa-heart"></i></a>
+                    <a class="link-a" href="/favoritos" >Favoritos<i class="fa-regular fa-heart"></i></a>
                  </li>
                  <li>
                    <a class="link-a" href="#" onclick="logout()">Salir<i class="fa-regular fa-circle-xmark"></i></i></a>
