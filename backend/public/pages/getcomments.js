@@ -1,10 +1,9 @@
-import { BASE_URL } from "./baseRoot.js";
 import { addNode } from "./helpers/product/utilities/nodes.js";
 
 const getComments = (data) => {
     return new Promise(async (res,rej)=>{
         try {
-            const resp = await axios.post(`${BASE_URL}/api/product/get-comment`,data, {'Content-Type': 'application/json'});
+            const resp = await axios.post("https://proyect-ecommerce-motor-nnl6.onrender.com/api/product/get-comment",data, {'Content-Type': 'application/json'});
             console.log(resp.status)
             if(resp){
                 return res(resp.data);
@@ -19,7 +18,7 @@ const getComments = (data) => {
 const getProduct = (data) => {
     return new Promise(async (res,rej)=>{
         try {
-            const resp = await axios.post(`${BASE_URL}/api/product/get-product-id`,data, {'Content-Type': 'application/json'});
+            const resp = await axios.post("https://proyect-ecommerce-motor-nnl6.onrender.com/api/product/get-product-id",data, {'Content-Type': 'application/json'});
             if(resp){
                 return res(resp.data);
             }
