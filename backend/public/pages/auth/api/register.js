@@ -1,10 +1,8 @@
-import { BASE_URL } from "../../baseRoot"
-
 export const register = async (data) => {
 
       try{
 
-        const response = await axios.post(`${BASE_URL}/api/auth/register`, data, {
+        const response = await axios.post("https://proyect-ecommerce-motor-d3rb.onrender.com/api/auth/register", data, {
         headers: {
   
           'Content-Type': 'application/json'

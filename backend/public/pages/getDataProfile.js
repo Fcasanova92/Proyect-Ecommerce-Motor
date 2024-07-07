@@ -1,4 +1,3 @@
-import { BASE_URL } from './baseRoot.js';
 import {addNode, removeNode, addMessage} from './helpers/product/utilities/nodes.js';
 
 let petition_in_progress = false;
@@ -6,7 +5,7 @@ let petition_in_progress = false;
 const getUserData = (token) => {
     return new Promise(async (res, rej)=>{
         try {
-            const resp = await axios.get(`${BASE_URL}/api/auth/protected`, {
+            const resp = await axios.get("https://proyect-ecommerce-motor-d3rb.onrender.com/api/auth/protected", {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -22,7 +21,7 @@ const passUpdate = async (data) => {
     petition_in_progress = true;
     const token = sessionStorage.getItem("token");
     try {
-        const resp = await axios.patch(`${BASE_URL}/api/perfil/update-password`, data, {
+        const resp = await axios.patch("https://proyect-ecommerce-motor-d3rb.onrender.com/api/perfil/update-password", data, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

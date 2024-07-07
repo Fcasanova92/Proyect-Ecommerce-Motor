@@ -1,7 +1,7 @@
 export const getProducts = () => {
     return new Promise(async (res,rej)=>{
         try {
-            const resp = await axios.get("https://proyect-ecommerce-motor-nnl6.onrender.com/api/product/get-product");
+            const resp = await axios.get("https://proyect-ecommerce-motor-d3rb.onrender.com/api/product/get-product");
             if(resp){
                 return res(resp.data);
             }
@@ -15,7 +15,7 @@ export const getProducts = () => {
 export const getNewness = () => {
     return new Promise(async (res,rej)=>{
         try {
-            const resp = await axios.get("https://proyect-ecommerce-motor-nnl6.onrender.com/api/product/get-newness");
+            const resp = await axios.get("https://proyect-ecommerce-motor-d3rb.onrender.com/api/product/get-newness");
             if(resp){
                 return res(resp.data);
             }

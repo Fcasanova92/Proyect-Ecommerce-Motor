@@ -1,10 +1,8 @@
-import { BASE_URL } from "../../baseRoot";
-
 export const getproductsbyfilter = async (form) => {
     const data = filterValues(form);
     try{
 
-        const response =  await axios.post(`"${BASE_URL}/api/product/get-product-filter"`, data, {
+        const response =  await axios.post("https://proyect-ecommerce-motor-d3rb.onrender.com/api/product/get-product-filter", data, {
 
             'Content-Type': 'application/json'
         })
