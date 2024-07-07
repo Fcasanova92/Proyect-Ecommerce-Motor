@@ -1,4 +1,3 @@
-import { BASE_URL } from "../../pages/baseRoot.js";
 import { setForm } from "../../pages/helpers/form/setForm.js";
 import { getValidateDataform } from "../../pages/helpers/form/validateForm.js"
 
@@ -54,7 +53,7 @@ const serviceEmailSend = async (name, surname, consulta) => {
 
     try{
 
-      const sendEmail = await axios.post(`${BASE_URL}/api/service/send`, data, {
+      const sendEmail = await axios.post("https://proyect-ecommerce-motor-d3rb.onrender.com/api/service/send", data, {
       headers: {
 
         'Content-Type': 'application/json'

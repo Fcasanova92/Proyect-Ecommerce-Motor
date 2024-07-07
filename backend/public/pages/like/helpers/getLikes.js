@@ -1,12 +1,10 @@
-import { BASE_URL } from "../../baseRoot"
-
 export const getLikes = async () => {
 
     const token = sessionStorage.getItem("token")
    
     try{
 
-        const response =  await axios.get(`${BASE_URL}/api/likes/get-likes`, {
+        const response =  await axios.get("https://proyect-ecommerce-motor-d3rb.onrender.com/api/likes/get-likes", {
 
             'Content-Type': 'application/json',
 
