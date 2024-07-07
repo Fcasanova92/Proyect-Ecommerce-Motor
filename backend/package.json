@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon app.js",
-     "build": "node ./build/copyFrontend.js",
+    "build": "echo 'No build step required'",
     "migrate:sync": "node app/db/dbMigration.js",
     "migrate:data": "node app/db/dbDataMigration.js",
     "test": "echo \"Error: no test specified\" && exit 1"
