@@ -4,7 +4,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "build": "echo 'No build step required'",
     "migrate:sync": "node app/db/dbMigration.js",
     "migrate:data": "node app/db/dbDataMigration.js",
