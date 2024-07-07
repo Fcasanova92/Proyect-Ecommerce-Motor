@@ -4,7 +4,7 @@ export const loginRedirect = () => {
 
         sessionStorage.setItem('sesion', 'activa');
 
-        window.location.href = '../../index.html';
+        window.location.href = '/*';
         
     }, 2000);
 

@@ -1,7 +1,9 @@
+import { BASE_URL } from "../../baseRoot";
+
 export const getProducts = () => {
     return new Promise(async (res,rej)=>{
         try {
-            const resp = await axios.get("http://127.0.0.1:3000/api/product/get-product");
+            const resp = await axios.get(`${BASE_URL}/api/product/get-product`);
             if(resp){
                 return res(resp.data);
             }
@@ -15,7 +17,7 @@ export const getProducts = () => {
 export const getNewness = () => {
     return new Promise(async (res,rej)=>{
         try {
-            const resp = await axios.get("http://127.0.0.1:3000/api/product/get-newness");
+            const resp = await axios.get(`${BASE_URL}/api/product/get-newness`);
             if(resp){
                 return res(resp.data);
             }

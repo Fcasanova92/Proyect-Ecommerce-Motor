@@ -1,10 +1,12 @@
+import { BASE_URL } from "../../baseRoot"
+
 export const getLikes = async () => {
 
     const token = sessionStorage.getItem("token")
    
     try{
 
-        const response =  await axios.get("http://127.0.0.1:3000/api/likes/get-likes", {
+        const response =  await axios.get(`${BASE_URL}/api/likes/get-likes`, {
 
             'Content-Type': 'application/json',
 

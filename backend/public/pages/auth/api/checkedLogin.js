@@ -1,5 +1,6 @@
 import { loadUserComponent } from "../../components/user/loadUserComponent.js";
 import { loadUserinfo } from "../../components/user/loadUserInfo.js";
+import {BASE_URL} from "../../baseRoot.js"
 
 
 document.addEventListener("DOMContentLoaded", async function checkedLogin(){
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async function checkedLogin(){
 
         if(token){
 
-            const response = await axios.get("http://127.0.0.1:3000/api/auth/protected", {
+            const response = await axios.get(`${BASE_URL}/api/auth/protected`, {
 
                 headers: {
         

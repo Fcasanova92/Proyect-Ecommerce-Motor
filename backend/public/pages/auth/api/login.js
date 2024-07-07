@@ -1,9 +1,10 @@
+import { BASE_URL } from "../../baseRoot";
 
 export const login = async (data) => {
 
     try{
 
-        const response =  await axios.post("http://127.0.0.1:3000/api/auth/login", data, {
+        const response =  await axios.post(`${BASE_URL}/api/auth/login`, data, {
 
             'Content-Type': 'application/json'
         })

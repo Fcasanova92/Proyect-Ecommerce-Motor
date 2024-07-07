@@ -1,3 +1,6 @@
+import { BASE_URL } from "../../baseRoot";
+
+
 export const deleteLike = async (event) => {
 
     const product_id = parseInt(event.target.id)
@@ -12,7 +15,7 @@ export const deleteLike = async (event) => {
 
     try{
 
-        const response =  await axios.delete("http://127.0.0.1:3000/api/likes/delete-like", {
+        const response =  await axios.delete(`${BASE_URL}/api/likes/delete-like"`, {
 
             'Content-Type': 'application/json',
 
